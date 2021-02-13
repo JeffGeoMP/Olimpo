@@ -81,3 +81,40 @@ insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(5,7);
 insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(5,4);
 insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(6,12);
 insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(7,12);
+
+
+select P.nombre, P.precio, P.descripcion from platillo P, menu M
+where M.id_Menu = P.id_menu
+and M.menu like '%Lunes%';
+
+select P.nombre, P.precio, P.descripcion from platillo P, menu M
+where M.id_Menu = P.id_menu
+and M.menu like '%Martes%';
+
+select P.nombre, P.precio, P.descripcion from platillo P, menu M
+where M.id_Menu = P.id_menu
+and M.menu like '%Miercoles%';
+
+select P.nombre, P.precio, P.descripcion from platillo P, menu M
+where M.id_Menu = P.id_menu
+and M.menu like '%Jueves%';
+
+select P.nombre, P.precio, P.descripcion from platillo P, menu M
+where M.id_Menu = P.id_menu
+and M.menu like '%Viernes%';
+
+select P.nombre, P.precio, P.descripcion from platillo P, menu M
+where M.id_Menu = P.id_menu
+and M.menu like '%Sabado%';
+
+select P.nombre, P.precio, P.descripcion from platillo P, menu M
+where M.id_Menu = P.id_menu
+and M.menu like '%Domingo%';
+
+select P.nombre, P.precio, P.descripcion from platillo P, menu M
+where M.id_Menu = P.id_menu
+and M.menu like '%L%';
+
+select P.nombre, P.precio, P.descripcion from platillo P, menu M
+where M.id_Menu = P.id_menu
+and M.menu like '%Menu%';
