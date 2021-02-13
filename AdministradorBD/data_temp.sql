@@ -72,18 +72,3 @@ insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(5,7);
 insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(5,4);
 insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(6,12);
 insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(7,12);
-
-
-
--- -------------------------------------------------------------------------------------------
--- consulta de menus
-select P.nombre, P.descripcion, P.precio
-from menu M, platillo P
-where M.id_Menu = P.id_Menu
-and M.menu = 'Almuerzo';
-
--- Consulta buscador
-select P.nombre, P.descripcion, P.precio
-from menu M, platillo P
-where M.id_Menu = P.id_Menu
-and M.menu = 'Almuerzo' and P.Nombre Like 'P_%';
