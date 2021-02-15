@@ -9,7 +9,7 @@ export class BusquedaService {
   constructor(private http:HttpClient) { }
   API_URI='http://ipServidor:3000/api';
 
-  GuardarProducto(prod:Producto){
+  GuardarProducto(prod:String){
 
     return this.http.post(`${this.API_URI}/productos`,prod);
     
@@ -23,7 +23,7 @@ export class BusquedaService {
     return this.http.get(`${this.API_URI}/productos/`+id);
   }
 
-  public EditarProducto(id:String,prod:Producto){
+  public EditarProducto(id:String,prod:String){
     //console.log(`${this.API_URI}/sedes/`+id);
     return this.http.put(`${this.API_URI}/productos/`+id,prod);
   }
