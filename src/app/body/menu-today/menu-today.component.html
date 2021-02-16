@@ -1,0 +1,57 @@
+<div class="card">
+    <div class="card-body">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./assets/comida-1.jpg" class="d-block w-100" alt="comida 1">
+              </div>
+              <div class="carousel-item">
+                <img src="./assets/comida-2.jpg" class="d-block w-100" alt="comida 2">
+              </div>
+              <div class="carousel-item">
+                <img src="./assets/comida-3.jpeg" class="d-block w-100" alt="comida 3">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+  </div>
+  <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit" (click)="Buscar()">Search</button>
+  </form>
+  <section class="" style="margin-top: 1.5cm;width:auto;height: 650px;">
+    <div class="container">
+        <div class="row" > 
+            <div class="col-md-4" *ngFor="let producto of ListaProductos">
+                <div class="card text-center">
+                    <div class="card-header d-flex text-white bg-dark justify-content-between ">
+                        <div >
+                            <button type="button" class="btn btn-danger" (click)="EliminarProducto(producto.id_producto)">
+                            <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                        {{producto.Nproducto}}
+                    </div>
+                        <div class="card-bady">
+                        Descripcion: {{producto.Descripcion}}
+                        </div>
+                        <div class="card-bady">
+                        Precio: {{producto.Precio_U}}
+                        </div>
+                </div>
+            <br>
+            <br>
+            </div>
+        </div>
+    </div>
+</section>
+
+
