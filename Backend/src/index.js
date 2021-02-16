@@ -24,8 +24,12 @@ app.use(cors());
 /**
  * Rutas
  */
-app.use(require('../Routes/Productos'));
+app.use(require('./Routes/Productos'));
 
+/**
+ * Archivos Estaticos
+ */
+app.use(express.static('public'));
 
 /**
  * Ejecucion del Servidor
