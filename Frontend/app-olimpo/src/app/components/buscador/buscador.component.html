@@ -2,6 +2,14 @@
     <h2>Resultados para: <small> {{termino}} </small> </h2>
 </div>
 
+<div class="row" *ngIf='productos.length == 0'>
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+          No existen resultados con el término: {{termino}}
+        </div>
+    </div>
+</div>
+
 <section class="" style="background-image: url('assets/gris.jpg'); margin-top: 1.5cm;width:auto;height: 650px;">
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 g-4 bg-dark">
