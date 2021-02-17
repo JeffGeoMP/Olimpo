@@ -1,1 +1,21 @@
-<p>menus works!</p>
+<section class="" style="background-image: url('assets/gris.jpg'); margin-top: 1.5cm;width:auto;height: 650px;">
+    <div class="container">
+        <div class="row" > 
+            <div class="col-md-4" *ngFor="let producto of ListaProductos">
+                <div class="card text-center">
+                    <div class="card-header d-flex text-white bg-dark justify-content-between ">
+                        {{producto.Nproducto}}
+                    </div>
+                        <div class="card-bady">
+                        Descripcion: {{producto.Descripcion}}
+                        </div>
+                        <div class="card-bady">
+                        Precio: {{producto.Precio_U}}
+                        </div>
+                </div>
+            <br>
+            <br>
+            </div>
+        </div>
+    </div>
+</section>

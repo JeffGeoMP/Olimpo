@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BusquedaService } from 'src/app/servicios/busqueda.service';
 
 @Component({
   selector: 'app-menus',
@@ -8,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenusComponent implements OnInit {
 
-  constructor() { }
+  constructor(private servBusq:BusquedaService) { }
+
+  ListaProductos:any;
 
   ngOnInit(): void {
+    this.ObtenerProductos();
   }
+
+  ObtenerProductos(){
+    this.servBusq.ObtenerProductos().subscribe(
+      result=>{
+          this.ListaProductos=result;
+      },error=>{
+        console.log("error al obtener los productos",error);
+      }
+    );
+}
+
+
+Buscar(){
+
+}
+
 
 }
