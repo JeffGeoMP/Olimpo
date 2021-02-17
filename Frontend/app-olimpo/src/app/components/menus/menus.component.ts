@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BusquedaService } from 'src/app/servicios/busqueda.service';
-
+import { ProductService, Producto } from "../../servicios/productos.service";
 @Component({
   selector: 'app-menus',
   templateUrl: './menus.component.html',
@@ -9,11 +9,17 @@ import { BusquedaService } from 'src/app/servicios/busqueda.service';
 })
 export class MenusComponent implements OnInit {
 
-  constructor(private servBusq:BusquedaService) { }
+  productos: Producto[] = [];
+
+  constructor( private _productoService: ProductService, private servBusq:BusquedaService) {
+    console.log("Constructor");
+    
+  }
 
   ListaProductos:any;
 
   ngOnInit(): void {
+    this.productos = this._productoService.getProductos();
     this.ObtenerProductos();
   }
 
