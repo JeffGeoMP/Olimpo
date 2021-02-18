@@ -17,6 +17,7 @@ id_Platillo serial,
 Nombre varchar(50) not null,
 Precio decimal not null,
 Descripcion varchar(150) not null,
+Imagen varchar(100),
 id_Menu int not null,
 constraint FK_Menu foreign key(id_Menu) references Menu(id_Menu) on delete cascade,
 Primary key(id_Platillo)

@@ -38,20 +38,20 @@ values ('Carne de Res', 1.00, 1, 'Ingrediente para el platillo');
 insert into producto (nproducto, precio_u, id_tipproducto, descripcion)
 values ('Frutas', 1.00, 1, 'Frutas varias');
 
-insert into platillo (nombre, precio, descripcion, id_Menu)
-values ('Tipico',30.00,'Frijoles volteados, huevo al gusto, jugo de naranja o cafe',1);
-insert into platillo (nombre, precio, descripcion, id_Menu)
-values ('Panqueque',25.00,'Acompañado con jugo de naranja o cafe', 1);
-insert into platillo (nombre, precio, descripcion, id_Menu)
-values ('Caldo de Res',40.00,'Bebida natural o gaseosa, un acompañamiento', 2);
-insert into platillo (nombre, precio, descripcion, id_Menu)
-values ('Pepian',40.00,'Bebida natural o gaseosa, un acompañamiento', 2);
-insert into platillo (nombre, precio, descripcion, id_Menu)
-values ('Jocon',30.00,'Bebida natural o gaseosa, un acompañamiento', 2);
-insert into platillo (nombre, precio, descripcion, id_Menu)
-values ('Helado natural',10.00,'Helado de fruta 100% natural', 6);
-insert into platillo (nombre, precio, descripcion, id_Menu)
-values ('Licuado',15.00,'De fruta o a eleccion', 7);
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Tipico',30.00,'Frijoles volteados, huevo al gusto, jugo de naranja o cafe',1,"assets/menus/Desayuno_tipico.jpg");
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Panqueque',25.00,'Acompañado con jugo de naranja o cafe', 1,"assets/menus/panqueque.jpg");
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Caldo de Res',40.00,'Bebida natural o gaseosa, un acompañamiento', 2,"assets/menus/");
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Pepian',40.00,'Bebida natural o gaseosa, un acompañamiento', 2,"assets/menus/Caldo_red.jpg");
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Jocon',30.00,'Bebida natural o gaseosa, un acompañamiento', 2,"assets/menus/jocon.jpg");
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Helado natural',10.00,'Helado de fruta 100% natural', 6,"assets/menus/helado_natural.png");
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Licuado',15.00,'De fruta o a eleccion', 7,,"assets/menus/licuado_frutas.jpg");
 
 insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(1,2);
 insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(1,3);
@@ -74,14 +74,3 @@ insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(6,12);
 insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(7,12);
 
 -- -------------------------------------------------------------------------------------------
--- consulta de menus
-select P.nombre, P.descripcion, P.precio
-from menu M, platillo P
-where M.id_Menu = P.id_Menu
-and M.menu = 'Almuerzo';
-
--- Consulta buscador
-select P.nombre, P.descripcion, P.precio
-from menu M, platillo P
-where M.id_Menu = P.id_Menu
-and M.menu = 'Almuerzo' and P.Nombre Like 'P_%';
