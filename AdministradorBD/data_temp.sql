@@ -51,7 +51,7 @@ values ('Jocon',30.00,'Bebida natural o gaseosa, un acompañamiento', 2,"assets/
 insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
 values ('Helado natural',10.00,'Helado de fruta 100% natural', 6,"assets/menus/helado_natural.png");
 insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
-values ('Licuado',15.00,'De fruta o a eleccion', 7,,"assets/menus/licuado_frutas.jpg");
+values ('Licuado',15.00,'De fruta o a eleccion', 7,"assets/menus/licuado_frutas.jpg");
 
 insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(1,2);
 insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(1,3);
@@ -73,4 +73,53 @@ insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(5,4);
 insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(6,12);
 insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(7,12);
 
+
+
 -- -------------------------------------------------------------------------------------------
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Hamburguesa Infantil',25.00,'Jugo de naranja, papas fritas',5,"assets/menus/Hamburguesa_infantil.jpg");
+
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Deditos de pollo',25.00,'Jugo de naranja, papas fritas',5,"assets/menus/deditos_pollo.jpg");
+
+--Postres
+
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Torrejas',10.00,'',6,"assets/menus/torrejas.jpg");
+
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Pie de Eleto',10.00,'',6,"assets/menus/pie_elote.jpg");
+
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Rellenitos',8.00,'',6,"assets/menus/rellenitos.jpg");
+
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Pastel de zanahoria',15.00,'',7,"assets/menus/pastel_zanahoria.jpg");
+
+--Bebidas
+
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Coca-Cola',5.00,'',7,"assets/menus/coca-cola.jpg");
+
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Limonada con soda',5.00,'',7,"assets/menus/limonada_soda.jpg");
+
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Horchata',5.00,'',7,"assets/menus/horchata.jpg");
+
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Cerveza Gallo',15.00,'',7,"assets/menus/gallo_cerveza.jpg");
+
+--Extras
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Papas fritas',15.00,' con salsa dulce o mayonesa ',8,"assets/menus/papas_fritas.jpg");
+
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Frijoles con nachos',15.00,'Guacamole, queso o crema',8,"assets/menus/nachos.jpg");
+
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Ensalada',10.00,'aderezo a eleccion',8,"assets/menus/ensalada.jpg");
+
+insert into platillo (nombre, precio, descripcion, id_Menu,Imagen)
+values ('Sopas',10.00,'',8,"assets/menus/sopa.jpg");
+
