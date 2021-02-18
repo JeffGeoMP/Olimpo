@@ -24,7 +24,7 @@ class Consultas{
     BusquedaGeneral(Palabra){
         return 'SELECT P.id_platillo, P.nombre, P.descripcion, P.precio, P.imagen ' +
                 'FROM platillo P ' +
-                'WHERE P.nombre LIKE \'' + Palabra + '%\''
+                'WHERE LOWER(P.nombre) LIKE \'' + Palabra + '%\''
     }
 }
 

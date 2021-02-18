@@ -1,50 +1,39 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import {map} from "rxjs/operators";
 
 @Injectable({
     providedIn: 'root'
 })
 export class ProductService {
-    private productos: Producto[] = [
-        {
-            precio: "5.00",
-            nombre: "Pepsi",
-            descripcion: "Bebida gasesosa enlatada",
-            img: "assets/menus/gaseosa1.png"
-        },
-        {
-            precio: "40.00",
-            nombre: "Pepian",
-            descripcion: "Comida tipica incluye arroz etc.",
-            img: "assets/menus/pepian.png"
-        }
-    ];
+    headers:HttpHeaders = new HttpHeaders({
+        "Content-Type": "application/json",
+    }) ;
 
-    constructor(){
+    constructor( private _httpClient:HttpClient ){
         console.log("listo para usar!!!");
     }
 
     getProductos(){
-        return this.productos;
+        let url = 'http://localhost:3000/producto/platillos';
+        return this._httpClient.get(url);
+    }
+
+    pasext(a:Producto[] ){
+        return a;
     }
 
     buscarProducto( termino:string ){
-        let productosArr:Producto[] = [];
         termino = termino.toLocaleLowerCase();
-
-        for(let producto of this.productos ){
-            let nombre = producto.nombre.toLowerCase();
-            if( nombre.indexOf( termino ) >= 0){
-                productosArr.push( producto );
-            }
-        }
-
-        return productosArr;
+        let url = 'http://localhost:3000/producto/busqueda/' + termino;
+        return this._httpClient.get(url);
     }
 }
 
 export interface Producto{
-    precio: string;
+    id_platillo: number;
     nombre: string;
+    precio: number;
     descripcion: string;
-    img: string;   
+    img: string; 
 }

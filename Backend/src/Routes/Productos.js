@@ -63,7 +63,7 @@ app.get('/producto/busqueda/:Palabra', async (req, res) => {
         if(Metadata.rowCount > 0){
             res.status(200).json(Metadata.rows);
         }else{
-            res.status(200).json({Resultado: "No Existen Platillos para la Busqueda"});
+            res.status(200).json({});
         }
     } catch (error) {
         res.status(500).send(error);
