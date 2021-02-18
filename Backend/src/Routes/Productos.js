@@ -27,7 +27,7 @@ app.get('/producto/menu/:Tipo_Menu', async (req, res) => {
         if(Metadata.rowCount > 0){
             res.status(200).json(Metadata.rows);
         }else{
-            res.status(200).json({Resultado: "No hay Platillos para el Menu Especificado"});
+            res.status(200).json();
         }
     } catch (error) {
         res.status(500).send(error);
@@ -45,7 +45,7 @@ app.get('/producto/platillos', async (req, res) => {
         if(Metadata.rowCount > 0){
             res.status(200).json(Metadata.rows);
         }else{
-            res.status(200).json({Resultado: "No hay Platillos"});
+            res.status(200).json();
         }
     } catch (error) {
         res.status(500).send(error);
@@ -63,7 +63,7 @@ app.get('/producto/busqueda/:Palabra', async (req, res) => {
         if(Metadata.rowCount > 0){
             res.status(200).json(Metadata.rows);
         }else{
-            res.status(200).json({Resultado: "No Existen Platillos para la Busqueda"});
+            res.status(200).json();
         }
     } catch (error) {
         res.status(500).send(error);
@@ -80,7 +80,7 @@ app.get('/producto/busqueda/:Tipo_Menu/:Palabra', async (req, res) => {
         if(Metadata.rowCount > 0){
             res.status(200).json(Metadata.rows);
         }else{
-            res.status(200).json({Resultado: "No Existen Platillos para la Busqueda"});
+            res.status(200).json();
         }
     } catch (error) {
         res.status(500).send(error);
