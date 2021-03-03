@@ -1,28 +1,21 @@
+<div class="container">
+  <h1>MENU DEL DIA</h1>
+</div>
 <div class="card ">
-    <div class="card-body">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="./assets/menus/comida-1.jpg" class="d-block w-100" alt="comida 1">
-              </div>
-              <div class="carousel-item">
-                <img src="./assets/menus/comida-2.jpg" class="d-block w-100" alt="comida 2">
-              </div>
-              <div class="carousel-item">
-                <img src="./assets/menus/comida-3.jpeg" class="d-block w-100" alt="comida 3">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-        </div>
+  <div class="card mb-3 text-dark bg-info">
+    <img [src]="producto.imagen" class="img-fluid" [alt]="producto.nombre">
+      <div class="card-body">
+      <h4 class="card-title">{{producto.nombre | uppercase}}</h4>
+      <p class="card-text">{{producto.descripcion | uppercase}}</p>
+      <p class="card-text"> Precio: {{producto.precio}} </p>
     </div>
   </div>
+</div>
+<br>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-primary">Desayunos</button>
+  <button type="button" class="btn btn-primary">Almuerzos</button>
+  <button type="button" class="btn btn-primary">Cenas</button>
+</div>
 
-
-
+<br>

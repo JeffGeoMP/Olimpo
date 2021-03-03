@@ -16,6 +16,23 @@ app.get('/producto/prueba', async(req,res) =>{
     }
 });
 
+/**
+ * @description Ruta para obtener el menú del día
+ */
+app.get('/producto/menu_del_dia', async (req, res) => {
+    try {
+        const Metadata = await db.query(Consulta.menuDelDia_());
+        
+        if(Metadata.rowCount > 0){
+            res.status(200).json(Metadata.rows);
+        }else{
+            res.status(200).json();
+        }
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
 
 /**
  * @description Ruta para devolver los platillos dado un Tipo de Menu (Desayuno, Almuerzo, Cena, etc)

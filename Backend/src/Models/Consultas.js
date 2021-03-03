@@ -26,6 +26,13 @@ class Consultas{
                 'FROM platillo P ' +
                 'WHERE LOWER(P.nombre) LIKE \'' + Palabra + '%\''
     }
+
+    menuDelDia_(){
+        return 'select P.id_platillo, P.nombre, P.precio, P.descripcion, P.imagen ' +
+                'from menu M, platillo P ' +
+                'where M.id_Menu = P.id_Menu ' +
+                'and lower(M.menu) = \'del dia\' '
+    }
 }
 
 module.exports = {Consultas}
