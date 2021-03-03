@@ -17,4 +17,9 @@ export class MenusComponent implements OnInit {
       console.log(this.productos);
     })
   }
+
+  agregarCarrito(index: Producto){
+    console.log(index);
+    
+  }
 }
