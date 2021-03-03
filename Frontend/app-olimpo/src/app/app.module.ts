@@ -18,21 +18,23 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { MenuTodayComponent } from './components/menu-today/menu-today.component';
 import { MenusComponent } from './components/menus/menus.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
+import { CommonModule } from "@angular/common"
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     MenuTodayComponent,
-    MenusComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    MenusComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    APP_ROUTING
+    APP_ROUTING,
+    CommonModule
   ],
   providers: [
     BusquedaService,

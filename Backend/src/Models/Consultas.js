@@ -15,14 +15,14 @@ class Consultas{
     }
 
     BusquedaPorMenu(Tipo_Menu, Palabra){
-        return 'SELECT P.id_platillo, P.nombre, P.descripcion, P.precio, P.imagen ' +
+        return 'SELECT P.id_platillo, P.nombre, P.descripcion, P.precio, P.Imagen ' +
                 'FROM platillo P ' +
                 'INNER JOIN menu M ON P.id_menu = M.id_menu ' +
                 'WHERE M.menu = \'' + Tipo_Menu + '\' AND P.nombre LIKE \'' + Palabra + '%\''
     }
 
     BusquedaGeneral(Palabra){
-        return 'SELECT P.id_platillo, P.nombre, P.descripcion, P.precio, P.imagen ' +
+        return 'SELECT P.id_platillo, P.nombre, P.descripcion, P.precio, P.Imagen ' +
                 'FROM platillo P ' +
                 'WHERE LOWER(P.nombre) LIKE \'' + Palabra + '%\''
     }
