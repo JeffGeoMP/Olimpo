@@ -19,8 +19,9 @@ export class ProductService {
         return this._httpClient.get(url);
     }
 
-    pasext(a:Producto[] ){
-        return a;
+    getMenudeldia(){
+        let url = 'http://localhost:3000/producto/menu_del_dia';
+        return this._httpClient.get(url);
     }
 
     buscarProducto( termino:string ){
@@ -35,5 +36,5 @@ export interface Producto{
     nombre: string;
     precio: number;
     descripcion: string;
-    img: string; 
+    imagen: string; 
 }
