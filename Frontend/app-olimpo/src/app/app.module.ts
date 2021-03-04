@@ -19,13 +19,17 @@ import { MenuTodayComponent } from './components/menu-today/menu-today.component
 import { MenusComponent } from './components/menus/menus.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 
+import { TaskListComponent } from './components/task-list/task-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     MenuTodayComponent,
     MenusComponent,
-    BuscadorComponent
+    BuscadorComponent,
+   
+    TaskListComponent
   ],
   imports: [
     BrowserModule,
