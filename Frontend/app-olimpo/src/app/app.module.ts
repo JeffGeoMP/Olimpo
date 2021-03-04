@@ -27,15 +27,10 @@ import { TaskListComponent } from './components/task-list/task-list.component';
     AppComponent,
     NavbarComponent,
     MenuTodayComponent,
-<<<<<<< HEAD
     MenusComponent,
     BuscadorComponent,
    
     TaskListComponent
-=======
-    BuscadorComponent,
-    MenusComponent
->>>>>>> Imagenes_menu
   ],
   imports: [
     BrowserModule,

@@ -11,14 +11,11 @@ import { TaskService } from 'src/app/services/task.service';
 export class MenusComponent implements OnInit {
 
   productos: Producto[] = [];
-<<<<<<< HEAD
   tasks: Task[]=[];
-=======
   productosdesayuno : Producto[] = [];
   productosalmuerzo : Producto[] = [];
   productosinfantil : Producto[] = [];
   productosrefaccion : Producto[] = [];
->>>>>>> Imagenes_menu
 
   constructor( private _productoService: ProductService, private servBusq:BusquedaService,
     private router: Router,
