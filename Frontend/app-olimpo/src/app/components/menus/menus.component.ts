@@ -19,6 +19,8 @@ export class MenusComponent implements OnInit {
     //desayunos
     this._productoService.productoxMenu('desayuno').subscribe((res:Producto[])=>{
       this.productosdesayuno = res;
+      console.log("desayunos")
+      console.log(this.productosdesayuno);
     })
 
     //Almuerzo
