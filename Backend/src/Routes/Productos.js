@@ -1,12 +1,12 @@
 const {Router} = require('express');
-const {Consultas } = require('../Models/Consultas');
+const {Consultas } = require('../Funciones/Consultas');
 
 const Consulta = new Consultas();
 const app = Router();
 const db = require('../../config');
 
 /**
- * Ruta de Prueba
+ * @description Ruta para pruebas 
  */
 app.get('/producto/prueba', async(req,res) =>{
     try {       
@@ -86,12 +86,6 @@ app.get('/producto/busqueda/:Tipo_Menu/:Palabra', async (req, res) => {
         res.status(500).send(error);
     }
 });
-
-
-/**
- * @ignore npm run dev
- * http://localhost:3000/platillos/panqueques.png
- */
 
 
 module.exports = app;
