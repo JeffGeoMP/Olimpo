@@ -18,7 +18,13 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { MenuTodayComponent } from './components/menu-today/menu-today.component';
 import { MenusComponent } from './components/menus/menus.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
+<<<<<<< HEAD
 import { FormcliComponent } from './components/formcli/formcli.component';
+=======
+import { CommonModule } from "@angular/common"
+
+import { TaskListComponent } from './components/task-list/task-list.component';
+>>>>>>> develop
 
 @NgModule({
   declarations: [
@@ -27,14 +33,20 @@ import { FormcliComponent } from './components/formcli/formcli.component';
     MenuTodayComponent,
     MenusComponent,
     BuscadorComponent,
+<<<<<<< HEAD
     FormcliComponent
+=======
+   
+    TaskListComponent
+>>>>>>> develop
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    APP_ROUTING
+    APP_ROUTING,
+    CommonModule
   ],
   providers: [
     BusquedaService,
