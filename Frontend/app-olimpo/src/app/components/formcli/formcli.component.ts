@@ -20,7 +20,14 @@ export class FormcliComponent implements OnInit {
   ngOnInit(): void {
   }
   Imprimir(){
+      console.log(this.nombre);
+      console.log(this.apellido);
+      console.log(this.nit);
+      console.log(this.correo);
+      console.log(this.telefono);
       console.log(this.direccion);
+
+  
   }
 
 }
