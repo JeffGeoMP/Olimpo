@@ -18,6 +18,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { MenuTodayComponent } from './components/menu-today/menu-today.component';
 import { MenusComponent } from './components/menus/menus.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
+import { CommonModule } from "@angular/common"
 
 import { TaskListComponent } from './components/task-list/task-list.component';
 
@@ -26,17 +27,23 @@ import { TaskListComponent } from './components/task-list/task-list.component';
     AppComponent,
     NavbarComponent,
     MenuTodayComponent,
+<<<<<<< HEAD
     MenusComponent,
     BuscadorComponent,
    
     TaskListComponent
+=======
+    BuscadorComponent,
+    MenusComponent
+>>>>>>> Imagenes_menu
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    APP_ROUTING
+    APP_ROUTING,
+    CommonModule
   ],
   providers: [
     BusquedaService,

@@ -29,6 +29,12 @@ export class ProductService {
         let url = 'http://localhost:3000/producto/busqueda/' + termino;
         return this._httpClient.get(url);
     }
+
+    productoxMenu(menu:string){
+        menu = menu.toLocaleLowerCase();
+        let url = 'http://localhost:3000/producto/menu/'+menu;
+        return this._httpClient.get(url);
+    }
 }
 
 export interface Producto{

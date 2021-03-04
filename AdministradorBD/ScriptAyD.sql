@@ -1,4 +1,3 @@
-
 create table Tipo_Producto(
 id_tipo_Producto serial,
 Tipo_Producto varchar(50) not null,
@@ -41,3 +40,10 @@ constraint FK_TiProducto foreign key(FK_Id_producto) references Producto(id_prod
 constraint FK_TiPlatillo foreign key(FK_Id_platillo) references Platillo(id_platillo) on delete cascade,
 Primary key(id_DetalleReceta)
 );
+
+--drop table Det_Pro_Pla;
+--drop table Producto;
+--drop table Platillo;
+--drop table Menu;
+--drop table Tipo_producto;
+

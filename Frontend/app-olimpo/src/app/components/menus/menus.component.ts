@@ -11,17 +11,45 @@ import { TaskService } from 'src/app/services/task.service';
 export class MenusComponent implements OnInit {
 
   productos: Producto[] = [];
+<<<<<<< HEAD
   tasks: Task[]=[];
+=======
+  productosdesayuno : Producto[] = [];
+  productosalmuerzo : Producto[] = [];
+  productosinfantil : Producto[] = [];
+  productosrefaccion : Producto[] = [];
+>>>>>>> Imagenes_menu
 
   constructor( private _productoService: ProductService, private servBusq:BusquedaService,
     private router: Router,
     public taskService: TaskService ) {  }
 
   ngOnInit(): void {
-    this._productoService.getProductos().subscribe((res: Producto[]) =>{
+    //desayunos
+    this._productoService.productoxMenu('desayuno').subscribe((res:Producto[])=>{
+      this.productosdesayuno = res;
+      console.log("desayunos")
+      console.log(this.productosdesayuno);
+    })
+
+    //Almuerzo
+    this._productoService.productoxMenu('almuerzo').subscribe((res:Producto[])=>{
+      this.productosalmuerzo = res;
+    })
+    //Infantil
+    this._productoService.productoxMenu('infantil').subscribe((res:Producto[])=>{
+      this.productosinfantil = res;
+    })
+    //Refaccion
+    this._productoService.productoxMenu('refaccion').subscribe((res:Producto[])=>{
+      this.productosrefaccion = res;
+    })
+
+    //todos los productos
+    /*this._productoService.getProductos().subscribe((res: Producto[]) =>{
       this.productos = res;
       console.log(this.productos);
-    })
+    })*/
   }
 
   agregarCarrito(index: Producto){
