@@ -1,0 +1,24 @@
+
+
+
+<div class="card mb-2">
+    <div class="card-header d-flex justify-content-between align-item-center"><img width="50"  src="../../../assets/Imagen/Logito.jpg">
+        
+        <div class="col">{{task.nombre}}</div>
+        <div class="col">{{task.Cantidad}} </div>
+        <div class="col">Q. {{task.Precio}}</div>
+        <div class="col">Q. {{task.Subtotal}}</div>
+        
+        <div>
+            <button  style="margin: 5px; width:35px; height:35px" class="btn btn-primary" (click)="Restar(task)">-</button>
+            <button style="margin: 5px; width:35px; height:35px" class="btn btn-primary" (click)="Sumar(task)">+</button>
+            <button class="btn btn-danger" (click)="delete(task)">Eliminar</button>
+            
+        </div>
+
+    </div>
+    <div class="card-body">
+        {{task.descripcion}}
+
+    </div>
+</div>

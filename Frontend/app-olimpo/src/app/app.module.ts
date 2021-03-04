@@ -18,6 +18,8 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { MenuTodayComponent } from './components/menu-today/menu-today.component';
 import { MenusComponent } from './components/menus/menus.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
+import { TaskComponent } from './components/task/task.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
     NavbarComponent,
     MenuTodayComponent,
     MenusComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    TaskComponent,
+    TaskListComponent
   ],
   imports: [
     BrowserModule,
