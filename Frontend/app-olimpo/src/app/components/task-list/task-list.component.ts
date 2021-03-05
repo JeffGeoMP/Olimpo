@@ -43,5 +43,8 @@ export class TaskListComponent implements OnInit {
     this.router.navigate(["/Menus"]);
   }
 
+  Pedir(){
+      this.router.navigate(['/formulario']);
+  }
 
 }
