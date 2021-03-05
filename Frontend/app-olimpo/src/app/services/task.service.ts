@@ -66,8 +66,8 @@ export class TaskService {
     for(let i=0;i<this.tasks.length;i++){
       if(task==this.tasks[i]){
         let tem= Number(this.tasks[i].Cantidad)+1;
-        this.tasks[i].Cantidad=tem.toString();
-        this.tasks[i].Subtotal=String(tem*Number(this.tasks[i].Precio));
+        this.tasks[i].Cantidad=tem;
+        this.tasks[i].Subtotal=tem*Number(this.tasks[i].Precio);
 
         localStorage.setItem("tasks",JSON.stringify(this.tasks));
         
@@ -87,8 +87,8 @@ export class TaskService {
         if(tem<=0){
                 alert("Ya no puede disminuir la cantidad de su pedido");
         }else{
-          this.tasks[i].Cantidad=tem.toString();
-        this.tasks[i].Subtotal=String(tem*Number(this.tasks[i].Precio));
+          this.tasks[i].Cantidad=tem;
+        this.tasks[i].Subtotal=tem*Number(this.tasks[i].Precio);
         localStorage.setItem("tasks",JSON.stringify(this.tasks));
         }
         

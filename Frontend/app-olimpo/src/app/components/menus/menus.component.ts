@@ -51,19 +51,20 @@ export class MenusComponent implements OnInit {
 
   agregarCarrito(index: Producto){
     console.log(index);
-    this.addTask(index.nombre,index.descripcion,index.precio,"1");
+    this.addTask(index.nombre,index.descripcion,index.precio,"1",index.id_platillo);
     this.router.navigate(["/Task-list"]);
     
   }
 
-  addTask( newTitle: any, newDescription: any,newPrecio: any, newCantidad: any){
+  addTask( newTitle: any, newDescription: any,newPrecio: any, newCantidad: any,newid: Number){
     console.log('Agregando',newTitle,newDescription);
     this.taskService.addTask({
+      id:newid,
       nombre: newTitle,
       descripcion:newDescription,
       Precio:newPrecio,
       Cantidad:newCantidad,
-      Subtotal: String(Number(newPrecio)*Number(newCantidad))
+      Subtotal: Number(newPrecio)*Number(newCantidad)
     });
   }
    
