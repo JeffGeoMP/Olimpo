@@ -59,9 +59,9 @@ export class MenusComponent implements OnInit {
   addTask( newTitle: any, newDescription: any,newPrecio: any, newCantidad: any,newid: Number){
     console.log('Agregando',newTitle,newDescription);
     this.taskService.addTask({
-      id:newid,
-      nombre: newTitle,
-      descripcion:newDescription,
+      Id:newid,
+      Nombre: newTitle,
+      Descripcion:newDescription,
       Precio:newPrecio,
       Cantidad:newCantidad,
       Subtotal: Number(newPrecio)*Number(newCantidad)

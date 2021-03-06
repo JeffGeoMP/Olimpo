@@ -67,7 +67,7 @@ export class FormcliComponent implements OnInit {
       this.fact1.Total=Number(this.srvtl.getTotal());
       this.fact1.Tarjeta=false;
 
-     // console.log(this.fact1);
+     console.log(this.fact1);
 
       
       this.servFact.GuardarFactura(this.fact1).subscribe(

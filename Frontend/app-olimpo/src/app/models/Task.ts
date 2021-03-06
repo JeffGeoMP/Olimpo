@@ -1,7 +1,7 @@
 export interface Task{
-    id:Number,
-    nombre: string;
-    descripcion:string;
+    Id:Number,
+    Nombre: string;
+    Descripcion:string;
     Precio:number;
     Subtotal:number;
     Cantidad:number;
