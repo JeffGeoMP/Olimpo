@@ -41,8 +41,6 @@ constraint FK_TiPlatillo foreign key(FK_Id_platillo) references Platillo(id_plat
 Primary key(id_DetalleReceta)
 );
 
-<<<<<<< HEAD
-=======
 create table Tipo_Pago(
 id_tipo_Pago serial,
 Tipo_Pago varchar(50) not null,
@@ -59,22 +57,17 @@ constraint FK_Tipo_Pago foreign key(FKid_tipopago) references Tipo_Pago(id_tipo_
 Primary key(id_Factura)
 );
 
->>>>>>> develop
 create table Cliente(
 id_cliente serial,
 Nombre varchar(100) not null,
 Apellido varchar(100) not null,
 Telefono varchar(10) not null,
 Correo   varchar(150) not null,
-<<<<<<< HEAD
 Direccion varchar(150) not null,
-=======
->>>>>>> develop
 Nit varchar(15) not null,
 Primary key(id_cliente)
 );
 
-<<<<<<< HEAD
 
 
 create table Factura(
@@ -87,7 +80,6 @@ constraint FK_Cliente foreign key(FKid_Cliente) references Cliente(id_cliente) o
 Primary key(id_Factura)
 );
 
-=======
 create table Pedido(
 id_Pedido serial,
 FKid_Cliente int not null,
@@ -96,20 +88,16 @@ Primary key(id_Pedido)
 );
 
 
->>>>>>> develop
 create table Detalle_Platillo_Pedido(
 id_DPlatillo serial,
 Cantidad int not null,
 Subtotal decimal not null,
 FKid_Factura int not null,
 FKid_Platillo int not null,
-<<<<<<< HEAD
 constraint FK_Platillo foreign key(FKid_Platillo) references Platillo(id_Platillo) on delete cascade,
 constraint FK_FACTURA foreign key(FKid_Factura) references Factura(id_Factura) on delete cascade,
-=======
 FKid_Pedido int not null,
 constraint FK_Menu foreign key(FKid_Factura) references Factura(id_Factura) on delete cascade,
->>>>>>> develop
 Primary key(id_DPlatillo)
 );
 

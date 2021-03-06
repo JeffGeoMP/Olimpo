@@ -13,7 +13,7 @@ export class FacturaService {
 
   GuardarFactura(fact:Factura){
 
-    return this.http.post(`${this.API_URI}/productos`,fact);
+    return this.http.post(`${this.API_URI}/pedido/nuevo/`,fact);
     
   }
 
