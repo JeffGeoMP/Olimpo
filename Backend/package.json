@@ -13,7 +13,14 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
+<<<<<<< HEAD
     "pg": "^8.5.1"
   },
   "devDependencies": {}
+=======
+    "nodemailer": "^6.5.0",
+    "pg": "^8.5.1",
+    "simple.string.format": "^1.1.2"
+  }
+>>>>>>> feature/Servicios_Pedidos
 }

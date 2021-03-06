@@ -25,6 +25,7 @@ app.use(cors());
  * Rutas
  */
 app.use(require('./Routes/Productos'));
+app.use(require('./Routes/Usuarios'));
 
 /**
  * Archivos Estaticos
