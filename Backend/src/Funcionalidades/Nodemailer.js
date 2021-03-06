@@ -33,4 +33,3 @@ class EnviarInformacion{
 }
 
 module.exports = {EnviarInformacion};
-

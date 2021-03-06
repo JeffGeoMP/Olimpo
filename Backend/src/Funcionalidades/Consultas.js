@@ -1,4 +1,5 @@
 const format = require('simple.string.format');
+const functions = require('../Funcionalidades/Funciones');
 
 class Consultas{
     constructor(){ }
@@ -26,8 +27,8 @@ class Consultas{
                 'FROM platillo P ' +
                 'WHERE P.nombre LIKE \'{0}%\''.format(Palabra);
     }
-
-    NuevoPedido(Nombre, Apellido, Nit, Telefono, Correo, Total, Productos, Direccion){
+/*
+    NuevoPedido(Nombre, Apellido, Direccion, Nit, Telefono, Correo, Total, Productos){
         let Values = "";
         for (let index = 0; index < Productos.length; index++) {
             const element = Productos[index];
@@ -60,6 +61,9 @@ class Consultas{
                 'VALUES {0} '.format(Values) +
                 'END $$; \n' + 
                 'COMMIT; ';       
+    }*/
+    NuevoPedido(Nombre, Apellido, Direccion, Telefono, Correo, Nit, Total, Tarjeta, Productos){
+        
     }
 }
 
