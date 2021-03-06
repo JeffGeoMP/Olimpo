@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const {Consultas } = require('../Funciones/Consultas');
+const {Consultas} = require('../Funcionalidades/Consultas');
 
 const Consulta = new Consultas();
 const app = Router();

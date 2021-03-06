@@ -1,5 +1,8 @@
 const format = require('simple.string.format');
-const functions = require('../Funcionalidades/Funciones');
+const { Funciones }= require('../Funcionalidades/Funciones');
+
+
+const Funcion = new Funciones();
 
 class Consultas{
     constructor(){ }
@@ -63,7 +66,15 @@ class Consultas{
                 'COMMIT; ';       
     }*/
     NuevoPedido(Nombre, Apellido, Direccion, Telefono, Correo, Nit, Total, Tarjeta, Productos){
-        
+        let FormaPago = Funcion.ValidarPago(Tarjeta);
+        let ArraysPostgresql = Funcion.SepararCampos(Productos);
+
+        let CurrentDate = new Date();
+        let Fecha = '{0}/{1}/{2} {3}:{4}:{5}'.format(CurrentDate.getDate(),CurrentDate.getMonth(),CurrentDate.getFullYear(), CurrentDate.getHours(), CurrentDate.getMinutes(), CurrentDate.getSeconds());
+
+        return 'SELECT NuevoPedido(\'{0}\',\'{1}\',\'{2}\',\'{3}\','.format(Nombre, Apellido, Direccion, Telefono)  +
+                '\'{0}\',\'{1}\',{2},\'{3}\',{4},'.format(Correo, Nit, Total, Fecha, FormaPago) +
+                '\'{0}\',\'{1}\',\'{2}\');'.format(ArraysPostgresql[0],ArraysPostgresql[1],ArraysPostgresql[2]);
     }
 }
 
