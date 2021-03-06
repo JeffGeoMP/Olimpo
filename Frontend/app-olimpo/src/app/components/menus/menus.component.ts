@@ -67,6 +67,4 @@ export class MenusComponent implements OnInit {
       Subtotal: Number(newPrecio)*Number(newCantidad)
     });
   }
-   
-
 }
