@@ -57,7 +57,7 @@ class Funciones{
         return ArraysPostgresql;
     }
 
-    GenerarCodigoHTML (xnombre, xapellido, xtelefono, xtotal, xpago, xdetalle){
+    GenerarCodigoHTML (xnombre, xapellido, xtelefono, xdireccion, xtotal, xpago, xdetalle){
         let CodigoDetalle = '';
         let IDPedido = '';
 
@@ -89,6 +89,7 @@ class Funciones{
 						'Recibo de Parte de Olimpo Restaurant <br />' +
 						'# de Orden: {0} <br />'.format(IDPedido) +
 						'Metodo de Pago: {0} <br />'.format(this.TipoPago(xpago)) +
+                        'Direccion de Envio: {0} <br />'.format(xdireccion) +
 						'Telefono: {0} <br />'. format(xtelefono) +
 					'</h4>' +
 				'</th>' +

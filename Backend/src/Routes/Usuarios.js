@@ -37,6 +37,7 @@ app.post("/pedido/nuevo", async (req, res) => {
 				req.body.Nombre,
 				req.body.Apellido,
 				req.body.Telefono,
+                req.body.Direccion,
 				req.body.Total,
 				req.body.Tarjeta,
 				Metadata.rows
