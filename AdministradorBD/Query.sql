@@ -1,26 +1,50 @@
--- consulta de menus
-select P.nombre, P.descripcion, P.precio
-from menu M, platillo P
-where M.id_Menu = P.id_Menu
-and lower(M.menu) = 'Almuerzo';
-
--- Consulta buscador
-select P.nombre, P.descripcion, P.precio
-from menu M, platillo P
-where M.id_Menu = P.id_Menu
-and lower(M.menu) = 'almuerzo' and lower(P.Nombre) Like 'P_%';
-
--- Consulta Menu del dia
-select P.nombre, P.descripcion, P.precio
-from menu M, platillo P
-where M.id_Menu = P.id_Menu
-and lower(M.menu) = 'del dia';
+---------------------------------------------------- SELECTS DE LAS TABLAS --------------------------------------------
+SELECT * FROM Cliente;
+SELECT * FROM Platillo;
+SELECT * FROM Detalle_Platillo_Pedido;
+SELECT * FROM Pedido;
+SELECT * FROM Factura;
 
 
 
---*********************** Funciones para el correcto funcionamiento de la aplicacion *****************************
+----------------------------------- CONSULTAS PARA LA ADMINISTRACION DE LA APLICACION ----------------------------------
 
-CREATE OR REPLACE FUNCTION InsertSimple(xnombre character varying, 
+/*
+* @description: Consulta que devuelve el menu a partir si es Almuerzo, Desayuno, Cena
+*/
+SELECT P.id_platillo, P.nombre, P.precio, P.descripcion, P.imagen 
+FROM platillo P  
+INNER JOIN menu M ON P.id_menu = M.id_menu  WHERE LOWER(M.menu) = 'palabra a buscar';
+
+/*
+* @description: Consulta que devuelve todos los platillos existentes en la BD
+*/
+SELECT P.id_platillo, P.nombre, P.precio, P.descripcion, P.imagen 
+FROM platillo P;
+
+/*
+* @description: Cosnulta que realiza una busqueda dada una palabra y un tipo de menu (Almuerzo, Desayuno, Cena)
+*/
+SELECT P.id_platillo, P.nombre, P.descripcion, P.precio, P.imagen
+FROM platillo P 
+INNER JOIN menu M ON P.id_menu = M.id_menu 
+WHERE M.menu = 'Tipo de Menu' AND P.nombre LIKE 'Palabra a Buscar'%;
+
+/*
+* @description: Consulta que realiza una busqueda en todos los platillos existenes en la BD
+*/
+SELECT P.id_platillo, P.nombre, P.descripcion, P.precio, P.imagen 
+FROM platillo P 
+WHERE P.nombre LIKE 'Palabra a Buscar'%;
+
+--------------------------------- FUNCIONES PARA EL CORRECTO FUNCIONAMIENTO DE LA APLICACION -----------------------------
+
+/*
+* @description: Funciona que realiza la insersion de un nuevo pedido y retorna el detalle del mismo
+* @note: la funcion se llama desde la aplicacion como 'SELECT NuevoPedido(Parametros.....);'
+*/
+ 
+CREATE OR REPLACE FUNCTION NuevoPedido(xnombre character varying, 
 									   xapellido character varying, 
 									   xdireccion character varying, 
 									   xtelefono character varying, 
@@ -44,8 +68,8 @@ DECLARE
 	REG RECORD;
 		
 BEGIN
-	INSERT INTO cliente(nombre, apellido, telefono, correo, nit)
-	VALUES (xnombre, xapellido, xtelefono, xcorreo, xnit)
+	INSERT INTO cliente(nombre, apellido, direccion, telefono, correo, nit)
+	VALUES (xnombre, xapellido, xdireccion, xtelefono, xcorreo, xnit)
 	RETURNING id_cliente INTO IDUSER;
 	
 	INSERT INTO pedido(fkid_cliente)
