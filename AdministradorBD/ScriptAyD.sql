@@ -41,12 +41,6 @@ constraint FK_TiPlatillo foreign key(FK_Id_platillo) references Platillo(id_plat
 Primary key(id_DetalleReceta)
 );
 
-create table Tipo_Pago(
-id_tipo_Pago serial,
-Tipo_Pago varchar(50) not null,
-Primary key(id_tipo_Pago)
-);
-
 
 create table Persona(
 id_persona serial,
@@ -56,8 +50,8 @@ Telefono varchar(10) not null,
 Correo   varchar(150) not null,
 contraseña varchar(50),
 Direccion varchar(150) not null,
-Tipo_Persona varchar(100) not null,
-Primary key(id_cliente)
+Tipo_Persona int not null,
+Primary key(id_persona)
 );
 
 
@@ -66,8 +60,8 @@ id_Factura serial,
 total int not null,
 Fecha date not null,
 FKid_Persona int not null,
-Estado_Pedido varchar(100) not null,
-tipo_pago varchar(50) not null,
+Estado_Pedido int not null,
+tipo_pago int not null,
 Nit varchar(15),
 constraint FK_Persona foreign key(FKid_Persona) references Persona(id_persona) on delete cascade,
 Primary key(id_Factura)
