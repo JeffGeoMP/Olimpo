@@ -100,8 +100,6 @@ FKid_Factura int not null,
 FKid_Platillo int not null,
 constraint FK_Platillo foreign key(FKid_Platillo) references Platillo(id_Platillo) on delete cascade,
 constraint FK_FACTURA foreign key(FKid_Factura) references Factura(id_Factura) on delete cascade,
-FKid_Pedido int not null,
-constraint FK_Menu foreign key(FKid_Factura) references Factura(id_Factura) on delete cascade,
 Primary key(id_DPlatillo)
 );
 
