@@ -57,7 +57,6 @@ Correo   varchar(150) not null,
 contraseña varchar(50),
 Direccion varchar(150) not null,
 Tipo_Persona varchar(100) not null,
-Nit varchar(15) not null,
 Primary key(id_cliente)
 );
 
@@ -69,6 +68,7 @@ Fecha date not null,
 FKid_Persona int not null,
 Estado_Pedido varchar(100) not null,
 tipo_pago varchar(50) not null,
+Nit varchar(15),
 constraint FK_Persona foreign key(FKid_Persona) references Persona(id_persona) on delete cascade,
 Primary key(id_Factura)
 );
