@@ -4,10 +4,13 @@ import { MenuTodayComponent } from './components/menu-today/menu-today.component
 import { MenusComponent } from './components/menus/menus.component';
 import { BuscadorComponent } from "./components/buscador/buscador.component";
 import { FormcliComponent } from './components/formcli/formcli.component';
-import {TaskListComponent} from './components/task-list/task-list.component'
+import {TaskListComponent} from './components/task-list/task-list.component';
+import {LoginComponent} from './components/login/login.component'
+
 
 
 const APP_ROUTES: Routes = [
+    { path:'Login',component:LoginComponent},
     { path:'Task-list',component:TaskListComponent},
     { path:'Menus', component: MenusComponent},
     { path:'MenuToday', component: MenuTodayComponent},
