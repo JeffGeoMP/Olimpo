@@ -13,11 +13,11 @@ class EnviarInformacion{
         });
     }
 
-    EnviarFactura(Correo, Mensaje){
+    EnviarCorreo(Correo, Asunto, Mensaje){
         const Opciones = {
             from: 'Remitente',
             to: Correo,
-            subject: 'Pedido Recibido Exitosamente',
+            subject: Asunto,
             html: Mensaje
         }
 

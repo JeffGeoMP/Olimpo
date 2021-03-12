@@ -43,6 +43,10 @@ class Consultas{
                 '\'{0}\',\'{1}\',\'{2}\');'.format(ArraysPostgresql[0],ArraysPostgresql[1],ArraysPostgresql[2]);
     }
 
+    ActualizarPedido(Id_Factura, Estado){
+        return 'SELECT ActualizarEstadoFactura({0},{1})'.format(Id_Factura, Estado);
+    }
+
     NuevoPlatillo(Nombre, Precio, Descripcion, Id_Menu, Imagen){
         return 'SELECT NuevoPlatillo(\'{0}\',{1},\'{2}\',{3},\'{4}\')'.format(Nombre, Precio, Descripcion, Id_Menu, Imagen);
     }

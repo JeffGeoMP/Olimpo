@@ -31,18 +31,48 @@ app.post("/pedido/nuevo", async (req, res) => {
 			)
 		);
 
-		Email.EnviarFactura(
+		Email.EnviarCorreo(
 			req.body.Correo,
-			Funcion.GenerarCodigoHTML(
+			"Pedido Recibido Exitosamente",
+			Funcion.DetalleHTML(
 				req.body.Nombre,
 				req.body.Apellido,
 				req.body.Telefono,
-                req.body.Direccion,
+				req.body.Direccion,
 				req.body.Total,
 				req.body.Tarjeta,
 				Metadata.rows
 			)
 		);
+		res.status(200).json();
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+/**
+ * @description Ruta para actualizar el estado de un platillo
+ */
+app.put("/pedido/actualizacion", async (req, res) => {
+	try {
+		const Metadata = await db.query(
+			Consulta.ActualizarPedido(req.body.Id_Factura, req.body.Estado)
+		);
+
+		console.log(Metadata.rows);
+		if (Metadata.rowCount > 0) {
+			let Correo = "";
+			Metadata.rows.forEach((element) => {
+				Correo = element.actualizarestadofactura;
+			});
+
+			Email.EnviarCorreo(
+				Correo,
+				"Seguimiento de Pedido",
+				Funcion.ActualizarHTML(req.body.Id_Factura, req.body.Estado)
+			);
+		}
+
 		res.status(200).json();
 	} catch (error) {
 		res.status(500).send(error);
