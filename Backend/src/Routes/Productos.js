@@ -110,7 +110,7 @@ app.get("/producto/busqueda/:Tipo_Menu/:Palabra", async (req, res) => {
 /**
  * @description Ruta para Crear un Nuevo Platillo
  */
-app.put("/producto/nuevo", async (req, res) => {
+app.post("/producto/nuevo", async (req, res) => {
 	try {
 		const Metadata = await db.query(
 			Consulta.NuevoPlatillo(
@@ -122,6 +122,26 @@ app.put("/producto/nuevo", async (req, res) => {
 			)
 		);
 
+		res.status(200).json();
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+/**
+ * @description Ruta para actulizar la informacion de un platillo
+ */
+app.put("/producto/actualizar", async (req, res) => {
+	try {
+		const Metadata = await db.query(
+			Consulta.ActualizarPlatillo(
+				req.body.Id_Platillo,
+				req.body.Nombre,
+				req.body.Precio,
+				req.body.Descripcion,
+				req.body.Imagen
+			)
+		);
 		res.status(200).json();
 	} catch (error) {
 		res.status(500).send(error);
