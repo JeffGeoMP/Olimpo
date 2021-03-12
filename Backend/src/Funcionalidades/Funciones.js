@@ -57,7 +57,7 @@ class Funciones{
         return ArraysPostgresql;
     }
 
-    GenerarCodigoHTML (xnombre, xapellido, xtelefono, xdireccion, xtotal, xpago, xdetalle){
+    DetalleHTML (xnombre, xapellido, xtelefono, xdireccion, xtotal, xpago, xdetalle){
         let CodigoDetalle = '';
         let IDPedido = '';
 
@@ -134,6 +134,59 @@ class Funciones{
                 '</th>' +
             '</tr>' +
 		'</table>' ;
+    }
+
+    ActualizarHTML(Id_Factura, Estado){
+        return '<table style="border: black; border-collapse: collapse">' +
+		'	<tr align="left">' +
+		'		<th colspan="4">' +
+		'			<h1 style="font-family: cursive; font-weight: normal">' +
+		'				Actualizacion de Pedido:' +
+		'			</h1>' +
+		'			<h4 style="font-family: cursive; font-weight: normal">' +
+		'				Tu pedido: #{0} <br>'.format(Id_Factura) +
+        '                            Se encuentra: {0}'.format(this.ParserPedido(Estado)) +
+		'			</h4>' +
+		'		</th>' +
+		'	</tr>' +
+		'	' +
+		'</table>'; 
+    }
+
+    /**
+     * @description Funcion para parsear un estado en INT a su equivalente STRING
+     * @param {*} Estado 
+     */
+    ParserPedido(Estado){
+        switch (Estado) {
+            case 1:
+                return 'En Cola Para Ser Preparado';
+            
+            case 2:
+                return 'En Preparacion';
+        
+            case 3:
+                return 'En Camino a tu Casa';
+
+            default:
+                return 'Cancelado';
+        }
+    }
+
+    ParserPersona(Tipo_Persona){
+        switch (Tipo_Persona) {
+            case 1:
+            return 'Administrador';
+            
+            case 2:
+                return 'Empleado';
+
+            case 3:
+            return 'Cliente';
+
+            default:
+                return 'Verificar Usuario';
+        }
     }
 
 }

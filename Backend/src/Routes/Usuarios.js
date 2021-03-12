@@ -31,19 +31,113 @@ app.post("/pedido/nuevo", async (req, res) => {
 			)
 		);
 
-		Email.EnviarFactura(
+		Email.EnviarCorreo(
 			req.body.Correo,
-			Funcion.GenerarCodigoHTML(
+			"Pedido Recibido Exitosamente",
+			Funcion.DetalleHTML(
 				req.body.Nombre,
 				req.body.Apellido,
 				req.body.Telefono,
-                req.body.Direccion,
+				req.body.Direccion,
 				req.body.Total,
 				req.body.Tarjeta,
 				Metadata.rows
 			)
 		);
 		res.status(200).json();
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+/**
+ * @description Ruta para actualizar el estado de un platillo
+ */
+app.put("/pedido/actualizacion", async (req, res) => {
+	try {
+		const Metadata = await db.query(
+			Consulta.ActualizarPedido(req.body.Id_Factura, req.body.Estado)
+		);
+
+		console.log(Metadata.rows);
+		if (Metadata.rowCount > 0) {
+			let Correo = "";
+			Metadata.rows.forEach((element) => {
+				Correo = element.actualizarestadofactura;
+			});
+
+			Email.EnviarCorreo(
+				Correo,
+				"Seguimiento de Pedido",
+				Funcion.ActualizarHTML(req.body.Id_Factura, req.body.Estado)
+			);
+		}
+
+		res.status(200).json();
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+/**
+ * @description Ruta para Crear un Nuevo Empleado
+ */
+app.post("/empleado/nuevo", async (req, res) => {
+	try {
+		const Metadata = await db.query(Consulta.NuevoEmpleado(
+			req.body.Nombre,
+			req.body.Apellido,
+			req.body.Telefono,
+			req.body.Correo,
+			req.body.Password,
+			req.body.Direccion,
+			2
+		));
+		res.status(200).json();
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+/**
+ * @description Ruta para actualizar informacion de un empleado
+ */
+app.put('/empleado/actualizacion', async (req, res)=>{
+	try {
+
+		const Metadata = await db.query(Consulta.ActualizarEmpleado(req.body.Id_Empleado,
+			req.body.Nombre,
+			req.body.Apellido,
+			req.body.Telefono,
+			req.body.Correo,
+			req.body.Password,
+			req.body.Direccion,
+			req.body.Tipo));
+		res.status(200).json(Metadata.rows);
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+/**
+ * @description Ruta para Elimnar un Empleado
+ */
+app.delete('/empleado/eliminar', async (req, res)=>{
+	try {
+		const Metadata = await db.query(Consulta.EliminarEmpleado(req.body.Id_Empleado));
+		res.status(200).json();
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+/**
+ * @description Ruta para obtener la informacion de un Administrador, Empleado o Usuario dado un ID
+ */
+app.get('/usuario/informacion/:Id_Persona', async (req, res)=>{
+	try {
+		const Metadata = await db.query(Consulta.ObtenerInformacion(req.params.Id_Persona));
+		res.status(200).json(Metadata.rows);
 	} catch (error) {
 		res.status(500).send(error);
 	}
