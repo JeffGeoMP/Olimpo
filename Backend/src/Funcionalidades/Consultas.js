@@ -51,6 +51,10 @@ class Consultas{
         return 'SELECT ActualizarPlatillo({0},\'{1}\',{2}, \'{3}\',\'{4}\')'.format(Id_Platillo, Nombre, Precio, Descripcion, Imagen);
     }
 
+    EliminarPlatillo(Id_Platillo){
+        return 'SELECT EliminarPlatillo({0})'.format(Id_Platillo);
+    }
+
     menuDelDia_(){
         return 'select P.id_platillo, P.nombre, P.precio, P.descripcion, P.imagen ' +
                 'from menu M, platillo P ' +

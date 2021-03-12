@@ -148,4 +148,17 @@ app.put("/producto/actualizar", async (req, res) => {
 	}
 });
 
+/**
+ * @description Ruta para Eliminar un Platillo Existente
+ */
+app.delete('/producto/eliminar', async(req, res)=>{
+    try {
+        const Metadata = await db.query(Consulta.EliminarPlatillo(req.body.Id_Platillo));
+        res.status(200).json();
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
+
 module.exports = app;
