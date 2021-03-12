@@ -63,6 +63,10 @@ class Consultas{
         return 'SELECT NuevoEmpleado(\'{0}\',\'{1}\',\'{2}\',\'{3}\',\'{4}\',\'{5}\',{6})'.format(Nombre, Apellido, Telefono, Correo, Password, Direccion, Tipo_Persona);
     }
 
+    ActualizarEmpleado(Id_Empleado, Nombre, Apellido, Telefono, Correo, Password, Direccion, Tipo_Persona){
+        return 'SELECT ActualizarEmpleado({0},\'{1}\',\'{2}\',\'{3}\',\'{4}\',\'{5}\',\'{6}\',{7})'.format(Id_Empleado, Nombre, Apellido, Telefono, Correo, Password, Direccion, Tipo_Persona);
+    }
+
     menuDelDia_(){
         return 'select P.id_platillo, P.nombre, P.precio, P.descripcion, P.imagen ' +
                 'from menu M, platillo P ' +

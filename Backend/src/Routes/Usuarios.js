@@ -99,4 +99,25 @@ app.post("/empleado/nuevo", async (req, res) => {
 	}
 });
 
+/**
+ * @description Ruta para actualizar informacion de un empleado
+ */
+app.put('/empleado/actualizacion', async (req, res)=>{
+	try {
+
+		const Metadata = await db.query(Consulta.ActualizarEmpleado(req.body.Id_Empleado,
+			req.body.Nombre,
+			req.body.Apellido,
+			req.body.Telefono,
+			req.body.Correo,
+			req.body.Password,
+			req.body.Direccion,
+			req.body.Tipo));
+		res.status(200).json(Metadata.rows);
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+
 module.exports = app;
