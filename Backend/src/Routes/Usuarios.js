@@ -119,5 +119,28 @@ app.put('/empleado/actualizacion', async (req, res)=>{
 	}
 });
 
+/**
+ * @description Ruta para Elimnar un Empleado
+ */
+app.delete('/empleado/eliminar', async (req, res)=>{
+	try {
+		const Metadata = await db.query(Consulta.EliminarEmpleado(req.body.Id_Empleado));
+		res.status(200).json();
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+/**
+ * @description Ruta para obtener la informacion de un Administrador, Empleado o Usuario dado un ID
+ */
+app.get('/usuario/informacion/:Id_Persona', async (req, res)=>{
+	try {
+		const Metadata = await db.query(Consulta.ObtenerInformacion(req.params.Id_Persona));
+		res.status(200).json(Metadata.rows);
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
 
 module.exports = app;

@@ -67,6 +67,14 @@ class Consultas{
         return 'SELECT ActualizarEmpleado({0},\'{1}\',\'{2}\',\'{3}\',\'{4}\',\'{5}\',\'{6}\',{7})'.format(Id_Empleado, Nombre, Apellido, Telefono, Correo, Password, Direccion, Tipo_Persona);
     }
 
+    EliminarEmpleado(Id_Empleado){
+        return 'SELECT EliminarEmpleado({0})'.format(Id_Empleado);
+    }
+
+    ObtenerInformacion(Id_Persona){
+        return 'SELECT * FROM Persona Where id_persona = {0}'.format(Id_Persona);
+    }
+
     menuDelDia_(){
         return 'select P.id_platillo, P.nombre, P.precio, P.descripcion, P.imagen ' +
                 'from menu M, platillo P ' +
