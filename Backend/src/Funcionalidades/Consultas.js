@@ -43,6 +43,10 @@ class Consultas{
                 '\'{0}\',\'{1}\',\'{2}\');'.format(ArraysPostgresql[0],ArraysPostgresql[1],ArraysPostgresql[2]);
     }
 
+    NuevoPlatillo(Nombre, Precio, Descripcion, IDMENU, Imagen){
+        return 'SELECT NuevoPlatillo(\'{0}\',{1},\'{2}\',{3},\'{4}\')'.format(Nombre, Precio, Descripcion, IDMENU, Imagen);
+    }
+
     menuDelDia_(){
         return 'select P.id_platillo, P.nombre, P.precio, P.descripcion, P.imagen ' +
                 'from menu M, platillo P ' +
