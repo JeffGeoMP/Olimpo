@@ -59,6 +59,10 @@ class Consultas{
         return 'SELECT EliminarPlatillo({0})'.format(Id_Platillo);
     }
 
+    NuevoEmpleado(Nombre, Apellido, Telefono, Correo, Password, Direccion, Tipo_Persona){
+        return 'SELECT NuevoEmpleado(\'{0}\',\'{1}\',\'{2}\',\'{3}\',\'{4}\',\'{5}\',{6})'.format(Nombre, Apellido, Telefono, Correo, Password, Direccion, Tipo_Persona);
+    }
+
     menuDelDia_(){
         return 'select P.id_platillo, P.nombre, P.precio, P.descripcion, P.imagen ' +
                 'from menu M, platillo P ' +

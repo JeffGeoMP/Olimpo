@@ -79,4 +79,24 @@ app.put("/pedido/actualizacion", async (req, res) => {
 	}
 });
 
+/**
+ * @description Ruta para Crear un Nuevo Empleado
+ */
+app.post("/empleado/nuevo", async (req, res) => {
+	try {
+		const Metadata = await db.query(Consulta.NuevoEmpleado(
+			req.body.Nombre,
+			req.body.Apellido,
+			req.body.Telefono,
+			req.body.Correo,
+			req.body.Password,
+			req.body.Direccion,
+			2
+		));
+		res.status(200).json();
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
 module.exports = app;

@@ -173,6 +173,22 @@ class Funciones{
         }
     }
 
+    ParserPersona(Tipo_Persona){
+        switch (Tipo_Persona) {
+            case 1:
+            return 'Administrador';
+            
+            case 2:
+                return 'Empleado';
+
+            case 3:
+            return 'Cliente';
+
+            default:
+                return 'Verificar Usuario';
+        }
+    }
+
 }
 
 module.exports = {Funciones}
