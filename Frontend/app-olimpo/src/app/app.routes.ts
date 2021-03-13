@@ -4,11 +4,13 @@ import { MenuTodayComponent } from './components/menu-today/menu-today.component
 import { MenusComponent } from './components/menus/menus.component';
 import { BuscadorComponent } from "./components/buscador/buscador.component";
 import { FormcliComponent } from './components/formcli/formcli.component';
-import {TaskListComponent} from './components/task-list/task-list.component'
+import { TaskListComponent} from './components/task-list/task-list.component';
+import { HomeEmpleadoComponent } from "./components/home-empleado/home-empleado.component";
 
 
 const APP_ROUTES: Routes = [
     { path:'Task-list',component:TaskListComponent},
+    { path:'home-empleado',component:HomeEmpleadoComponent},
     { path:'Menus', component: MenusComponent},
     { path:'MenuToday', component: MenuTodayComponent},
     { path:'buscar/:termino', component: BuscadorComponent},
@@ -18,4 +20,4 @@ const APP_ROUTES: Routes = [
 
 ];
 
-export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
+export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, { relativeLinkResolution: 'legacy' });

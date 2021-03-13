@@ -1,0 +1,19 @@
+.my-button{
+    margin: auto;
+    padding-top: 1rem;
+    padding-bottom: 1.rem;
+  }
+  
+  .my-column{
+    margin: auto;
+  }
+
+.my-container{
+  padding-top: 2rem;
+  background: #ffffff;
+    margin: 0 0 1rem;
+    height: auto;
+    display: flex;
+    /* align-items por defecto tiene el valor `stretch` */
+    align-items: start;
+}

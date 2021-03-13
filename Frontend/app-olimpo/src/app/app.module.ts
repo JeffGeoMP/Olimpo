@@ -22,6 +22,7 @@ import { FormcliComponent } from './components/formcli/formcli.component';
 import { CommonModule } from "@angular/common"
 
 import { TaskListComponent } from './components/task-list/task-list.component';
+import { HomeEmpleadoComponent } from './components/home-empleado/home-empleado.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TaskListComponent } from './components/task-list/task-list.component';
     MenusComponent,
     BuscadorComponent,
     FormcliComponent,
-    TaskListComponent
+    TaskListComponent,
+    HomeEmpleadoComponent
   ],
   imports: [
     BrowserModule,
