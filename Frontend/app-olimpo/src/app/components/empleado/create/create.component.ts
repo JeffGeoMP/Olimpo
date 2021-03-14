@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CrudService, Empleado } from 'src/app/servicios/empleado/crud.service';
+import { CrudService } from 'src/app/servicios/empleado/crud.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -35,7 +35,6 @@ export class CreateComponent implements OnInit {
                                     'Direccion': this.direccion});
         
         con.subscribe((res)=>{
-          console.log(res)
           if(res == null){
             alert("Usuario creado")
             this.router.navigate(['/Empleado/create'])

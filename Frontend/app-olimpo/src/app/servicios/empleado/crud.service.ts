@@ -21,22 +21,14 @@ export class CrudService {
 
   updateEmpleado(data){
     let url = `${this.dir}/empleado/actualizacion`;
+    console.log(data);
     return this.http.put(url, data);
   }
 
   deleteEmpleado(id){
     let url = `${this.dir}/empleado/eliminar`;
+    console.log(id);
     return this.http.delete(url, id);
   }
 
-}
-
-export interface Empleado{
-    Id_Empleado:string,
-    Nombre:string,
-		Apellido:string,
-		Telefono:string,
-		Correo:string,
-		Password:string,
-		Direccion:string
 }
