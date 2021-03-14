@@ -7,6 +7,12 @@
         <div class="col-md-7 col-lg-8">
             <form class="needs-validation" novalidate>
               <div class="row g-3">
+
+                <div class="col-sm-12">
+                  <label for="Id_Empleado" class="form-label">ID</label>
+                  <input type="number" [(ngModel)]="Id_Empleado" [ngModelOptions]="{standalone: true}" class="form-control" id="firstName" placeholder="id" value="" disabled>
+                </div>
+
                 <div class="col-sm-6">
                   <label for="firstName" class="form-label">Nombre</label>
                   <input type="text" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}" class="form-control" id="firstName" placeholder="Juan" value="" required>
@@ -54,6 +60,19 @@
                     <div class="invalid-feedback">
                         Contraseña no valida
                     </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="tipo" class="form-label">Tipo Usuario</label>
+                  <select class="form-select" [(ngModel)]="tipo" [ngModelOptions]="{standalone: true}" id="tipo" required>
+                    <option value="">Escoger...</option>
+                    <option>Administrador</option>
+                    <option>Usuario</option>
+                    <option>Empleado</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Seleccion no valida.
+                  </div>
                 </div>
 
                 <!--
