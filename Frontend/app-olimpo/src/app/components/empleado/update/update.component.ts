@@ -12,4 +12,16 @@ export class UpdateComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  nombre;
+  apellido;
+  telefono;
+  email;
+  direccion;
+  pass1;
+  pass2;
+
+  actualizar(){
+    
+  }
+
 }

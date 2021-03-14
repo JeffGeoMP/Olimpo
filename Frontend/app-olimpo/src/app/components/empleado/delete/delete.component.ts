@@ -14,7 +14,6 @@ export class DeleteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
   nombre;
   apellido;
   telefono;
@@ -24,7 +23,7 @@ export class DeleteComponent implements OnInit {
   pass2;
 
   eliminar(){
-    
+
   }
 
 }
