@@ -5,6 +5,9 @@ import { MenusComponent } from './components/menus/menus.component';
 import { BuscadorComponent } from "./components/buscador/buscador.component";
 import { FormcliComponent } from './components/formcli/formcli.component';
 import {TaskListComponent} from './components/task-list/task-list.component'
+import { UpdateComponent } from './components/empleado/update/update.component';
+import { CreateComponent } from './components/empleado/create/create.component';
+import { DeleteComponent } from './components/empleado/delete/delete.component';
 
 
 const APP_ROUTES: Routes = [
@@ -13,8 +16,10 @@ const APP_ROUTES: Routes = [
     { path:'MenuToday', component: MenuTodayComponent},
     { path:'buscar/:termino', component: BuscadorComponent},
     { path:'formulario', component: FormcliComponent},
+    { path:'Empleado/create', component: CreateComponent},
+    { path:'Empleado/update', component: UpdateComponent},
+    { path:'Empleado/delete', component: DeleteComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'MenuToday'}
-    
 
 ];
 

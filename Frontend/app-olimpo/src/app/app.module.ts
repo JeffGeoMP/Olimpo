@@ -22,6 +22,9 @@ import { FormcliComponent } from './components/formcli/formcli.component';
 import { CommonModule } from "@angular/common"
 
 import { TaskListComponent } from './components/task-list/task-list.component';
+import { CreateComponent } from './components/empleado/create/create.component';
+import { UpdateComponent } from './components/empleado/update/update.component';
+import { DeleteComponent } from './components/empleado/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { TaskListComponent } from './components/task-list/task-list.component';
     MenusComponent,
     BuscadorComponent,
     FormcliComponent,
-    TaskListComponent
+    TaskListComponent,
+    CreateComponent,
+    UpdateComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
