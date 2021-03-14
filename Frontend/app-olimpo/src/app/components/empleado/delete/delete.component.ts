@@ -21,7 +21,7 @@ export class DeleteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  Id_Empleado = "9";
+  Id_Empleado = "";
   nombre = "";
   apellido = "";
   telefono = "";
@@ -32,18 +32,19 @@ export class DeleteComponent implements OnInit {
 
   eliminar(){
     if(confirm("Seguro que desea eliminar")){    
-      let con = this.conexion.deleteEmpleado({'nada':'jeje', 'Id_Empleado': this.Id_Empleado});
+      let con = this.conexion.deleteEmpleado({'Id_Empleado': this.Id_Empleado});
       
       con.subscribe(res=>{
         if(res == null){
-          console.log(res)
-          alert("Usuario eliminado")
-          this.router.navigate(['/Empleado/delete'])
+          alert("Usuario eliminado");
+          this.router.navigate(['/Empleado/delete']);
         }else{
-          alert("Error al eliminar usuario: " + res)
+          alert("Error al eliminar usuario: " + res);
         } 
       });
       
+    }else{
+      this.router.navigate(['/Empleado/delete']);
     }
   }
 

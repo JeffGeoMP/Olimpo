@@ -21,14 +21,12 @@ export class CrudService {
 
   updateEmpleado(data){
     let url = `${this.dir}/empleado/actualizacion`;
-    console.log(data);
     return this.http.put(url, data);
   }
 
   deleteEmpleado(id){
     let url = `${this.dir}/empleado/eliminar`;
-    console.log(id);
-    return this.http.delete(url, id);
+    return this.http.post(url, id);
   }
 
 }

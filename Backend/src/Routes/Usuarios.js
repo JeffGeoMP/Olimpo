@@ -84,7 +84,6 @@ app.put("/pedido/actualizacion", async (req, res) => {
  */
 app.post("/empleado/nuevo", async (req, res) => {
 	try {
-		console.log(req.body)
 		const Metadata = await db.query(Consulta.NuevoEmpleado(
 			req.body.Nombre,
 			req.body.Apellido,
@@ -123,7 +122,7 @@ app.put('/empleado/actualizacion', async (req, res)=>{
 /**
  * @description Ruta para Elimnar un Empleado
  */
-app.delete('/empleado/eliminar', async (req, res)=>{
+app.post('/empleado/eliminar', async (req, res)=>{
 	try {
 		const Metadata = await db.query(Consulta.EliminarEmpleado(req.body.Id_Empleado));
 		res.status(200).json();
