@@ -12,37 +12,31 @@ export class CrudService {
     "Content-Type": "application/json"
   })
 
-  dir = 'http://localhost:3000/';
-
-  getEmpleado(id){
-    let url = `${this.dir}/getEmpleado`;
-    return this.http.get(url, id);
-  }
+  dir = 'http://localhost:3000';
 
   createEmpleado(data){
-    let url = `${this.dir}/createEmpleado`;
+    let url = `${this.dir}/empleado/nuevo`;
     return this.http.post(url, data);
   }
 
   updateEmpleado(data){
-    let url = `${this.dir}/updateEmpleado`;
+    let url = `${this.dir}/empleado/actualizacion`;
     return this.http.put(url, data);
   }
 
   deleteEmpleado(id){
-    let url = `${this.dir}/deleteEmpleado`;
+    let url = `${this.dir}/empleado/eliminar`;
     return this.http.delete(url, id);
   }
 
 }
 
 export interface Empleado{
-  id_persona,
-  Nombre,
-  Apellido,
-  Telefono,
-  Correo,
-  contraseña,
-  Direccion,
-  Tipo_Persona,
-};
+    Id_Empleado:string,
+    Nombre:string,
+		Apellido:string,
+		Telefono:string,
+		Correo:string,
+		Password:string,
+		Direccion:string
+}
