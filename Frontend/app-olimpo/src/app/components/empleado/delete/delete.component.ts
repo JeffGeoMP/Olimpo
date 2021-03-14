@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CrudService, Empleado } from 'src/app/servicios/empleado/crud.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-delete',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private conexion: CrudService) { }
 
   ngOnInit(): void {
+  }
+
+  
+  nombre;
+  apellido;
+  telefono;
+  email;
+  direccion;
+  pass1;
+  pass2;
+
+  eliminar(){
+    
   }
 
 }
