@@ -8,6 +8,8 @@ import {TaskListComponent} from './components/task-list/task-list.component'
 import { UpdateComponent } from './components/empleado/update/update.component';
 import { CreateComponent } from './components/empleado/create/create.component';
 import { DeleteComponent } from './components/empleado/delete/delete.component';
+import { EstadosComponent } from './components/estados/estados.component';
+import { EnviadoComponent } from './components/enviado/enviado.component';
 
 
 const APP_ROUTES: Routes = [
@@ -16,6 +18,8 @@ const APP_ROUTES: Routes = [
     { path:'MenuToday', component: MenuTodayComponent},
     { path:'buscar/:termino', component: BuscadorComponent},
     { path:'formulario', component: FormcliComponent},
+    { path:'estado', component: EstadosComponent},
+    { path:'enviado', component: EnviadoComponent},
     { path:'Empleado/create', component: CreateComponent},
     { path:'Empleado/update', component: UpdateComponent},
     { path:'Empleado/delete', component: DeleteComponent},

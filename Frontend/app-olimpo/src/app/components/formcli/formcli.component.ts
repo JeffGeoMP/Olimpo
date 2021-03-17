@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
 import { Task, Factura, Cliente } from 'src/app/models/Task';
 import { FacturaService } from 'src/app/servicios/factura.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formcli',
@@ -17,7 +18,7 @@ export class FormcliComponent implements OnInit {
   telefono:string=""
   direccion:string=""
 
-  constructor(private srvtl:TaskService,private servFact:FacturaService) { }
+  constructor(private srvtl:TaskService,private servFact:FacturaService,private rout:Router) { }
 
 
   ngOnInit(): void {
@@ -73,6 +74,8 @@ export class FormcliComponent implements OnInit {
       this.servFact.GuardarFactura(this.fact1).subscribe(
         result=>{
           console.log(result);
+            this.rout.navigate(['/enviado']);
+
         },error=>{
           console.log(error);
         }

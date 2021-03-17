@@ -17,5 +17,9 @@ export class FacturaService {
     
   }
 
+  ObtenerFactura(codigo:string){
 
+    return this.http.post(`${this.API_URI}/pedido/get/`,{codigo:codigo});
+    
+  }
 }
