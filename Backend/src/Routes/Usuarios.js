@@ -148,18 +148,35 @@ app.get('/usuario/informacion/:Id_Persona', async (req, res)=>{
  * @description Ruta para obtener la informacion de una factura
  */
 app.get('/usuario/factura/:Id_Factura', async (req, res)=>{
-
 	try {
 		const Metadata = await db.query(Consulta.ObtenerInformacionFactura(req.params.Id_Factura));
 
 		if(Metadata.rowCount>0){
 			res.status(200).json(Metadata.rows);
 		}else{
-			res.status(200).json(400)
+			res.status(400).json()
 		}
 	} catch (error) {
 		res.status(500).send(error);
 	}
 });
+
+/**
+ * @description Ruta para Loguear un Usuario
+ */
+app.get('/usuario/login/:Correo/:Password', async (req, res)=>{
+try {
+	const Metadata = await db.query(Consulta.VerificarUsuario(req.params.Correo, req.params.Password));
+
+	if(Metadata.rowCount > 0){
+		res.status(200).json(Metadata.rows);
+	}else{
+		res.status(400).json();
+	}
+} catch (error) {
+	res.status(500).send(error);
+}
+});
+
 
 module.exports = app;
