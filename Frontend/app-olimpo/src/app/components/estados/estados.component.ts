@@ -15,18 +15,37 @@ export class EstadosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  devuelto:any;
-
+  devuelto:any=[];
+  msgError="";
   Buscar(id:string){
-      console.log("el codigo es: ",id);
+     // console.log("el codigo es: ",id);
       this.servFac.ObtenerFactura(id).subscribe(
         result=>{
+            this.msgError=""
             this.devuelto=result;
+            console.log(this.devuelto);
         },error=>{
             console.log(error);
+            this.msgError="Error Codigo no válido"
         }
 
       );
+  }
+
+  Cambiar(id):string{
+      console.log(id);
+      switch (id){
+        case 1:
+          return "En preparación";
+        case 2:
+          return "Listo";
+        case 3:
+          return "Enviado";
+        case 4:
+          return "Entregado";
+        default:
+          return "otro";  
+      }
   }
 
 

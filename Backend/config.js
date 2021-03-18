@@ -7,7 +7,7 @@ const db = new Pool({
     user: 'postgres',       //Usuario predefinido en postgresql
     host: 'localhost',      //Ubicacion predefinida
     password: '1234',     //Contraseña de usuario
-    database: 'BD_ProyectoAyD'      //base de datos
+    database: 'bd_proyectoayd'      //base de datos
 });
 
 module.exports = db;
