@@ -25,6 +25,7 @@ import { TaskListComponent } from './components/task-list/task-list.component';
 import { CreateComponent } from './components/empleado/create/create.component';
 import { UpdateComponent } from './components/empleado/update/update.component';
 import { DeleteComponent } from './components/empleado/delete/delete.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { DeleteComponent } from './components/empleado/delete/delete.component';
     TaskListComponent,
     CreateComponent,
     UpdateComponent,
-    DeleteComponent
+    DeleteComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

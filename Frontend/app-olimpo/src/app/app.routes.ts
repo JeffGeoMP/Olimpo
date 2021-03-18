@@ -8,9 +8,12 @@ import {TaskListComponent} from './components/task-list/task-list.component'
 import { UpdateComponent } from './components/empleado/update/update.component';
 import { CreateComponent } from './components/empleado/create/create.component';
 import { DeleteComponent } from './components/empleado/delete/delete.component';
+import {LoginComponent} from './components/login/login.component'
+
 
 
 const APP_ROUTES: Routes = [
+    { path:'Login',component:LoginComponent},
     { path:'Task-list',component:TaskListComponent},
     { path:'Menus', component: MenusComponent},
     { path:'MenuToday', component: MenuTodayComponent},
