@@ -143,4 +143,23 @@ app.get('/usuario/informacion/:Id_Persona', async (req, res)=>{
 	}
 });
 
+
+/**
+ * @description Ruta para obtener la informacion de una factura
+ */
+app.get('/usuario/factura/:Id_Factura', async (req, res)=>{
+
+	try {
+		const Metadata = await db.query(Consulta.ObtenerInformacionFactura(req.params.Id_Factura));
+
+		if(Metadata.rowCount>0){
+			res.status(200).json(Metadata.rows);
+		}else{
+			res.status(200).json(400)
+		}
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
 module.exports = app;

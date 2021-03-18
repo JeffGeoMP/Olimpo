@@ -75,6 +75,10 @@ class Consultas{
         return 'SELECT * FROM Persona Where id_persona = {0}'.format(Id_Persona);
     }
 
+    ObtenerInformacionFactura(Id_Factura){
+        return 'SELECT * FROM Factura F WHERE F.id_factura = {0}'.format(Id_Factura);
+    }
+
     menuDelDia_(){
         return 'select P.id_platillo, P.nombre, P.precio, P.descripcion, P.imagen ' +
                 'from menu M, platillo P ' +
