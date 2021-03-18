@@ -10,9 +10,12 @@ import { CreateComponent } from './components/empleado/create/create.component';
 import { DeleteComponent } from './components/empleado/delete/delete.component';
 import { EstadosComponent } from './components/estados/estados.component';
 import { EnviadoComponent } from './components/enviado/enviado.component';
+import {LoginComponent} from './components/login/login.component'
+
 
 
 const APP_ROUTES: Routes = [
+    { path:'Login',component:LoginComponent},
     { path:'Task-list',component:TaskListComponent},
     { path:'Menus', component: MenusComponent},
     { path:'MenuToday', component: MenuTodayComponent},

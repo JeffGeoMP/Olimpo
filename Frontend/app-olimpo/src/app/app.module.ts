@@ -27,6 +27,8 @@ import { UpdateComponent } from './components/empleado/update/update.component';
 import { DeleteComponent } from './components/empleado/delete/delete.component';
 import { EstadosComponent } from './components/estados/estados.component';
 import { EnviadoComponent } from './components/enviado/enviado.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { EnviadoComponent } from './components/enviado/enviado.component';
     UpdateComponent,
     DeleteComponent,
     EstadosComponent,
-    EnviadoComponent
+    EnviadoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
