@@ -30,5 +30,18 @@ export interface Factura{
     Tarjeta:boolean;
 }
 
+export interface Persona{
+    id_persona:Number;
+    nombre:String;
+    apellido:String;
+    telefono:String;
+    correo:String;
+    contraseña:String;
+    direccion:String;
+    tipo_Persona:Number;
+    
+}
+
+
 
 
