@@ -13,6 +13,7 @@ export class CrudService {
   })
 
   dir = 'http://localhost:3000';
+  //dir = 'http://192.168.0.9:3000'
 
   createEmpleado(data){
     let url = `${this.dir}/empleado/nuevo`;
