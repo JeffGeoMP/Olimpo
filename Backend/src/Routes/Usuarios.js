@@ -84,6 +84,7 @@ app.put("/pedido/actualizacion", async (req, res) => {
  */
 app.post("/empleado/nuevo", async (req, res) => {
 	try {
+		
 		const Metadata = await db.query(Consulta.NuevoEmpleado(
 			req.body.Nombre,
 			req.body.Apellido,
