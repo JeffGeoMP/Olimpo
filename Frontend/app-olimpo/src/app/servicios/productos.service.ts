@@ -15,24 +15,28 @@ export class ProductService {
     }
 
     getProductos(){
-        let url = 'http://localhost:3000/producto/platillos';
+        let url = 'http://192.168.0.9:3000/producto/platillos';
+        //let url = 'http://localhost:3000/producto/platillos';
         return this._httpClient.get(url);
     }
 
     getMenudeldia(){
-        let url = 'http://localhost:3000/producto/menu_del_dia';
+        let url = 'http://192.168.0.9:3000/producto/menu_del_dia';
+        //let url = 'http://localhost:3000/producto/menu_del_dia';
         return this._httpClient.get(url);
     }
 
     buscarProducto( termino:string ){
         termino = termino.toLocaleLowerCase();
-        let url = 'http://localhost:3000/producto/busqueda/' + termino;
+        let url = 'http://192.168.0.9:3000/producto/busqueda/' + termino;
+        //let url = 'http://localhost:3000/producto/busqueda/' + termino;
         return this._httpClient.get(url);
     }
 
     productoxMenu(menu:string){
         menu = menu.toLocaleLowerCase();
-        let url = 'http://localhost:3000/producto/menu/'+menu;
+        let url = 'http://192.168.0.9:3000/producto/menu/'+menu;
+        //let url = 'http://localhost:3000/producto/menu/'+menu;
         return this._httpClient.get(url);
     }
 }
