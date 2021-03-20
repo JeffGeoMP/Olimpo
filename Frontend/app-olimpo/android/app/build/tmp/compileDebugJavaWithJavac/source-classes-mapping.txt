@@ -1,0 +1,5 @@
+com/appolimpo/app/MainActivity.java
+ com.appolimpo.app.MainActivity
+ com.appolimpo.app.MainActivity$1
+com/appolimpo/app/BuildConfig.java
+ com.appolimpo.app.BuildConfig
