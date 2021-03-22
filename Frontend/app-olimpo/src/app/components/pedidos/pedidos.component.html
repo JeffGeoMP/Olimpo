@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-2" *ngFor="let pedido of ListaPedidos">
+        <div class="card text-center">
+          <div class="card-header d-flex text-white bg-dark justify-content-between ">
+             Pedido No. {{pedido.id_pedido}}
+          </div>
+          <button class="btn btn-success" (click)="Terminado(pedido.id_pedido)">
+            Terminado
+         </button>
+         <button class="btn btn-primary" (click)="Enviado(pedido.id_pedido)">
+            Enviado
+         </button>
+         <button class="btn btn-danger" (click)="Entregado(pedido.id_pedido)">
+            Entregado
+         </button>
+        </div>
+        <br>
+        <br>
+      </div>    
+
+</div>

@@ -36,9 +36,9 @@ export class EstadosComponent implements OnInit {
       console.log(id);
       switch (id){
         case 1:
-          return "En preparación";
+          return "En Cola";
         case 2:
-          return "Listo";
+          return "En Preparación";
         case 3:
           return "Enviado";
         case 4:

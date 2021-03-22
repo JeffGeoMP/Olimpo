@@ -28,6 +28,8 @@ import { DeleteComponent } from './components/empleado/delete/delete.component';
 import { EstadosComponent } from './components/estados/estados.component';
 import { EnviadoComponent } from './components/enviado/enviado.component';
 import { LoginComponent } from './components/login/login.component';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
+import { PedidoestadoComponent } from './components/pedidoestado/pedidoestado.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { LoginComponent } from './components/login/login.component';
     DeleteComponent,
     EstadosComponent,
     EnviadoComponent,
-    LoginComponent
+    LoginComponent,
+    PedidosComponent,
+    PedidoestadoComponent
   ],
   imports: [
     BrowserModule,
