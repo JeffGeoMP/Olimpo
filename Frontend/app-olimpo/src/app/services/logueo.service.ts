@@ -6,7 +6,7 @@ import {Persona}from '../models/Task'
   providedIn: 'root'
 })
 export class LogueoService {
-  Empleado:Persona;
+  Empleado:Persona = null;
 
   constructor(private _httpClient:HttpClient) { }
 
@@ -25,11 +25,12 @@ export class LogueoService {
 
 
 addLogueo(empleadoL:Persona){
-
   localStorage.setItem("Logueado",JSON.stringify(empleadoL));
-  
 }
-//  
+
+cleanLogueo(){
+  localStorage.removeItem("Logueado");
+}
 
 getLogueo(){
   if(localStorage.getItem('Logueado')===null){

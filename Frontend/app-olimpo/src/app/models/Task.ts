@@ -38,7 +38,7 @@ export interface Persona{
     correo:String;
     contraseña:String;
     direccion:String;
-    tipo_Persona:Number;
+    tipo_persona:Number;
     
 }
 

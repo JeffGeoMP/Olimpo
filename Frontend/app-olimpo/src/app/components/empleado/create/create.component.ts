@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from 'src/app/servicios/empleado/crud.service';
 import {Router} from '@angular/router';
+import {Persona} from '../../../models/Task';
+import { LogueoService } from '../../../services/logueo.service';
 
 @Component({
   selector: 'app-create',
@@ -8,8 +10,14 @@ import {Router} from '@angular/router';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
+  
+  empleado = this.Logueo.getLogueo();
 
-  constructor(private router: Router, private conexion: CrudService) { }
+  constructor(private router: Router, private conexion: CrudService,private Logueo:LogueoService) {
+    if(this.empleado != null){
+      this.router.navigate(['/Login']);
+    }
+  }
 
   ngOnInit(): void {
   }
@@ -34,12 +42,13 @@ export class CreateComponent implements OnInit {
                                     'Password': this.pass1,
                                     'Direccion': this.direccion});
         
+        
         con.subscribe((res)=>{
           if(res == null){
-            alert("Usuario creado")
-            this.router.navigate(['/Empleado/create'])
+            alert("Usuario creado");
+            this.router.navigate(['/Login']);
           }else{
-            alert("Error al crear usuario: " + res)
+            alert("Error al crear usuario: " + res);
           }
         });
         

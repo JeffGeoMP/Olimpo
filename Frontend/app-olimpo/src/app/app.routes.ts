@@ -13,6 +13,7 @@ import { EnviadoComponent } from './components/enviado/enviado.component';
 import {LoginComponent} from './components/login/login.component'
 import { PedidoestadoComponent } from './components/pedidoestado/pedidoestado.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
+import { VistaComponent } from './components/empleado/vista/vista.component';
 
 
 
@@ -30,6 +31,7 @@ const APP_ROUTES: Routes = [
     { path:'Empleado/create', component: CreateComponent},
     { path:'Empleado/update', component: UpdateComponent},
     { path:'Empleado/delete', component: DeleteComponent},
+    { path:'Empleado/vista', component: VistaComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'MenuToday'}
 
 ];
