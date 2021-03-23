@@ -60,8 +60,7 @@ app.post("/pedido/actualizacion", async (req, res) => {
 		const Metadata = await db.query(
 			Consulta.ActualizarPedido(req.body.Id_Factura, req.body.Estado)
 		);
-	    /*		
-		console.log(Metadata.rows);
+	    		
 		if (Metadata.rowCount > 0) {
 			let Correo = "";
 			Metadata.rows.forEach((element) => {
@@ -73,7 +72,7 @@ app.post("/pedido/actualizacion", async (req, res) => {
 				"Seguimiento de Pedido",
 				Funcion.ActualizarHTML(req.body.Id_Factura, req.body.Estado)
 			);
-		}*/
+		}
 
 		res.status(200).json();
 	} catch (error) {

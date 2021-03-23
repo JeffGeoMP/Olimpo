@@ -6,8 +6,8 @@ const {Pool} = require('pg');
 const db = new Pool({
     user: 'postgres',       //Usuario predefinido en postgresql
     host: 'localhost',      //Ubicacion predefinida
-    password: '1234',     //Contraseña de usuario
-    database: 'bd_proyectoayd'      //base de datos
+    password: 'password',     //Contraseña de usuario
+    database: 'BD_ProyectoAyD'      //base de datos
 });
 
 module.exports = db;
