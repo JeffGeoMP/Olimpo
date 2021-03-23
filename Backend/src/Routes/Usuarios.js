@@ -53,12 +53,14 @@ app.post("/pedido/nuevo", async (req, res) => {
 /**
  * @description Ruta para actualizar el estado de un platillo
  */
-app.put("/pedido/actualizacion", async (req, res) => {
+app.post("/pedido/actualizacion", async (req, res) => {
 	try {
+		console.log(req.body.Id_Factura);
+		console.log(req.body.Estado);
 		const Metadata = await db.query(
 			Consulta.ActualizarPedido(req.body.Id_Factura, req.body.Estado)
 		);
-
+	    /*		
 		console.log(Metadata.rows);
 		if (Metadata.rowCount > 0) {
 			let Correo = "";
@@ -71,7 +73,7 @@ app.put("/pedido/actualizacion", async (req, res) => {
 				"Seguimiento de Pedido",
 				Funcion.ActualizarHTML(req.body.Id_Factura, req.body.Estado)
 			);
-		}
+		}*/
 
 		res.status(200).json();
 	} catch (error) {

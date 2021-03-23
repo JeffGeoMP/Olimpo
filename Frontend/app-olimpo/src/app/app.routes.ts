@@ -11,6 +11,8 @@ import { DeleteComponent } from './components/empleado/delete/delete.component';
 import { EstadosComponent } from './components/estados/estados.component';
 import { EnviadoComponent } from './components/enviado/enviado.component';
 import {LoginComponent} from './components/login/login.component'
+import { PedidoestadoComponent } from './components/pedidoestado/pedidoestado.component';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
 
 
 
@@ -23,6 +25,8 @@ const APP_ROUTES: Routes = [
     { path:'formulario', component: FormcliComponent},
     { path:'estado', component: EstadosComponent},
     { path:'enviado', component: EnviadoComponent},
+    { path:'pedidos', component: PedidosComponent},
+    { path:'pedidoestado', component: PedidoestadoComponent},
     { path:'Empleado/create', component: CreateComponent},
     { path:'Empleado/update', component: UpdateComponent},
     { path:'Empleado/delete', component: DeleteComponent},

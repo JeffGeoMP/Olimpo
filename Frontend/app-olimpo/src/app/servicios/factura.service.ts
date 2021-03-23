@@ -23,4 +23,17 @@ export class FacturaService {
     return this.http.get(`${this.API_URI}/usuario/factura/`+codigo);
     
   }
+
+  ObtenerFacturas(){
+
+    return this.http.get(`${this.API_URI}/pedidos/`);
+    
+  }
+
+  ActualizarFactura(codigo,estado){
+    console.log(codigo);
+    return this.http.post(`${this.API_URI}/pedido/actualizacion/`,{Id_Factura:codigo,Estado:estado});
+  }
+
+
 }
