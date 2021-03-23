@@ -79,6 +79,10 @@ class Consultas{
         return 'SELECT * FROM Factura F WHERE F.id_factura = {0}'.format(Id_Factura);
     }
 
+    ObtenerPedidos(){
+        return 'SELECT * FROM factura';
+    }
+
     VerificarUsuario(Correo, Password){
         return 'SELECT * FROM Persona p WHERE p.correo = \'{0}\' AND p.contraseña = \'{1}\' AND p.tipo_persona = 2'.format(Correo, Password);
     }
