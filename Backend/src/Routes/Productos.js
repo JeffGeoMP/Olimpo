@@ -160,5 +160,16 @@ app.delete('/producto/eliminar', async(req, res)=>{
     }
 });
 
+/**
+ * @description Ruta para obtener todos los pedidos extistentes en la BD
+ */
+app.get('/pedidos', async(req,res)=>{
+	try {
+		const Metadata = await db.query(Consulta.ObtenerPedidos());
+		res.status(200).json(Metadata.rows);
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
 
 module.exports = app;
