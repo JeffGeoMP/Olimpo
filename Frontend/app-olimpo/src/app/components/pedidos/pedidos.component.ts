@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FacturaService } from 'src/app/servicios/factura.service';
-import { resourceLimits } from 'worker_threads';
+
 
 @Component({
   selector: 'app-pedidos',
@@ -52,6 +52,7 @@ export class PedidosComponent implements OnInit {
       this.servFac.ObtenerFacturas().subscribe(
         result=>{
             this.ListaPedidos=result;
+            console.log(this.ListaPedidos)
         },error=>{
           console.log(error);
         }
@@ -59,6 +60,19 @@ export class PedidosComponent implements OnInit {
 
   }
 
+  miEstado(id):string{
+    console.log(id);
+    switch (id){
+      case 1:
+        return "En Cola";
+      case 2:
+        return "En Preparación";
+      case 3:
+        return "Listo";
+      default:
+        return "otro";  
+    }
+}
 
 
 }

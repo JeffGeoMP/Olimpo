@@ -31,7 +31,8 @@ export class FacturaService {
   }
 
   ActualizarFactura(codigo,estado){
-    return this.http.put(`${this.API_URI}/pedido/actualizacion/`,{codigo:codigo,estado:estado});
+    console.log(codigo);
+    return this.http.post(`${this.API_URI}/pedido/actualizacion/`,{Id_Factura:codigo,Estado:estado});
   }
 
 
