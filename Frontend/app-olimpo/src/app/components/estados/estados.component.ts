@@ -40,9 +40,7 @@ export class EstadosComponent implements OnInit {
         case 2:
           return "En Preparación";
         case 3:
-          return "Enviado";
-        case 4:
-          return "Entregado";
+          return "Listo";
         default:
           return "otro";  
       }

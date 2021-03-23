@@ -21,7 +21,7 @@ export class PedidosComponent implements OnInit {
 
 
   
-  Terminado(id){
+  EnProceso(id){
     this.servFac.ActualizarFactura(id,2).subscribe(
       result=>{
         console.log(result);
@@ -33,7 +33,7 @@ export class PedidosComponent implements OnInit {
   }
 
   
-  Enviado(id){
+  Listo(id){
     this.servFac.ActualizarFactura(id,3).subscribe(
       result=>{
         console.log(result);
@@ -45,17 +45,7 @@ export class PedidosComponent implements OnInit {
   }
 
 
-  Entregado(id){
-    this.servFac.ActualizarFactura(id,4).subscribe(
-      result=>{
-        console.log(result);
-        this.rout.navigate(['/pedidoestado']);
-      },error=>{
-        console.log(error);
-      }
-    );
-  }
-
+ 
   
   
   ObtenerFacturas(){

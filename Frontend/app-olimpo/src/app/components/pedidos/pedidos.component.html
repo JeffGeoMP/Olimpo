@@ -4,14 +4,11 @@
           <div class="card-header d-flex text-white bg-dark justify-content-between ">
              Pedido No. {{pedido.id_pedido}}
           </div>
-          <button class="btn btn-success" (click)="Terminado(pedido.id_pedido)">
-            Terminado
+          <button class="btn btn-success" (click)="EnProceso(pedido.id_pedido)">
+            En Proceso
          </button>
-         <button class="btn btn-primary" (click)="Enviado(pedido.id_pedido)">
-            Enviado
-         </button>
-         <button class="btn btn-danger" (click)="Entregado(pedido.id_pedido)">
-            Entregado
+         <button class="btn btn-warning" (click)="Listo(pedido.id_pedido)">
+            Listo
          </button>
         </div>
         <br>
