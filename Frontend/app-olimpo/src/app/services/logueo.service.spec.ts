@@ -5,12 +5,14 @@ import { LogueoService } from './logueo.service';
 describe('LogueoService', () => {
   let service: LogueoService;
 
-  beforeEach(() => {
+  beforeEach(async() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(LogueoService);
   });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('Accede',async () => {
+    expect(service.Validar('as','as'));
   });
+
+  
+ 
 });
