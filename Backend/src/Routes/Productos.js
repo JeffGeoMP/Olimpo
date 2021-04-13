@@ -172,4 +172,43 @@ app.get('/pedidos', async(req,res)=>{
 	}
 });
 
+
+//SISTEMA DE VALORACION Y ESTRELLAS 
+
+//Retorna un listado de los productos con su punteo promedio http://localhost:3000/producto/valoracion
+app.get("/producto/valoracion", async (req, res) => {
+	try {
+		const Metadata = await db.query(
+			Consulta.ValoracionPlatillo()
+		);
+
+		if (Metadata.rowCount > 0) {
+			res.status(200).json(Metadata.rows);
+		} else {
+			res.status(200).json();
+		}
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+// Obtener nombre de platillo en base a su id  http://localhost:3000/producto/valoracion/:idPlatillo
+app.get("/producto/valoracion/:idPlatillo", async (req, res) => {
+	try {
+		const Metadata = await db.query(
+			Consulta.getPlatillo(req.params.idPlatillo)
+		);
+
+		if (Metadata.rowCount > 0) {
+			res.status(200).json(Metadata.rows[0]);
+		} else {
+			res.status(200).json();
+		}
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+
+
+
 module.exports = app;

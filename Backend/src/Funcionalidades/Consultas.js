@@ -93,6 +93,13 @@ class Consultas{
                 'where M.id_Menu = P.id_Menu ' +
                 'and lower(M.menu) = \'del dia\' ';
     }
+
+    ValoracionPlatillo(){
+        return 'select Round(AVG(punteo)) Estrellas, fkid_platillo idPlato from valoracion group by fkid_platillo;';    
+    } 
+    getPlatillo(idPlatillo){
+        return 'select Nombre from platillo  WHERE id_Platillo = \'{0}\';'.format(idPlatillo);
+    } 
 }
 
 module.exports = {Consultas}
