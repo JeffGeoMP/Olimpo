@@ -11,6 +11,7 @@ export class EstadosComponent implements OnInit {
   constructor(private  servFac:FacturaService) { }
 
   codigo:string=""
+  Enable_Table : boolean = false;
 
   ngOnInit(): void {
   }
@@ -19,8 +20,9 @@ export class EstadosComponent implements OnInit {
   msgError="";
   Buscar(id:string){
      // console.log("el codigo es: ",id);
-      this.servFac.ObtenerFactura(id).subscribe(
+     this.servFac.ObtenerFactura(id).subscribe(
         result=>{
+            this.Enable_Table = true;
             this.msgError=""
             this.devuelto=result;
             console.log(this.devuelto);
