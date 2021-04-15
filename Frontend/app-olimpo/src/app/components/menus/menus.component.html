@@ -9,6 +9,7 @@
             <img class="card-img-top" src="assets/menus/{{producto.imagen}}" >
             <div class="card-body">
               <h5 class="card-title">{{producto.nombre | uppercase}}</h5>
+              <img src="{{obtenerEstrellas(producto.id_platillo)}}" height="20px" whidth="40px">
               <p class="card-text">{{producto.descripcion}}</p>
               <p class="card-text"><small class="text-muted">Precio: Q{{producto.precio}} </small></p>
               <button (click)="agregarCarrito(producto)" type="button" class="btn btn-outline-primary btn-block">
@@ -36,6 +37,7 @@
             <img class="card-img-top" src="assets/menus/{{producto.imagen}}" >
             <div class="card-body">
               <h5 class="card-title">{{producto.nombre | uppercase}}</h5>
+              <img src="{{obtenerEstrellas(producto.id_platillo)}}" height="20px" whidth="40px">
               <p class="card-text">{{producto.descripcion}}</p>
               <p class="card-text"><small class="text-muted">Precio: Q{{producto.precio}} </small></p>
               <button (click)="agregarCarrito(producto)" type="button" class="btn btn-outline-primary btn-block">
@@ -63,6 +65,7 @@
             <img class="card-img-top" src="assets/menus/{{producto.imagen}}" >
             <div class="card-body">
               <h5 class="card-title">{{producto.nombre | uppercase}}</h5>
+              <img src="{{obtenerEstrellas(producto.id_platillo)}}" height="20px" whidth="40px">
               <p class="card-text">{{producto.descripcion}}</p>
               <p class="card-text"><small class="text-muted">Precio: Q{{producto.precio}} </small></p>
               <button (click)="agregarCarrito(producto)" type="button" class="btn btn-outline-primary btn-block">
@@ -90,6 +93,7 @@
             <img class="card-img-top" src="assets/menus/{{producto.imagen}}" >
             <div class="card-body">
               <h5 class="card-title">{{producto.nombre | uppercase}}</h5>
+              <img src="{{obtenerEstrellas(producto.id_platillo)}}" height="20px" whidth="40px">
               <p class="card-text">{{producto.descripcion}}</p>
               <p class="card-text"><small class="text-muted">Precio: Q{{producto.precio}} </small></p>
               <button (click)="agregarCarrito(producto)" type="button" class="btn btn-outline-primary btn-block">

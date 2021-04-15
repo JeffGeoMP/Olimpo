@@ -39,6 +39,11 @@ export class ProductService {
         let url = 'http://localhost:3000/producto/menu/'+menu;
         return this._httpClient.get(url);
     }
+
+    productovaloracion(){
+        let url = 'http://localhost:3000/producto/valoracion';
+        return this._httpClient.get(url);
+    }
 }
 
 export interface Producto{
