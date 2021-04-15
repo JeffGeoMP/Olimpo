@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BusquedaService } from 'src/app/servicios/busqueda.service';
 import { ProductService, Producto } from "../../servicios/productos.service";
 import {Router} from '@angular/router';
-import { Task } from 'src/app/models/Task';
+import { Task, Valorar } from 'src/app/models/Task';
 import { TaskService } from 'src/app/services/task.service';
 @Component({
   selector: 'app-menus',
@@ -16,12 +16,20 @@ export class MenusComponent implements OnInit {
   productosalmuerzo : Producto[] = [];
   productosinfantil : Producto[] = [];
   productosrefaccion : Producto[] = [];
+  estrellas: Valorar[]=[];
+  estrellasDes: Valorar[]=[]
 
   constructor( private _productoService: ProductService, private servBusq:BusquedaService,
     private router: Router,
     public taskService: TaskService ) {  }
 
   ngOnInit(): void {
+
+    this._productoService.productovaloracion().subscribe((res:Valorar[])=>{
+      this.estrellas=res;
+      console.log(res);
+    })
+
     //desayunos
     this._productoService.productoxMenu('desayuno').subscribe((res:Producto[])=>{
       this.productosdesayuno = res;
@@ -47,6 +55,15 @@ export class MenusComponent implements OnInit {
       this.productos = res;
       console.log(this.productos);
     })*/
+
+  }
+
+  obtenerEstrellas(id){
+    for(let star of this.estrellas){
+      if(id == star.idplato){
+        return "assets/estrella"+star.estrellas+".jpg";
+      }
+    }
   }
 
   agregarCarrito(index: Producto){

@@ -42,6 +42,11 @@ export interface Persona{
     
 }
 
+export interface Valorar{
+    idplato:Number;
+    estrellas:String;
+}
+
 
 
 

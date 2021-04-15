@@ -37,7 +37,7 @@ export class TaskService {
       this.tasks.push(task);
       let tasks:Task[]=[];
       if(localStorage.getItem('tasks')===null){
-      this.tasks.push(task);
+      //this.tasks.push(task);
       localStorage.setItem("tasks",JSON.stringify(this.tasks));
       }else{
         let Tas=localStorage.getItem('tasks');
