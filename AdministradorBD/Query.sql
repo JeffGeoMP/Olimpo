@@ -240,3 +240,27 @@ BEGIN
 	
 END;
 $$ LANGUAGE plpgsql;
+
+/**
+*@description Funcion para Añadir una Valoracion a un platillo
+*
+*/ 
+CREATE OR REPLACE FUNCTION NuevaValoracion(xidplatillo integer, 
+										  xpunteo integer, 
+										  xdescripcion varchar(100))
+										  
+RETURNS INTEGER AS $$
+DECLARE
+	Status Valoracion.id_valoracion%Type;						   
+BEGIN 
+	INSERT INTO Valoracion(punteo, descripcion, fkid_platillo)
+	VALUES (xpunteo, xdescripcion, xidplatillo)
+	RETURNING id_valoracion INTO Status;	
+	
+	IF Status <> 0 THEN
+  	RETURN(1);
+	else
+  	Return(0);
+	END if;
+END;
+$$ LANGUAGE plpgsql;										  

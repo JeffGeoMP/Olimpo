@@ -94,6 +94,10 @@ class Consultas{
                 'and lower(M.menu) = \'del dia\' ';
     }
 
+    AñadirValoracion(Id_Platillo, Punteo, Descripcion){
+        return 'SELECT NuevaValoracion({0}, {1}, \'{2}\')'.format(Id_Platillo, Punteo, Descripcion);
+    }
+
     ValoracionPlatillo(){
         return 'select Round(AVG(punteo)) Estrellas, fkid_platillo idPlato from valoracion group by fkid_platillo;';    
     } 
