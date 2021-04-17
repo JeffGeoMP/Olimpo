@@ -34,6 +34,23 @@ app.get("/producto/menu_del_dia", async (req, res) => {
 });
 
 /**
+ * @description Ruta para obtener el menú del día
+ */
+ app.post("/producto/actualizar_menu_del_dia", async (req, res) => {
+	try {
+		const Metadata = await db.query(Consulta.actualizarMenuDelDia(req.body.id));
+
+		if (Metadata.rowCount > 0) {
+			res.status(200).json(Metadata.rows);
+		} else {
+			res.status(200).json();
+		}
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+/**
  * @description Ruta para devolver los platillos dado un Tipo de Menu (Desayuno, Almuerzo, Cena, etc)
  */
 app.get("/producto/menu/:Tipo_Menu", async (req, res) => {
