@@ -189,6 +189,41 @@ app.get('/pedidos', async(req,res)=>{
 	}
 });
 
+/**
+ * @description Obtener Detalle de una Factura
+ */
+app.get('/pedidos/detalle/:Id_Factura', async (req, res) =>{
+	try {
+		const Metadata = await db.query(Consulta.ObtenerDetalleFactura(req.params.Id_Factura));
+
+		if(Metadata.rowCount > 0){
+			res.status(200).json(Metadata.rows);
+		}else{
+			res.status(400).json();
+		}
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+/**
+ * @description Ingresa una nueva valorizacion de un platillo
+ */
+app.post('/pedidos/valoracion', async(req, res)=>{
+	try {
+		const Metadata = await db.query(Consulta.AñadirValoracion(req.body.Platillos));
+		
+		if(Metadata.rowCount > 0){
+			res.status(200).json();
+		}else{
+			res.status(400).json({Message: "No Se Añadio la Valoracion"});
+		}
+		res.status(200).json();
+	} catch (error) {
+		res.status(500).send(error);
+		console.log(error)
+	}
+});
 
 //SISTEMA DE VALORACION Y ESTRELLAS 
 

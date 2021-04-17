@@ -78,6 +78,11 @@ class Consultas{
     ObtenerInformacionFactura(Id_Factura){
         return 'SELECT * FROM Factura F WHERE F.id_factura = {0}'.format(Id_Factura);
     }
+    ObtenerDetalleFactura(Id_Factura){
+        return 'SELECT p.id_platillo, p.nombre FROM detalle_platillo_pedido dpp ' +
+                'INNER JOIN platillo p ON dpp.fkid_platillo = p.id_platillo ' +
+                'WHERE fkid_factura = {0}'.format(Id_Factura);
+    }
 
     ObtenerPedidos(){
         return 'SELECT * FROM factura';
@@ -96,6 +101,11 @@ class Consultas{
 
     actualizarMenuDelDia(id){
         return `SELECT ActualizarMenuDia('${id}');`;
+    }
+
+    AñadirValoracion(Platillos){
+        let ArraysPostgresql = Funcion.ConversorArray_ValoracionPostresql(Platillos);
+        return 'SELECT InsertarValoracion(\'{0}\', \'{1}\', \'{2}\')'.format(ArraysPostgresql[0], ArraysPostgresql[1], ArraysPostgresql[2]);
     }
 
     ValoracionPlatillo(){

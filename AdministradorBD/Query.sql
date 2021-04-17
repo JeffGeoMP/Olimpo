@@ -258,3 +258,35 @@ BEGIN
 	
 END;
 $$ LANGUAGE plpgsql;
+
+/**
+*
+*@ description Funciones de la base de datos para el 5to Sprint
+*
+*/
+
+/**
+*@description Funcion para Inserta Valoraciones de un pedido
+*
+*/ 
+CREATE OR REPLACE FUNCTION InsertarValoracion(xid_platillo integer[],
+											 xcalificacion integer[],
+											 xcomentario text[])
+											 
+RETURNS INTEGER
+AS $$
+DECLARE
+	Contador Integer :=1;
+	Current_Id Integer;
+	
+BEGIN
+	FOREACH Current_Id IN ARRAY xid_platillo
+	LOOP
+		INSERT INTO Valoracion(punteo, descripcion, fkid_platillo)
+		VALUES (xcalificacion[Contador], xcomentario[Contador], Current_Id);
+		Contador := Contador + 1;
+	END LOOP;
+	RETURN(1);
+END;
+$$ LANGUAGE plpgsql;
+	
