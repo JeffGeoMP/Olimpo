@@ -1,22 +1,21 @@
-<div class="container">
-           <div class="row"> 
-    <form  >
-        <div class="form-control" style="background-color: black;">
-            <input type="text" value="" [(ngModel)]="codigo" [ngModelOptions]="{standalone: true}">
-            
-        </div>
-        <div class="form-control">
-            <button class="btn btn-warning" (click)="Buscar(codigo)">
-                Buscar
-        </button>
-        </div>        
-    </form>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-success" role="alert" *ngIf="AlertSucessfull == true">
+        {{MessageAlert}}
+      </div>
+      
+      <div class="alert alert-danger" role="alert" *ngIf="AlertFailed == true">
+        {{MessageAlert}}
+      </div>
     </div>
-
+  </div>
 </div>
-<table class="table" *ngIf="Enable_Table">
-    <thead class="thead-dark" style="background-color: black; color: white;">
-      <tr>
+
+<div class="table-responsive">
+  <table class="table" *ngIf="Enable_Table">
+    <thead class="thead-dark" style="background-color: black; color: white">
+      <tr class = "align-middle">
         <th scope="col">Factura</th>
         <th scope="col">Fecha</th>
         <th scope="col">Total</th>
@@ -26,33 +25,158 @@
     </thead>
     <tbody>
       <tr>
-        <td>{{devuelto[0].id_factura}}</td>
-        <td>{{devuelto[0].fecha}}</td>
-        <td>Q.{{devuelto[0].total}}</td>
-        <td>{{Cambiar(devuelto[0].estado_pedido)}}</td>
-        <td><button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Califica Tu Servicio
-        </button></td>
+        <td>{{ devuelto[0].id_factura }}</td>
+        <td>{{ devuelto[0].fecha }}</td>
+        <td>Q.{{ devuelto[0].total }}</td>
+        <td>{{ Cambiar(devuelto[0].estado_pedido) }}</td>
+        <td>
+          <button
+            (click)="ObtenerDetalle()"
+            type="button"
+            class="btn btn-outline-success btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Califica Tu Servicio
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
-    <h2 style="color: red;">{{msgError}}</h2>
+  <h2 style="color: red">{{ msgError }}</h2>
+</div>
+
+<div class="container col-md-4">
+  <div class="row">
+    <form>
+      
+      <div class="form-group ">
+        <input type="text" 
+        class="form-control" 
+        aria-label="Sizing example input" 
+        aria-describedby="inputGroup-sizing-sm"
+        placeholder="Ingrese el codigo de su pedido"
+        [(ngModel)]="codigo"
+        [ngModelOptions]="{standalone: true}">    
+      </div>
+      <div class="d-grid gap-3 pt-3">
+        <button class="btn btn-warning" (click)="Buscar(codigo)">Buscar</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 
-    <!-- Modal para Calificar Pedido -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+
+<!-- Modal para Calificar Pedido -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Calificacion Para Mejorar</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="exampleModalLabel">
+          Califica tu Servicio
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
-        <p>Hola Alejo Como te va</p>
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Platillo</th>
+                <th scope="col">Puntuacion</th>
+                <th scope="col">Comentario</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let Current of Detalle_Factura"
+                class="list-group-item-action"
+              >
+                <td>{{ Current.Nombre }}</td>
+                <td>
+                  <div class="star-rating" *ngIf="Current.Calificado == false">
+                    <a
+                      style="text-decoration: none"
+                      (click)="Calificacion(1, Current.Index)"
+                      class="h2"
+                      >&#9733;</a
+                    >
+                    <a
+                      style="text-decoration: none"
+                      (click)="Calificacion(2, Current.Index)"
+                      class="h2"
+                      >&#9733;</a
+                    >
+                    <a
+                      style="text-decoration: none"
+                      (click)="Calificacion(3, Current.Index)"
+                      class="h2"
+                      >&#9733;</a
+                    >
+                    <a
+                      style="text-decoration: none"
+                      (click)="Calificacion(4, Current.Index)"
+                      class="h2"
+                      >&#9733;</a
+                    >
+                    <a
+                      style="text-decoration: none"
+                      (click)="Calificacion(5, Current.Index)"
+                      class="h2"
+                      >&#9733;</a
+                    >
+                  </div>
+
+                  <div
+                    class="star-rating form-check-inline"
+                    *ngIf="Current.Calificado == true"
+                  >
+                    <a
+                      style="text-decoration: none"
+                      class="h2 text-warning"
+                      *ngFor="let item of Current.Estrellas"
+                    >
+                      &#9733;
+                    </a>
+                  </div>
+                </td>
+                <td>
+                    <input type="text" 
+                    class="form-control" 
+                    aria-label="Sizing example input" 
+                    aria-describedby="inputGroup-sizing-sm"
+                    placeholder="Ingrese un comentario"
+                    [(ngModel)]="Current.Comentario">               
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Valorar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button
+          (click)="ValorarPlatillo()"
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+        >
+          Enviar Calificacion
+        </button>
       </div>
     </div>
   </div>
