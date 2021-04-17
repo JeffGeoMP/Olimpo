@@ -1,0 +1,22 @@
+<div class="container mt-4">
+    <div class="card bg-dark text-wite">
+      <div class="page-header">
+        <h1><p align="center" style="color:aliceblue">Opciones de Menu del Dia</p></h1>
+      </div>
+      <div class="row">
+          <div class="col-4 mb-3 md-2" *ngFor="let producto of productosalmuerzo" >
+            <div class="card">
+              <img class="card-img-top" src="assets/menus/{{producto.imagen}}" >
+              <div class="card-body">
+                <h5 class="card-title">{{producto.nombre | uppercase}}</h5>
+                <p class="card-text">{{producto.descripcion}}</p>
+                <p class="card-text"><small class="text-muted">Precio: Q{{producto.precio}} </small></p>
+                <button (click)="update(producto.id_platillo)" type="button" class="btn btn-outline-primary btn-block">
+                  Seleccionar
+                </button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>

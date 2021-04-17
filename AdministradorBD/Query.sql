@@ -173,6 +173,24 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+------Actualizacion de menu del dia
+CREATE OR REPLACE FUNCTION ActualizarMenuDia(xid_platillo integer) 
+RETURNS integer AS 
+$$
+BEGIN
+	
+	UPDATE Platillo set Id_Menu=2
+    where id_menu=4;
+	
+	UPDATE Platillo set Id_Menu=4
+    where id_platillo=xid_platillo;
+	
+	RETURN 1;
+	
+END;
+$$ LANGUAGE plpgsql;
+
+
 ---------CREAR UN EMPLEADO
 CREATE OR REPLACE FUNCTION NuevoEmpleado(xnombre varchar(100), 
 										xapellido varchar(100),

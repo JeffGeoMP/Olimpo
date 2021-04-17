@@ -94,6 +94,10 @@ class Consultas{
                 'and lower(M.menu) = \'del dia\' ';
     }
 
+    actualizarMenuDelDia(id){
+        return `SELECT ActualizarMenuDia('${id}');`;
+    }
+
     ValoracionPlatillo(){
         return 'select Round(AVG(punteo)) Estrellas, fkid_platillo idPlato from valoracion group by fkid_platillo;';    
     } 
