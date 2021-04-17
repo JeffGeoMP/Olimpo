@@ -26,6 +26,12 @@ export class ProductService {
         return this._httpClient.get(url);
     }
 
+    updateMenudeldia(id){
+        //let url = 'http://192.168.0.9:3000/producto/menu_del_dia';
+        let url = 'http://localhost:3000/producto/actualizar_menu_del_dia';
+        return this._httpClient.post(url, id);
+    }
+
     buscarProducto( termino:string ){
         termino = termino.toLocaleLowerCase();
         //let url = 'http://192.168.0.9:3000/producto/busqueda/' + termino;
