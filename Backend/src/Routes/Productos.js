@@ -194,7 +194,7 @@ app.get('/pedidos/detalle/:Id_Factura', async (req, res) =>{
  */
 app.post('/pedidos/valoracion', async(req, res)=>{
 	try {
-		const Metadata = await db.query(Consulta.AñadirValoracion(req.body));
+		const Metadata = await db.query(Consulta.AñadirValoracion(req.body.Platillos));
 		
 		if(Metadata.rowCount > 0){
 			res.status(200).json();
