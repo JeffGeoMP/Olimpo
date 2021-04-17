@@ -1,7 +1,6 @@
 const format = require('simple.string.format');
 const { Funciones }= require('../Funcionalidades/Funciones');
 
-
 const Funcion = new Funciones();
 
 class Consultas{
