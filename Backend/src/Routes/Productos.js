@@ -34,6 +34,23 @@ app.get("/producto/menu_del_dia", async (req, res) => {
 });
 
 /**
+ * @description Ruta para obtener el menú del día
+ */
+ app.post("/producto/actualizar_menu_del_dia", async (req, res) => {
+	try {
+		const Metadata = await db.query(Consulta.actualizarMenuDelDia(req.body.id));
+
+		if (Metadata.rowCount > 0) {
+			res.status(200).json(Metadata.rows);
+		} else {
+			res.status(200).json();
+		}
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+/**
  * @description Ruta para devolver los platillos dado un Tipo de Menu (Desayuno, Almuerzo, Cena, etc)
  */
 app.get("/producto/menu/:Tipo_Menu", async (req, res) => {
@@ -171,5 +188,79 @@ app.get('/pedidos', async(req,res)=>{
 		res.status(500).send(error);
 	}
 });
+
+/**
+ * @description Obtener Detalle de una Factura
+ */
+app.get('/pedidos/detalle/:Id_Factura', async (req, res) =>{
+	try {
+		const Metadata = await db.query(Consulta.ObtenerDetalleFactura(req.params.Id_Factura));
+
+		if(Metadata.rowCount > 0){
+			res.status(200).json(Metadata.rows);
+		}else{
+			res.status(400).json();
+		}
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+/**
+ * @description Ingresa una nueva valorizacion de un platillo
+ */
+app.post('/pedidos/valoracion', async(req, res)=>{
+	try {
+		const Metadata = await db.query(Consulta.AñadirValoracion(req.body.Platillos));
+		
+		if(Metadata.rowCount > 0){
+			res.status(200).json();
+		}else{
+			res.status(400).json({Message: "No Se Añadio la Valoracion"});
+		}
+		res.status(200).json();
+	} catch (error) {
+		res.status(500).send(error);
+		console.log(error)
+	}
+});
+
+//SISTEMA DE VALORACION Y ESTRELLAS 
+
+//Retorna un listado de los productos con su punteo promedio http://localhost:3000/producto/valoracion
+app.get("/producto/valoracion", async (req, res) => {
+	try {
+		const Metadata = await db.query(
+			Consulta.ValoracionPlatillo()
+		);
+
+		if (Metadata.rowCount > 0) {
+			res.status(200).json(Metadata.rows);
+		} else {
+			res.status(200).json();
+		}
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+// Obtener nombre de platillo en base a su id  http://localhost:3000/producto/valoracion/:idPlatillo
+app.get("/producto/valoracion/:idPlatillo", async (req, res) => {
+	try {
+		const Metadata = await db.query(
+			Consulta.getPlatillo(req.params.idPlatillo)
+		);
+
+		if (Metadata.rowCount > 0) {
+			res.status(200).json(Metadata.rows[0]);
+		} else {
+			res.status(200).json();
+		}
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+
+
 
 module.exports = app;

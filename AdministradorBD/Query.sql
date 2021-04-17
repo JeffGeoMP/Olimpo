@@ -173,6 +173,24 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+------Actualizacion de menu del dia
+CREATE OR REPLACE FUNCTION ActualizarMenuDia(xid_platillo integer) 
+RETURNS integer AS 
+$$
+BEGIN
+	
+	UPDATE Platillo set Id_Menu=2
+    where id_menu=4;
+	
+	UPDATE Platillo set Id_Menu=4
+    where id_platillo=xid_platillo;
+	
+	RETURN 1;
+	
+END;
+$$ LANGUAGE plpgsql;
+
+
 ---------CREAR UN EMPLEADO
 CREATE OR REPLACE FUNCTION NuevoEmpleado(xnombre varchar(100), 
 										xapellido varchar(100),
@@ -240,3 +258,35 @@ BEGIN
 	
 END;
 $$ LANGUAGE plpgsql;
+
+/**
+*
+*@ description Funciones de la base de datos para el 5to Sprint
+*
+*/
+
+/**
+*@description Funcion para Inserta Valoraciones de un pedido
+*
+*/ 
+CREATE OR REPLACE FUNCTION InsertarValoracion(xid_platillo integer[],
+											 xcalificacion integer[],
+											 xcomentario text[])
+											 
+RETURNS INTEGER
+AS $$
+DECLARE
+	Contador Integer :=1;
+	Current_Id Integer;
+	
+BEGIN
+	FOREACH Current_Id IN ARRAY xid_platillo
+	LOOP
+		INSERT INTO Valoracion(punteo, descripcion, fkid_platillo)
+		VALUES (xcalificacion[Contador], xcomentario[Contador], Current_Id);
+		Contador := Contador + 1;
+	END LOOP;
+	RETURN(1);
+END;
+$$ LANGUAGE plpgsql;
+	

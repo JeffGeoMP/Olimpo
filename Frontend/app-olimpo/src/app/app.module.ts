@@ -31,6 +31,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { PedidoestadoComponent } from './components/pedidoestado/pedidoestado.component';
 import { VistaComponent } from './components/empleado/vista/vista.component';
+import { UpdateMenuComponent } from './components/menu-today/update-menu/update-menu.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { VistaComponent } from './components/empleado/vista/vista.component';
     LoginComponent,
     PedidosComponent,
     PedidoestadoComponent,
-    VistaComponent
+    VistaComponent,
+    UpdateMenuComponent
   ],
   imports: [
     BrowserModule,

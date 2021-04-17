@@ -68,7 +68,6 @@ Primary key(id_Factura)
 );
 
 
-
 create table Detalle_Platillo_Pedido(
 id_DPlatillo serial,
 Cantidad int not null,
@@ -78,6 +77,15 @@ FKid_Platillo int not null,
 constraint FK_Platillo foreign key(FKid_Platillo) references Platillo(id_Platillo) on delete cascade,
 constraint FK_FACTURA foreign key(FKid_Factura) references Factura(id_Factura) on delete cascade,
 Primary key(id_DPlatillo)
+);
+
+create table Valoracion(
+id_valoracion serial,
+punteo int not null,
+Descripcion varchar(200),
+FKid_Platillo int not null,
+constraint FK_valPlat foreign key(FKid_Platillo) references Platillo(id_Platillo) on delete cascade,
+Primary key(id_valoracion)
 );
 
 --drop table Det_Pro_Pla;

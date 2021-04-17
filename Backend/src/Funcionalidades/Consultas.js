@@ -1,7 +1,6 @@
 const format = require('simple.string.format');
 const { Funciones }= require('../Funcionalidades/Funciones');
 
-
 const Funcion = new Funciones();
 
 class Consultas{
@@ -78,6 +77,11 @@ class Consultas{
     ObtenerInformacionFactura(Id_Factura){
         return 'SELECT * FROM Factura F WHERE F.id_factura = {0}'.format(Id_Factura);
     }
+    ObtenerDetalleFactura(Id_Factura){
+        return 'SELECT p.id_platillo, p.nombre FROM detalle_platillo_pedido dpp ' +
+                'INNER JOIN platillo p ON dpp.fkid_platillo = p.id_platillo ' +
+                'WHERE fkid_factura = {0}'.format(Id_Factura);
+    }
 
     ObtenerPedidos(){
         return 'SELECT * FROM factura';
@@ -93,6 +97,22 @@ class Consultas{
                 'where M.id_Menu = P.id_Menu ' +
                 'and lower(M.menu) = \'del dia\' ';
     }
+
+    actualizarMenuDelDia(id){
+        return `SELECT ActualizarMenuDia('${id}');`;
+    }
+
+    AñadirValoracion(Platillos){
+        let ArraysPostgresql = Funcion.ConversorArray_ValoracionPostresql(Platillos);
+        return 'SELECT InsertarValoracion(\'{0}\', \'{1}\', \'{2}\')'.format(ArraysPostgresql[0], ArraysPostgresql[1], ArraysPostgresql[2]);
+    }
+
+    ValoracionPlatillo(){
+        return 'select Round(AVG(punteo)) Estrellas, fkid_platillo idPlato from valoracion group by fkid_platillo;';    
+    } 
+    getPlatillo(idPlatillo){
+        return 'select Nombre from platillo  WHERE id_Platillo = \'{0}\';'.format(idPlatillo);
+    } 
 }
 
 module.exports = {Consultas}

@@ -14,6 +14,7 @@ import {LoginComponent} from './components/login/login.component'
 import { PedidoestadoComponent } from './components/pedidoestado/pedidoestado.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { VistaComponent } from './components/empleado/vista/vista.component';
+import { UpdateMenuComponent } from './components/menu-today/update-menu/update-menu.component';
 
 
 
@@ -22,6 +23,7 @@ const APP_ROUTES: Routes = [
     { path:'Task-list',component:TaskListComponent},
     { path:'Menus', component: MenusComponent},
     { path:'MenuToday', component: MenuTodayComponent},
+    { path:'UpdateMenuToday', component: UpdateMenuComponent},
     { path:'buscar/:termino', component: BuscadorComponent},
     { path:'formulario', component: FormcliComponent},
     { path:'estado', component: EstadosComponent},

@@ -30,6 +30,14 @@ export class FacturaService {
     
   }
 
+  ObtenerDetalleFactura(codigo:string){
+    return this.http.get(`${this.API_URI}/pedidos/detalle/`+codigo);
+  }
+
+  ValorarPedido(Detalle_Factura){
+    return this.http.post(`${this.API_URI}/pedidos/valoracion/`,{Platillos: Detalle_Factura});
+  }
+
   ActualizarFactura(codigo,estado){
     console.log(codigo);
     return this.http.post(`${this.API_URI}/pedido/actualizacion/`,{Id_Factura:codigo,Estado:estado});
