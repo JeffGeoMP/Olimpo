@@ -194,15 +194,17 @@ app.get('/pedidos/detalle/:Id_Factura', async (req, res) =>{
  */
 app.post('/pedidos/valoracion', async(req, res)=>{
 	try {
-		const Metadata = await db.query(Consulta.AñadirValoracion(req.body.Id_Platillo, req.body.Punteo, req.body.Descripcion));
-
+		const Metadata = await db.query(Consulta.AñadirValoracion(req.body));
+		
 		if(Metadata.rowCount > 0){
 			res.status(200).json();
 		}else{
 			res.status(400).json({Message: "No Se Añadio la Valoracion"});
 		}
+		res.status(200).json();
 	} catch (error) {
 		res.status(500).send(error);
+		console.log(error)
 	}
 });
 

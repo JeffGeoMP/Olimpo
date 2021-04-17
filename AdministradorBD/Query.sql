@@ -242,25 +242,33 @@ END;
 $$ LANGUAGE plpgsql;
 
 /**
-*@description Funcion para Añadir una Valoracion a un platillo
+*
+*@ description Funciones de la base de datos para el 5to Sprint
+*
+*/
+
+/**
+*@description Funcion para Inserta Valoraciones de un pedido
 *
 */ 
-CREATE OR REPLACE FUNCTION NuevaValoracion(xidplatillo integer, 
-										  xpunteo integer, 
-										  xdescripcion varchar(100))
-										  
-RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION InsertarValoracion(xid_platillo integer[],
+											 xcalificacion integer[],
+											 xcomentario text[])
+											 
+RETURNS INTEGER
+AS $$
 DECLARE
-	Status Valoracion.id_valoracion%Type;						   
-BEGIN 
-	INSERT INTO Valoracion(punteo, descripcion, fkid_platillo)
-	VALUES (xpunteo, xdescripcion, xidplatillo)
-	RETURNING id_valoracion INTO Status;	
+	Contador Integer :=1;
+	Current_Id Integer;
 	
-	IF Status <> 0 THEN
-  	RETURN(1);
-	else
-  	Return(0);
-	END if;
+BEGIN
+	FOREACH Current_Id IN ARRAY xid_platillo
+	LOOP
+		INSERT INTO Valoracion(punteo, descripcion, fkid_platillo)
+		VALUES (xcalificacion[Contador], xcomentario[Contador], Current_Id);
+		Contador := Contador + 1;
+	END LOOP;
+	RETURN(1);
 END;
-$$ LANGUAGE plpgsql;										  
+$$ LANGUAGE plpgsql;
+	

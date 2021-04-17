@@ -99,8 +99,9 @@ class Consultas{
                 'and lower(M.menu) = \'del dia\' ';
     }
 
-    AñadirValoracion(Id_Platillo, Punteo, Descripcion){
-        return 'SELECT NuevaValoracion({0}, {1}, \'{2}\')'.format(Id_Platillo, Punteo, Descripcion);
+    AñadirValoracion(Platillos){
+        let ArraysPostgresql = Funcion.ConversorArray_ValoracionPostresql(Platillos);
+        return 'SELECT InsertarValoracion(\'{0}\', \'{1}\', \'{2}\')'.format(ArraysPostgresql[0], ArraysPostgresql[1], ArraysPostgresql[2]);
     }
 
     ValoracionPlatillo(){

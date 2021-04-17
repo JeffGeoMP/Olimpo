@@ -57,6 +57,30 @@ class Funciones{
         return ArraysPostgresql;
     }
 
+    ConversorArray_ValoracionPostresql(Platillos){
+        let Id_Platillos = '{';
+        let Calificaciones = '{';
+        let Comentarios = '{';
+
+        for (let index = 0; index < Platillos.length; index++) {
+            const element = Platillos[index];
+
+            if(index == Platillos.length - 1){
+                Id_Platillos += element.Id_Platillo + '}';
+                Calificaciones += element.Calificacion + '}';
+                Comentarios += element.Comentario + '}';
+            }else{
+                Id_Platillos += element.Id_Platillo + ',';
+                Calificaciones += element.Calificacion + ',';
+                Comentarios += element.Comentario + ',';
+            }
+           
+        }
+        let ArraysPostgresql = [Id_Platillos, Calificaciones, Comentarios];
+
+        return ArraysPostgresql;
+    }
+
     DetalleHTML (xnombre, xapellido, xtelefono, xdireccion, xtotal, xpago, xdetalle){
         let CodigoDetalle = '';
         let IDPedido = '';
