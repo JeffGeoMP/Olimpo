@@ -30,6 +30,7 @@ import { EnviadoComponent } from './components/enviado/enviado.component';
 import { LoginComponent } from './components/login/login.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { PedidoestadoComponent } from './components/pedidoestado/pedidoestado.component';
+import { ContactoComponent } from './components/shared/contacto/contacto.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { PedidoestadoComponent } from './components/pedidoestado/pedidoestado.co
     EnviadoComponent,
     LoginComponent,
     PedidosComponent,
-    PedidoestadoComponent
+    PedidoestadoComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
