@@ -50,6 +50,11 @@ export class ProductService {
         let url = 'http://localhost:3000/producto/valoracion';
         return this._httpClient.get(url);
     }
+
+    productotop(){
+        let url = 'http://localhost:3000/producto/topplatillo';
+        return this._httpClient.get(url);
+    }
 }
 
 export interface Producto{

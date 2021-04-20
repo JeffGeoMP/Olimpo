@@ -289,4 +289,11 @@ BEGIN
 	RETURN(1);
 END;
 $$ LANGUAGE plpgsql;
+
+--top 5 platillos mas consumido por los clientes
+select p.nombre, sum(d.cantidad) as cantidad
+from platillo p, detalle_platillo_pedido d
+where p.id_platillo = d.fkid_platillo
+group by p.nombre
+order by cantidad DESC limit 5;
 	

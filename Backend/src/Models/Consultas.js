@@ -33,6 +33,7 @@ class Consultas{
                 'where M.id_Menu = P.id_Menu ' +
                 'and lower(M.menu) = \'del dia\' '
     }
+
 }
 
 module.exports = {Consultas}

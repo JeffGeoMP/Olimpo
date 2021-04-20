@@ -113,6 +113,14 @@ class Consultas{
     getPlatillo(idPlatillo){
         return 'select Nombre from platillo  WHERE id_Platillo = \'{0}\';'.format(idPlatillo);
     } 
+
+    topplatillo(){
+        return 'select p.nombre, sum(d.cantidad) cantidad '+
+        'from platillo p, detalle_platillo_pedido d '+
+        'where p.id_platillo = d.fkid_platillo '+
+        'group by p.nombre '+
+        'order by cantidad desc limit 5;';
+    }
 }
 
 module.exports = {Consultas}

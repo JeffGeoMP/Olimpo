@@ -260,6 +260,26 @@ app.get("/producto/valoracion/:idPlatillo", async (req, res) => {
 	}
 });
 
+// obtine el top 5 de platillos
+app.get("/producto/topplatillo", async(req, res) => {
+	try {
+		//console.log(Consulta.topplatillo());
+		const Metadata = await db.query(
+			Consulta.topplatillo()
+		);
+		
+		console.log(Metadata);
+
+		if (Metadata.rowCount > 0) {
+			res.status(200).json(Metadata.rows);
+		} else {
+			res.status(200).json();
+		}
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
 
 
 
