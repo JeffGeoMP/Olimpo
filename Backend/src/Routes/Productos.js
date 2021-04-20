@@ -16,6 +16,15 @@ app.get("/producto/prueba", async (req, res) => {
 	}
 });
 
+app.get('/producto/tiposMenu', async(req, res)=>{
+	try {
+		let result = await db.query(Consulta.typeMenus());
+		res.status(200).json(result.rows);
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
 /**
  * @description Ruta para obtener el menú del día
  */
@@ -131,11 +140,11 @@ app.post("/producto/nuevo", async (req, res) => {
 	try {
 		const Metadata = await db.query(
 			Consulta.NuevoPlatillo(
-				req.body.Nombre,
-				req.body.Precio,
-				req.body.Descripcion,
-				req.body.Id_Menu,
-				req.body.Imagen
+				req.body.nombre,
+				req.body.precio,
+				req.body.descripcion,
+				req.body.id_platillo,
+				req.body.imagen
 			)
 		);
 
@@ -152,11 +161,11 @@ app.put("/producto/actualizar", async (req, res) => {
 	try {
 		const Metadata = await db.query(
 			Consulta.ActualizarPlatillo(
-				req.body.Id_Platillo,
-				req.body.Nombre,
-				req.body.Precio,
-				req.body.Descripcion,
-				req.body.Imagen
+				req.body.id_platillo,
+				req.body.nombre,
+				req.body.precio,
+				req.body.descripcion,
+				req.body.imagen
 			)
 		);
 		res.status(200).json();
@@ -168,9 +177,9 @@ app.put("/producto/actualizar", async (req, res) => {
 /**
  * @description Ruta para Eliminar un Platillo Existente
  */
-app.delete('/producto/eliminar', async(req, res)=>{
+app.delete('/producto/eliminar/:id', async(req, res)=>{
     try {
-        const Metadata = await db.query(Consulta.EliminarPlatillo(req.body.Id_Platillo));
+		const Metadata = await db.query(Consulta.EliminarPlatillo(req.params.id));
         res.status(200).json();
     } catch (error) {
         res.status(500).send(error);

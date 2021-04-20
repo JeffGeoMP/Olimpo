@@ -13,8 +13,8 @@ class Consultas{
     }
 
     Platillos(){
-        return 'SELECT P.id_platillo, P.nombre, P.precio, P.descripcion, P.imagen ' +
-                'FROM platillo P'
+        return 'SELECT * ' +
+                'FROM platillo'
     }
 
     BusquedaPorMenu(Tipo_Menu, Palabra){
@@ -109,10 +109,15 @@ class Consultas{
 
     ValoracionPlatillo(){
         return 'select Round(AVG(punteo)) Estrellas, fkid_platillo idPlato from valoracion group by fkid_platillo;';    
-    } 
+    }
+
     getPlatillo(idPlatillo){
         return 'select Nombre from platillo  WHERE id_Platillo = \'{0}\';'.format(idPlatillo);
-    } 
+    }
+    
+    typeMenus(){
+        return `SELECT * FROM menu;`
+    }
 }
 
 module.exports = {Consultas}

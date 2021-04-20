@@ -15,10 +15,12 @@ import { PedidoestadoComponent } from './components/pedidoestado/pedidoestado.co
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { VistaComponent } from './components/empleado/vista/vista.component';
 import { UpdateMenuComponent } from './components/menu-today/update-menu/update-menu.component';
+import { CrearComponent } from './components/producto/crear/crear.component';
 
 
 
 const APP_ROUTES: Routes = [
+    { path:'crearProducto',component:CrearComponent},
     { path:'Login',component:LoginComponent},
     { path:'Task-list',component:TaskListComponent},
     { path:'Menus', component: MenusComponent},

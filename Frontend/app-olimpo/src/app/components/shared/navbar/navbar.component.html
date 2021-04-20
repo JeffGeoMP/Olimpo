@@ -18,6 +18,9 @@
           <li class="nav-item" routerLinkActive = 'active'>
             <a class="nav-link" routerLink="/estado" tabindex="-1" aria-disabled="false" *ngIf="usuario != null">Estado</a>
           </li>
+          <li class="nav-item" routerLinkActive = 'active'>
+            <a class="nav-link" [routerLink]="['crearProducto']" tabindex="-1" aria-disabled="false" *ngIf="usuario != null">Producto</a>
+          </li>
         </ul>
 
         <ul class="navbar-nav me-rg mb-2 mb-lg-0">

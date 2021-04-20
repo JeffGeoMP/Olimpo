@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import {map} from "rxjs/operators";
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -10,52 +11,64 @@ export class ProductService {
         "Content-Type": "application/json",
     }) ;
 
+    API_URI:string = 'http://localhost:3000';
+    //API_URI:string = 'http://192.168.0.9:3000';
     constructor( private _httpClient:HttpClient ){
         console.log("listo para usar!!!");
     }
 
+    getTiposMenus():Observable<TipoMenu[]>{
+        return this._httpClient.get<TipoMenu[]>(`${this.API_URI}/producto/tiposMenu`);
+    }
+
+    crearProducto(producto: Producto){
+        return this._httpClient.post(`${this.API_URI}/producto/nuevo`, producto);
+    }
+
+    actualizarProducto(producto: Producto){
+        return this._httpClient.put(`${this.API_URI}/producto/actualizar`, producto);
+    }
+
+    eliminarProducto(producto: number){
+        return this._httpClient.delete(`${this.API_URI}/producto/eliminar/${producto}`);
+    }
+
     getProductos(){
-        //let url = 'http://192.168.0.9:3000/producto/platillos';
-        let url = 'http://localhost:3000/producto/platillos';
-        return this._httpClient.get(url);
+        return this._httpClient.get(`${this.API_URI}/producto/platillos`);
     }
 
     getMenudeldia(){
-        //let url = 'http://192.168.0.9:3000/producto/menu_del_dia';
-        let url = 'http://localhost:3000/producto/menu_del_dia';
-        return this._httpClient.get(url);
+        return this._httpClient.get(`${this.API_URI}/producto/menu_del_dia`);
     }
 
     updateMenudeldia(id){
-        //let url = 'http://192.168.0.9:3000/producto/menu_del_dia';
-        let url = 'http://localhost:3000/producto/actualizar_menu_del_dia';
-        return this._httpClient.post(url, id);
+        return this._httpClient.post(`${this.API_URI}/producto/actualizar_menu_del_dia`, id);
     }
 
     buscarProducto( termino:string ){
         termino = termino.toLocaleLowerCase();
-        //let url = 'http://192.168.0.9:3000/producto/busqueda/' + termino;
-        let url = 'http://localhost:3000/producto/busqueda/' + termino;
-        return this._httpClient.get(url);
+        return this._httpClient.get(`${this.API_URI}/producto/busqueda/${termino}`);
     }
 
     productoxMenu(menu:string){
         menu = menu.toLocaleLowerCase();
-        //let url = 'http://192.168.0.9:3000/producto/menu/'+menu;
-        let url = 'http://localhost:3000/producto/menu/'+menu;
-        return this._httpClient.get(url);
+        return this._httpClient.get(`${this.API_URI}/producto/menu/${menu}`);
     }
 
     productovaloracion(){
-        let url = 'http://localhost:3000/producto/valoracion';
-        return this._httpClient.get(url);
+        return this._httpClient.get(`${this.API_URI}/producto/valoracion`);
     }
 }
 
 export interface Producto{
-    id_platillo: number;
-    nombre: string;
-    precio: number;
-    descripcion: string;
-    imagen: string; 
+    id_platillo: number,
+    nombre: string,
+    precio: number,
+    descripcion: string,
+    imagen: string,
+}
+
+export interface TipoMenu{
+    id_menu: number,
+    menu: string
 }
