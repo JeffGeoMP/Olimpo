@@ -32,7 +32,11 @@ import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { PedidoestadoComponent } from './components/pedidoestado/pedidoestado.component';
 import { VistaComponent } from './components/empleado/vista/vista.component';
 import { UpdateMenuComponent } from './components/menu-today/update-menu/update-menu.component';
+<<<<<<< HEAD
 import { ContactoComponent } from './components/shared/contacto/contacto.component';
+=======
+import { CrearComponent } from './components/producto/crear/crear.component';
+>>>>>>> develop
 
 
 @NgModule({
@@ -53,8 +57,13 @@ import { ContactoComponent } from './components/shared/contacto/contacto.compone
     PedidosComponent,
     PedidoestadoComponent,
     VistaComponent,
+<<<<<<< HEAD
     UpdateMenuComponent
     ContactoComponent
+=======
+    UpdateMenuComponent,
+    CrearComponent
+>>>>>>> develop
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { Persona } from 'src/app/models/Task';
 import { LogueoService } from '../../../services/logueo.service';
 
 @Component({
@@ -7,14 +8,13 @@ import { LogueoService } from '../../../services/logueo.service';
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements OnInit {
-  usuario;
+  usuario:Persona;
 
   constructor( private router: Router, private Logueo:LogueoService) {
     this.usuario = this.Logueo.getLogueo();
   }
   
   ngOnInit(): void {
-    
   }
 
   buscarProducto( termino:string ){

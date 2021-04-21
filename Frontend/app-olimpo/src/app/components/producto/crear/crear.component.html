@@ -1,0 +1,147 @@
+<div class="container">
+    <div class="row container-producto">
+        <h2> Opción de Producto </h2>
+        <div class="col-xs-5 col-sm-6 col-lg-4">
+            <div class="d-grid gap-2">
+                <button type="button" class="btn btn-outline-dark" (click)="selectOption(1)">
+                    <svg id="i-upload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M9 22 C0 23 1 12 9 13 6 2 23 2 22 10 32 7 32 23 23 22 M11 18 L16 14 21 18 M16 14 L16 29" />
+                    </svg>
+                    Crear
+                </button>
+                <button type="button" class="btn btn-outline-dark" (click)="selectOption(2)">
+                    <svg id="i-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M28 6 L6 6 8 30 24 30 26 6 4 6 M16 12 L16 24 M21 12 L20 24 M11 12 L12 24 M12 6 L13 2 19 2 20 6" />
+                    </svg>
+                    Eliminar
+                </button>
+                <button type="button" class="btn btn-outline-dark" (click)="selectOption(3)">
+                    <svg id="i-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+                    </svg>
+                    Actualizar
+                </button>
+              </div>
+            
+           
+        </div>
+   
+        <div class="col-xs-7 col-sm-6 col-lg-8">
+            <div class="card" *ngIf="this.seleccion == 0" >
+                <img src="https://i.pinimg.com/originals/ce/fc/01/cefc01789370baa50447d44d50128505.gif" class="card-img-top" alt="...">
+            </div>
+
+            <!--Crear o actualizar un producto-->
+            <div class="container" *ngIf="seleccion == 1" id="formCrear">
+                <div class="col text-center"><h4>Crear un producto</h4></div>
+                <form class="needs-validation" novalidate>
+                    <div class="row" >
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}" class="form-control" id="nombre" placeholder="Pepian" value="" required>
+                        <div class="invalid-feedback">
+                            Nombre no valido
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <label for="precio" class="form-label">Precio</label>
+                        <input type="number" step="0.01" [(ngModel)]="precio" [ngModelOptions]="{standalone: true}" class="form-control" id="precio" placeholder="Q. 0.00" value="" required>
+                        <div class="invalid-feedback">
+                            Precio no valido
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <label for="floatingTextarea">Descripción</label>
+                        <textarea class="form-control" placeholder="Leave a description here" id="floatingTextarea" [(ngModel)]="descripcion" [ngModelOptions]="{standalone: true}"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="floatingSelect">Tipo de platillo</label>
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" [(ngModel)]="id_menu" [ngModelOptions]="{standalone: true}">
+                            <option *ngFor="let menu of tipo_menu" value="{{menu.id_menu}}">{{menu.menu}}</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label for="imagen" class="form-label">Nombre imagen</label>
+                        <input type="text" [(ngModel)]="imagen" [ngModelOptions]="{standalone: true}" class="form-control" id="imagen" placeholder="imagen.jpg" value="" required>
+                    </div>
+                    <div class="col text-center" *ngIf="!actualizar">
+                        <br>
+                        <button type="submit" form="formCrear" class="btn btn-primary" (click)="crearProducto()">Crear Producto</button>
+                    </div>
+                    <div class="col text-center" *ngIf="actualizar">
+                        <br>
+                        <button type="submit" form="formCrear" class="btn btn-primary" (click)="crearProducto()">Actualizr Producto</button>
+                    </div>
+                    
+                </form>
+            </div>
+
+            <!--Actualizar un producto-->
+            <div class="container" *ngIf="seleccion == 4" >
+                <div class="col text-center"><h4>Actualizar un producto</h4></div>
+                <form class="needs-validation" id="formActualizar" novalidate>
+                    <div class="row" >
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}" class="form-control" id="nombre" [placeholder]="actualizarProduct.nombre" required>
+                        <div class="invalid-feedback">
+                            Nombre no valido
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <label for="precio" class="form-label">Precio</label>
+                        <input type="number" step="0.01" [(ngModel)]="precio" [ngModelOptions]="{standalone: true}" class="form-control" id="precio" [placeholder]="actualizarProduct.precio" required>
+                        <div class="invalid-feedback">
+                            Precio no valido
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <label for="floatingTextarea">Descripción</label>
+                        <textarea class="form-control"  id="floatingTextarea" [(ngModel)]="descripcion" [ngModelOptions]="{standalone: true}" [placeholder]="actualizarProduct.descripcion"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="imagen" class="form-label">Nombre imagen</label>
+                        <input type="text" [(ngModel)]="imagen" [ngModelOptions]="{standalone: true}" class="form-control" id="imagen" [placeholder]="actualizarProduct.imagen" required>
+                    </div>
+                    <div class="col text-center" *ngIf="!actualizar">
+                        <br>
+                        <button type="submit" form="formCrear" class="btn btn-primary" (click)="crearProducto()">Crear Producto</button>
+                    </div>
+                    <div class="col text-center" *ngIf="actualizar">
+                        <br>
+                        <button type="submit" form="formCrear" class="btn btn-primary" (click)="actualizarProducto()">Actualizr Producto</button>
+                    </div>
+                    
+                </form>
+            </div>
+
+            <!--Modulo para presentar los productos-->
+            <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="seleccion == 2 || seleccion == 3">
+                <div class="col" *ngFor="let producto of productos">
+                  <div class="card h-100">
+                    <img src="assets/menus/{{producto.imagen}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{producto.nombre || uppercase}} </h5>
+                      <p class="card-text">{{producto.descripcion}}</p>
+                      <p>Precio Q. {{producto.precio}}</p> 
+                      <button type="button" class="btn btn-outline-dark" (click)="eliminarProducto(producto.id_platillo, producto.nombre)" *ngIf="!actualizar" >
+                        <svg id="i-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                            <path d="M28 6 L6 6 8 30 24 30 26 6 4 6 M16 12 L16 24 M21 12 L20 24 M11 12 L12 24 M12 6 L13 2 19 2 20 6" />
+                        </svg>
+                      </button>
+                      <button type="button" class="btn btn-outline-dark" (click)="actualizarFunction(producto)" *ngIf="actualizar" >
+                        <svg id="i-edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                            <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+</div>

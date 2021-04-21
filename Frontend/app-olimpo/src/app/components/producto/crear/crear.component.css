@@ -1,0 +1,10 @@
+.container-producto{
+    margin-top: 2rem;
+}
+body{
+    background-image: url('https://www.solofondos.com/wp-content/uploads/2015/11/21omxpw.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
