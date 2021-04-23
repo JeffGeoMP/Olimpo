@@ -115,10 +115,10 @@ class Consultas{
     } 
 
     topplatillo(){
-        return 'select p.nombre, sum(d.cantidad) cantidad '+
+        return 'select p.nombre, p.imagen, p.precio, sum(d.cantidad) cantidad '+
         'from platillo p, detalle_platillo_pedido d '+
         'where p.id_platillo = d.fkid_platillo '+
-        'group by p.nombre '+
+        'group by p.nombre, p.imagen, p.precio '+
         'order by cantidad desc limit 5;';
     }
 }
