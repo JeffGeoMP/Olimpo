@@ -58,6 +58,10 @@ export class ProductService {
     productovaloracion(){
         return this._httpClient.get(`${this.API_URI}/producto/valoracion`);
     }
+
+    comentarios(data){
+        return this._httpClient.post(`${this.API_URI}/comentario`, data);
+    }
 }
 
 export interface Producto{

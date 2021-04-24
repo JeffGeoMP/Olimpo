@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BusquedaService } from 'src/app/servicios/busqueda.service';
 import { ProductService, Producto } from "../../servicios/productos.service";
 import {Router} from '@angular/router';
-import { Task, Valorar } from 'src/app/models/Task';
+import { Task, Valorar, Comentario } from 'src/app/models/Task';
 import { TaskService } from 'src/app/services/task.service';
 @Component({
   selector: 'app-menus',
@@ -17,7 +17,15 @@ export class MenusComponent implements OnInit {
   productosinfantil : Producto[] = [];
   productosrefaccion : Producto[] = [];
   estrellas: Valorar[]=[];
-  estrellasDes: Valorar[]=[]
+  estrellasDes: Valorar[]=[];
+  com:Comentario[] = [];
+  p:Producto = {
+    id_platillo: 1,
+    nombre: "string",
+    precio: 1,
+    descripcion: "string",
+    imagen: "string",
+}
 
   constructor( private _productoService: ProductService, private servBusq:BusquedaService,
     private router: Router,
@@ -26,7 +34,11 @@ export class MenusComponent implements OnInit {
   ngOnInit(): void {
 
     this._productoService.productovaloracion().subscribe((res:Valorar[])=>{
-      this.estrellas=res;
+      if(res != null){
+        this.estrellas=res;
+      }else{
+        this.estrellas=[];
+      }
       console.log(res);
     })
 
@@ -58,12 +70,40 @@ export class MenusComponent implements OnInit {
 
   }
 
+  comm(id){
+    this.p = id;
+    //console.log(id)
+
+    this._productoService.comentarios({id:id.id_platillo}).subscribe((res:Comentario[])=>{
+      this.com = res;
+      console.log(res);
+      
+      const div  = document.getElementById('rep_ast');
+      div.style.display = 'block';
+      const data  = document.getElementById('data');
+      data.style.display = 'none';
+    })
+
+  }
+
+  
+
+
+  ocultar(){
+    const div  = document.getElementById('rep_ast');
+    const data  = document.getElementById('data');
+    div.style.display = 'none';
+    data.style.display = 'block';
+  }
+
   obtenerEstrellas(id){
     for(let star of this.estrellas){
       if(id == star.idplato){
         return "assets/estrella"+star.estrellas+".jpg";
       }
     }
+    //return "assets/estrella5.jpg";
+    return null;
   }
 
   agregarCarrito(index: Producto){
