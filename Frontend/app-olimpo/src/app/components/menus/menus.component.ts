@@ -77,7 +77,7 @@ export class MenusComponent implements OnInit {
     this._productoService.comentarios({id:id.id_platillo}).subscribe((res:Comentario[])=>{
       this.com = res;
       console.log(res);
-      
+
       const div  = document.getElementById('rep_ast');
       div.style.display = 'block';
       const data  = document.getElementById('data');
@@ -85,9 +85,6 @@ export class MenusComponent implements OnInit {
     })
 
   }
-
-  
-
 
   ocultar(){
     const div  = document.getElementById('rep_ast');
