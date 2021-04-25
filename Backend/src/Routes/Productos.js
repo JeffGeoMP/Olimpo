@@ -269,7 +269,20 @@ app.get("/producto/valoracion/:idPlatillo", async (req, res) => {
 	}
 });
 
-
+// Obtener nombre de platillo en base a su id  http://localhost:3000/producto/valoracion/:idPlatillo
+app.post("/comentario", async (req, res) => {
+	try {
+		const Metadata = await db.query(Consulta.getComentario(req.body.id));
+		
+		if (Metadata.rowCount > 0) {
+			res.status(200).json(Metadata.rows);
+		} else {
+			res.status(200).json();
+		}
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
 
 
 module.exports = app;

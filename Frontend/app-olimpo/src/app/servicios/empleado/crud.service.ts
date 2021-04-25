@@ -30,4 +30,17 @@ export class CrudService {
     return this.http.post(url, id);
   }
 
+  Validar(User:String,Pass:String){
+    let url = 'http://localhost:3000/usuario/login/'+User+'/'+Pass;
+
+
+    console.log(url);
+    if(this.http.get(url)){
+      console.log("si");
+    }else{
+      console.log("no");
+    }
+    return this.http.get(url);
+}
+
 }

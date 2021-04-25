@@ -47,6 +47,11 @@ export interface Valorar{
     estrellas:String;
 }
 
-
+export interface Comentario{
+    id_valoracion:number,
+    punteo:number,
+    Descripcion:string,
+    FKid_Platillo:number,
+}
 
 

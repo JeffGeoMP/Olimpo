@@ -44,6 +44,25 @@ describe('VistaComponent', () => {
 
   });
 
+  it('ngOnInit', () => {
+    component.empleado = {
+      "id_persona": 1,
+      "nombre": "micky",
+      "apellido": "micky",
+      "telefono": "1",
+      "correo": "1",
+      "contraseña": "1",
+      "direccion": "1",
+      "tipo_persona": 2
+    };
+    component.nombre = "";
+    component.apellido = "";
+    component.telefono = "";
+    component.email = "";
+    component.direccion = "";
+    expect(component.ngOnInit()).toBeUndefined();
+  });
+
   afterEach(() => {
     localStorage.removeItem("Logueado");
   });
