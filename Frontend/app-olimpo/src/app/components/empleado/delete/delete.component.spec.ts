@@ -18,7 +18,7 @@ class mockDelete extends CrudService {
   }
 }
 
-fdescribe('DeleteComponent', () => {
+describe('DeleteComponent', () => {
   let component: DeleteComponent;
   let fixture: ComponentFixture<DeleteComponent>;
 
@@ -96,26 +96,44 @@ fdescribe('DeleteComponent', () => {
         const req = httpMock.expectOne('http://localhost:3000/empleado/eliminar');
         expect(req.request.method).toEqual('POST');
         req.flush(null);
-        
+
       })
-      
+
   );
 
   it('Get logeo', () => {
-    let Tas = localStorage.getItem("Logueado");
-    component.empleado = JSON.parse(Tas);
+    localStorage.setItem("Logueado", '{"id_persona": 1,"nombre": "micky","apellido": "micky","telefono": "1","correo": "1","contraseña": "1","direccion": "1","tipo_persona": 2}');
     expect(component.getLogueo()).toBeUndefined();
   });
 
   it('Metodo eliminar', () => {
-    component.empleado = {id_persona:1, contraseña:"1"};
+    component.empleado = { id_persona: 1, contraseña: "1" };
     component.pass1 = "1";
-    
+
     expect(component.eliminar()).toBeUndefined();
   });
 
-  it('should create', () => {
+  it('ngOnInit', () => {
+    component.empleado = {
+      "id_persona": 1,
+      "nombre": "micky",
+      "apellido": "micky",
+      "telefono": "1",
+      "correo": "1",
+      "contraseña": "1",
+      "direccion": "1",
+      "tipo_persona": 2
+    };
     component.nombre = "";
+    component.apellido = "";
+    component.telefono = "";
+    component.email = "";
+    component.direccion = "";
+    expect(component.ngOnInit()).toBeUndefined();
+  });
+
+
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

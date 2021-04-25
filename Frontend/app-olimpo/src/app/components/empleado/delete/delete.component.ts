@@ -20,21 +20,24 @@ export class DeleteComponent implements OnInit {
   tipo = "";
 
   constructor(private router: Router, private conexion: CrudService) {
-    this.empleado = this.getLogueo();
-    if (this.empleado == null) {
-      this.router.navigate(['/Login']);
-    }
+    /*if (this.empleado == null) {
+      this.router.navigate(['Login']);
+    }*/
   }
 
   getLogueo() {
     if (localStorage.getItem('Logueado') != null) {
       let Tas = localStorage.getItem('Logueado');
-      this.empleado = JSON.parse(Tas || '{}');
+      this.empleado = JSON.parse(Tas);
     }
   }
 
   ngOnInit(): void {
-
+    this.getLogueo();
+    if (this.empleado == null) {
+      this.router.navigate(['Login']);
+    }
+    
     this.nombre = this.empleado.nombre;
     this.apellido = this.empleado.apellido;
     this.telefono = this.empleado.telefono;
