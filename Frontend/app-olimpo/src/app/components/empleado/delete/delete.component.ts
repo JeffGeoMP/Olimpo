@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from 'src/app/servicios/empleado/crud.service';
-import {Router} from '@angular/router';
-import {Persona} from '../../../models/Task';
-import { LogueoService } from '../../../services/logueo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-delete',
@@ -11,50 +9,61 @@ import { LogueoService } from '../../../services/logueo.service';
 })
 export class DeleteComponent implements OnInit {
 
-  empleado = this.Logueo.getLogueo();
+  empleado = null;
 
-  constructor(private router: Router, private conexion: CrudService, private Logueo:LogueoService) { 
-    if(this.empleado == null){
+  nombre = "";
+  apellido = "";
+  telefono = "";
+  email = "";
+  direccion = "";
+  pass1 = "";
+  tipo = "";
+
+  constructor(private router: Router, private conexion: CrudService) {
+    this.empleado = this.getLogueo();
+    if (this.empleado == null) {
       this.router.navigate(['/Login']);
     }
   }
 
-  nombre;
-  apellido;
-  telefono;
-  email;
-  direccion;
-  pass1;
-  tipo;
+  getLogueo() {
+    if (localStorage.getItem('Logueado') != null) {
+      let Tas = localStorage.getItem('Logueado');
+      this.empleado = JSON.parse(Tas || '{}');
+    }
+  }
 
   ngOnInit(): void {
+
     this.nombre = this.empleado.nombre;
     this.apellido = this.empleado.apellido;
     this.telefono = this.empleado.telefono;
     this.email = this.empleado.correo;
     this.direccion = this.empleado.direccion;
-    
+
   }
 
-  eliminar(){
-    if(confirm("Seguro que desea eliminar")){
-      let con = this.conexion.deleteEmpleado({'Id_Empleado': this.empleado.id_persona});
-      
-      if(this.pass1 == this.empleado.contraseña){
-        con.subscribe(res=>{
-          if(res == null){
-            this.Logueo.cleanLogueo();
+  eliminar() {
+    if (confirm("Seguro que desea eliminar")) {
+      let con = this.conexion.deleteEmpleado({ 'Id_Empleado': this.empleado.id_persona });
+
+      if (this.pass1 == this.empleado.contraseña) {
+        this.conexion.deleteEmpleado(
+          { 'Id_Empleado': this.empleado.id_persona }
+        ).subscribe(res => {
+          if (res == null) {
+            localStorage.removeItem("Logueado");
             alert("Usuario eliminado");
             this.router.navigate(['/Login']);
-          }else{
+          } else {
             alert("Error al eliminar usuario: " + res);
           }
         });
-      }else{
+      } else {
         alert("Contraseñas no coinciden");
       }
 
-    }else{
+    } else {
       this.router.navigate(['/Empleado/delete']);
     }
   }
