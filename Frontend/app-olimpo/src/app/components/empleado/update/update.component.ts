@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from 'src/app/servicios/empleado/crud.service';
-import {Router} from '@angular/router';
-import { LogueoService } from '../../../services/logueo.service';
-import {Persona} from '../../../models/Task';
+import { Router } from '@angular/router';
+import { Persona } from '../../../models/Task';
 
 @Component({
   selector: 'app-update',
@@ -10,12 +9,20 @@ import {Persona} from '../../../models/Task';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
-  
-  empleado = this.Logueo.getLogueo();
 
-  constructor(private router: Router, private conexion: CrudService, private Logueo:LogueoService) {
-    if(this.empleado == null){
+  empleado = null;
+
+  constructor(private router: Router, private conexion: CrudService) {
+    this.getLogueo();
+    if (this.empleado == null) {
       this.router.navigate(['/Login']);
+    }
+  }
+
+  getLogueo() {
+    if (localStorage.getItem('Logueado') != null) {
+      let Tas = localStorage.getItem('Logueado');
+      this.empleado = JSON.parse(Tas || '{}');
     }
   }
 
@@ -28,21 +35,21 @@ export class UpdateComponent implements OnInit {
   tipo;
 
   ngOnInit(): void {
-    
+
     this.nombre = this.empleado.nombre;
     this.apellido = this.empleado.apellido;
     this.telefono = this.empleado.telefono;
     this.email = this.empleado.correo;
     this.direccion = this.empleado.direccion;
-    
+
   }
 
-  
-  em:Persona;
-  actualizar(){
-    if(this.nombre == "" || this.apellido == "" || this.telefono == "" || this.email == "" || this.direccion == "" || this.pass1 == ""){
+
+  em: Persona;
+  actualizar() {
+    if (this.nombre == "" || this.apellido == "" || this.telefono == "" || this.email == "" || this.direccion == "" || this.pass1 == "") {
       alert("Datos vacios")
-    }else if(this.pass1 == this.empleado.contraseña){
+    } else if (this.pass1 == this.empleado.contraseña) {
       let t = 0;
       /*if(this.tipo == "Empleado"){
         t = 2;
@@ -54,8 +61,8 @@ export class UpdateComponent implements OnInit {
         alert("Escoga un tipo de usuario");
         this.router.navigate(['/Empleado/update']);
       }*/
-      console.log(this.empleado)
-      let con = this.conexion.updateEmpleado({
+      //console.log(this.empleado)
+      this.conexion.updateEmpleado({
         'Id_Empleado': this.empleado.id_persona,
         'Nombre': this.nombre,
         'Apellido': this.apellido,
@@ -64,26 +71,28 @@ export class UpdateComponent implements OnInit {
         'Password': this.pass1,
         'Direccion': this.direccion,
         'Tipo': this.empleado.tipo_persona
-      });
-      
-      con.subscribe((res)=>{
-        console.log(res);
-        if(res != null){
-          this.Logueo.Validar(this.email, this.pass1).subscribe((res:Persona[]) =>{
-            this.em=res[0];
-            this.Logueo.addLogueo(this.em);
-            alert("Usuario modificado");
-            this.router.navigate(['/Empleado/vista']);
-          },(error:any)=>{
-             console.error(error);
-          });
+      }).subscribe((res) => {
+        //console.log(res);
+        if (res != null) {
+          this.val();
 
-        }else{
+        } else {
           alert("Error al modificar usuario");
         }
       });
-        
+
     }
+  }
+
+  val(){
+    this.conexion.Validar(this.email, this.pass1).subscribe((res: Persona[]) => {
+      this.em = res[0];
+      localStorage.setItem("Logueado", JSON.stringify(this.em));
+      alert("Usuario modificado");
+      this.router.navigate(['/Empleado/vista']);
+    }, (error: any) => {
+      console.error(error);
+    });
   }
 
 }
