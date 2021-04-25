@@ -9,22 +9,23 @@ import { Router } from '@angular/router';
 })
 export class CreateComponent implements OnInit {
 
-  empleado;
+  empleado = null;
 
   constructor(private router: Router, private conexion: CrudService) {
+    
+  }
+
+  ngOnInit(): void {
     this.getLogueo();
     if (this.empleado != null) {
       this.router.navigate(['/Login']);
     }
   }
 
-  ngOnInit(): void {
-  }
-
   getLogueo(){
     if(localStorage.getItem('Logueado')!=null){
       let Tas= localStorage.getItem('Logueado');
-      this.empleado= JSON.parse(Tas||'{}');
+      this.empleado= JSON.parse(Tas);
     }
   }
 

@@ -60,6 +60,25 @@ describe('CreateComponent', () => {
     expect(component.getLogueo()).toBeUndefined();
   });*/
 
+  it('Get logeo', () => {
+    localStorage.setItem("Logueado", '{"id_persona": 1,"nombre": "micky","apellido": "micky","telefono": "1","correo": "1","contraseña": "1","direccion": "1","tipo_persona": 2}');
+    expect(component.getLogueo()).toBeUndefined();
+  });
+
+  it('ngOnInit', () => {
+    component.empleado = {
+      "id_persona": 1,
+      "nombre": "micky",
+      "apellido": "micky",
+      "telefono": "1",
+      "correo": "1",
+      "contraseña": "1",
+      "direccion": "1",
+      "tipo_persona": 2
+    };
+    expect(component.ngOnInit()).toBeUndefined();
+  });
+
   it('Validar empty en datos usuario', () => {
     expect(component.getLogueo()).toBeUndefined();
   });
