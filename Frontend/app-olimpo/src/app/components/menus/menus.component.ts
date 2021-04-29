@@ -26,13 +26,13 @@ export class MenusComponent implements OnInit {
     descripcion: "string",
     imagen: "string",
 }
+  topplato;
 
   constructor( private _productoService: ProductService, private servBusq:BusquedaService,
     private router: Router,
     public taskService: TaskService ) {  }
 
   ngOnInit(): void {
-
     this._productoService.productovaloracion().subscribe((res:Valorar[])=>{
       if(res != null){
         this.estrellas=res;
@@ -41,6 +41,10 @@ export class MenusComponent implements OnInit {
       }
       console.log(res);
     })
+
+    this._productoService.productotop().subscribe((res)=>{
+      this.topplato= res;
+    });
 
     //desayunos
     this._productoService.productoxMenu('desayuno').subscribe((res:Producto[])=>{
@@ -102,6 +106,7 @@ export class MenusComponent implements OnInit {
     //return "assets/estrella5.jpg";
     return null;
   }
+
 
   agregarCarrito(index: Producto){
     console.log(index);
