@@ -33,6 +33,7 @@ import { PedidoestadoComponent } from './components/pedidoestado/pedidoestado.co
 import { VistaComponent } from './components/empleado/vista/vista.component';
 import { UpdateMenuComponent } from './components/menu-today/update-menu/update-menu.component';
 import { CrearComponent } from './components/producto/crear/crear.component';
+import { TopProductoComponent } from './components/top-producto/top-producto.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { CrearComponent } from './components/producto/crear/crear.component';
     PedidoestadoComponent,
     VistaComponent,
     UpdateMenuComponent,
-    CrearComponent
+    CrearComponent,
+    TopProductoComponent
   ],
   imports: [
     BrowserModule,

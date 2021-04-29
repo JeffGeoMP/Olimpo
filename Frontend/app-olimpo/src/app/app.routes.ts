@@ -16,10 +16,12 @@ import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { VistaComponent } from './components/empleado/vista/vista.component';
 import { UpdateMenuComponent } from './components/menu-today/update-menu/update-menu.component';
 import { CrearComponent } from './components/producto/crear/crear.component';
+import {TopProductoComponent} from './components/top-producto/top-producto.component';
 
 
 
 const APP_ROUTES: Routes = [
+    { path:'TopProd',component:TopProductoComponent},
     { path:'crearProducto',component:CrearComponent},
     { path:'Login',component:LoginComponent},
     { path:'Task-list',component:TaskListComponent},
