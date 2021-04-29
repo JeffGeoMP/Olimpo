@@ -13,28 +13,31 @@
             <a class="nav-link" href="#">Promociones</a>
           </li>
           <li class="nav-item" routerLinkActive = 'active'>
-            <a class="nav-link" routerLink="/pedidos" tabindex="-1" aria-disabled="false" *ngIf="usuario != null">Pedidos</a>
+            <a class="nav-link" routerLink="/pedidos" tabindex="-1" aria-disabled="false" *ngIf="usuario != null  && usr == 2">Pedidos</a>
           </li>
           <li class="nav-item" routerLinkActive = 'active'>
-            <a class="nav-link" routerLink="/estado" tabindex="-1" aria-disabled="false" *ngIf="usuario != null">Estado</a>
+            <a class="nav-link" routerLink="/estado" tabindex="-1" aria-disabled="false" >Estado</a>
           </li>
           <li class="nav-item" routerLinkActive = 'active'>
-            <a class="nav-link" [routerLink]="['crearProducto']" tabindex="-1" aria-disabled="false" *ngIf="usuario != null">Producto</a>
+            <a class="nav-link" [routerLink]="['crearProducto']" tabindex="-1" aria-disabled="false" *ngIf="usuario != null && usr == 2">Producto</a>
           </li>
         </ul>
 
         <ul class="navbar-nav me-rg mb-2 mb-lg-0">
           <li class="nav-item" routerLinkActive = 'active'>
-            <a class="nav-link" href="/Login" tabindex="-1" aria-disabled="false" *ngIf="usuario == null">Iniciar Sesión</a>
+            <a class="nav-link" href="/Login" tabindex="-1" aria-disabled="false" *ngIf="usuario == null">Login</a>
           </li>
-          <li class="nav-item" routerLinkActive = 'router-link-active'>
+          <!--<li class="nav-item" routerLinkActive = 'router-link-active'>
             <a class="nav-link" [routerLink]="['Empleado/create']" *ngIf="usuario == null">Sign up</a>
+          </li>-->
+          <li class="nav-item" routerLinkActive = 'router-link-active'>
+            <a class="nav-link" [routerLink]="['Empleado/create']" *ngIf="usuario == null && usr == 1">Crear Empleado</a>
           </li>
           <li class="nav-item" routerLinkActive = 'router-link-active'>
             <a class="nav-link" [routerLink]="['Empleado/vista']" *ngIf="usuario != null">Ver Perfil</a>
           </li>
           <li class="nav-item" routerLinkActive = 'router-link-active'>
-            <a class="nav-link" [routerLink]="['UpdateMenuToday']" *ngIf="usuario != null">Update menu</a>
+            <a class="nav-link" [routerLink]="['UpdateMenuToday']" *ngIf="usuario != null && usr == 2">Update menu</a>
           </li>
           <li class="nav-item" routerLinkActive = 'active'>
             <a class="nav-link" href="/Login" (click)="logout()" tabindex="-1" aria-disabled="false" *ngIf="usuario != null">Log out</a>

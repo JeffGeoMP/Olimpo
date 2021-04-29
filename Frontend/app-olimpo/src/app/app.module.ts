@@ -32,6 +32,7 @@ import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { PedidoestadoComponent } from './components/pedidoestado/pedidoestado.component';
 import { VistaComponent } from './components/empleado/vista/vista.component';
 import { UpdateMenuComponent } from './components/menu-today/update-menu/update-menu.component';
+import { ContactoComponent } from './components/shared/contacto/contacto.component';
 import { CrearComponent } from './components/producto/crear/crear.component';
 
 
@@ -53,6 +54,8 @@ import { CrearComponent } from './components/producto/crear/crear.component';
     PedidosComponent,
     PedidoestadoComponent,
     VistaComponent,
+    UpdateMenuComponent,
+    ContactoComponent,
     UpdateMenuComponent,
     CrearComponent
   ],
