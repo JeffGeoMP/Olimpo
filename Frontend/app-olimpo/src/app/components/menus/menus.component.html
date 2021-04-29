@@ -1,47 +1,64 @@
-<div class="container mt-4">
-  <div class="card bg-dark text-wite">
-    <div class="page-header">
-      <h1><p style="color:aliceblue">Desayunos</p></h1>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3 md-2" *ngFor="let producto of productosdesayuno" >
+<div #data id="data">
+  <div class="container mt-4">
+    <div class="card bg-dark text-wite">
+      <div class="page-header">
+        <h1>
+          <p style="color:aliceblue">Desayunos</p>
+        </h1>
+      </div>
+      <div class="row">
+        <div class="col-4 mb-3 md-2" *ngFor="let producto of productosdesayuno">
           <div class="card" style="height:32rem;">
-            <img class="card-img-top" src="assets/menus/{{producto.imagen}}" >
+            <img class="card-img-top" src="assets/menus/{{producto.imagen}}">
             <div class="card-body">
               <h5 class="card-title">{{producto.nombre | uppercase}}</h5>
-              <img src="{{obtenerEstrellas(producto.id_platillo)}}" height="20px" whidth="40px">
+              <img src="{{obtenerEstrellas(producto.id_platillo)}}" height="20px" whidth="40px"
+                (click)="comm(producto)">
+              <button *ngIf="obtenerEstrellas(producto.id_platillo) != null" (click)="comm(producto)" type="button"
+                class="btn btn-outline-secondary btn-block">
+                Comentarios
+              </button>
               <p class="card-text">{{producto.descripcion}}</p>
               <p class="card-text"><small class="text-muted">Precio: Q{{producto.precio}} </small></p>
               <button (click)="agregarCarrito(producto)" type="button" class="btn btn-outline-primary btn-block">
-                <svg id="i-cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                <svg id="i-cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"
+                  fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                   <path d="M6 6 L30 6 27 19 9 19 M27 23 L10 23 5 2 2 2" />
                   <circle cx="25" cy="27" r="2" />
                   <circle cx="12" cy="27" r="2" />
                 </svg>
               </button>
+
             </div>
           </div>
         </div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container mt-4">
-  <div class="card bg-dark text-wite">
-    <div class="page-header">
-      <h1><p style="color:aliceblue">Almuerzos</p></h1>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3 md-2" *ngFor="let producto of productosalmuerzo" >
+  <div class="container mt-4">
+    <div class="card bg-dark text-wite">
+      <div class="page-header">
+        <h1>
+          <p style="color:aliceblue">Almuerzos</p>
+        </h1>
+      </div>
+      <div class="row">
+        <div class="col-4 mb-3 md-2" *ngFor="let producto of productosalmuerzo">
           <div class="card">
-            <img class="card-img-top" src="assets/menus/{{producto.imagen}}" >
+            <img class="card-img-top" src="assets/menus/{{producto.imagen}}">
             <div class="card-body">
               <h5 class="card-title">{{producto.nombre | uppercase}}</h5>
               <img src="{{obtenerEstrellas(producto.id_platillo)}}" height="20px" whidth="40px">
+              <button *ngIf="obtenerEstrellas(producto.id_platillo) != null" (click)="comm(producto)" type="button"
+                class="btn btn-outline-secondary btn-block">
+                Comentarios
+              </button>
               <p class="card-text">{{producto.descripcion}}</p>
               <p class="card-text"><small class="text-muted">Precio: Q{{producto.precio}} </small></p>
               <button (click)="agregarCarrito(producto)" type="button" class="btn btn-outline-primary btn-block">
-                <svg id="i-cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                <svg id="i-cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"
+                  fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                   <path d="M6 6 L30 6 27 19 9 19 M27 23 L10 23 5 2 2 2" />
                   <circle cx="25" cy="27" r="2" />
                   <circle cx="12" cy="27" r="2" />
@@ -50,26 +67,33 @@
             </div>
           </div>
         </div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container mt-4">
-  <div class="card bg-dark text-wite">
-    <div class="page-header">
-      <h1><p style="color:aliceblue">Menu Infantil</p></h1>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3 md-2" *ngFor="let producto of productosinfantil" >
+  <div class="container mt-4">
+    <div class="card bg-dark text-wite">
+      <div class="page-header">
+        <h1>
+          <p style="color:aliceblue">Menu Infantil</p>
+        </h1>
+      </div>
+      <div class="row">
+        <div class="col-4 mb-3 md-2" *ngFor="let producto of productosinfantil">
           <div class="card">
-            <img class="card-img-top" src="assets/menus/{{producto.imagen}}" >
+            <img class="card-img-top" src="assets/menus/{{producto.imagen}}">
             <div class="card-body">
               <h5 class="card-title">{{producto.nombre | uppercase}}</h5>
               <img src="{{obtenerEstrellas(producto.id_platillo)}}" height="20px" whidth="40px">
+              <button *ngIf="obtenerEstrellas(producto.id_platillo) != null" (click)="comm(producto)" type="button"
+                class="btn btn-outline-secondary btn-block">
+                Comentarios
+              </button>
               <p class="card-text">{{producto.descripcion}}</p>
               <p class="card-text"><small class="text-muted">Precio: Q{{producto.precio}} </small></p>
               <button (click)="agregarCarrito(producto)" type="button" class="btn btn-outline-primary btn-block">
-                <svg id="i-cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                <svg id="i-cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"
+                  fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                   <path d="M6 6 L30 6 27 19 9 19 M27 23 L10 23 5 2 2 2" />
                   <circle cx="25" cy="27" r="2" />
                   <circle cx="12" cy="27" r="2" />
@@ -78,26 +102,33 @@
             </div>
           </div>
         </div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container mt-4">
-  <div class="card bg-dark text-wite">
-    <div class="page-header">
-      <h1><p style="color:aliceblue">Refacciones</p></h1>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3 md-2" *ngFor="let producto of productosrefaccion" >
+  <div class="container mt-4">
+    <div class="card bg-dark text-wite">
+      <div class="page-header">
+        <h1>
+          <p style="color:aliceblue">Refacciones</p>
+        </h1>
+      </div>
+      <div class="row">
+        <div class="col-4 mb-3 md-2" *ngFor="let producto of productosrefaccion">
           <div class="card">
-            <img class="card-img-top" src="assets/menus/{{producto.imagen}}" >
+            <img class="card-img-top" src="assets/menus/{{producto.imagen}}">
             <div class="card-body">
               <h5 class="card-title">{{producto.nombre | uppercase}}</h5>
               <img src="{{obtenerEstrellas(producto.id_platillo)}}" height="20px" whidth="40px">
+              <button *ngIf="obtenerEstrellas(producto.id_platillo) != null" (click)="comm(producto)" type="button"
+                class="btn btn-outline-secondary btn-block">
+                Comentarios
+              </button>
               <p class="card-text">{{producto.descripcion}}</p>
               <p class="card-text"><small class="text-muted">Precio: Q{{producto.precio}} </small></p>
               <button (click)="agregarCarrito(producto)" type="button" class="btn btn-outline-primary btn-block">
-                <svg id="i-cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                <svg id="i-cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"
+                  fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                   <path d="M6 6 L30 6 27 19 9 19 M27 23 L10 23 5 2 2 2" />
                   <circle cx="25" cy="27" r="2" />
                   <circle cx="12" cy="27" r="2" />
@@ -106,11 +137,11 @@
             </div>
           </div>
         </div>
-      
+
+      </div>
     </div>
   </div>
 </div>
-
 
 <!--
 <section class="" style="background-image: url('assets/gris.jpg'); margin-top: 1.5cm;width:auto;height: 650px;">
@@ -148,3 +179,42 @@
     </div>
 </section>
 -->
+
+
+<div #rep_ast id="rep_ast" class=" mt-5" style="display: none; ">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content card ">
+      <div class="modal-header">
+        <h3 class="modal-title" id="nombre">Platillo {{p.nombre}}</h3>
+        <button type="button" class="close" (click)="ocultar()" data-dismiss="modal" aria-hidden="true">x</button>
+      </div>
+
+      <table class="table table-bordered table-striped mb-0">
+        <tr align="center">
+          <td>
+            <div class="col-6 mb-3 md-2">
+              <img class="card-img-top" src="assets/menus/{{p.imagen}}">
+              <div class="card-body">
+                <h5 class="card-title">{{p.nombre | uppercase}}</h5>
+                <img src="{{obtenerEstrellas(p.id_platillo)}}" height="20px" whidth="40px">
+                
+              </div>
+            </div>
+
+          </td>
+        </tr>
+
+        <tbody *ngFor="let i of com">
+          <tr align="center">
+            <td>
+              <img src="assets/estrella{{i.punteo}}.jpg" height="20px" whidth="40px">
+              <p class="card-text">{{i.descripcion}}</p>
+              
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>

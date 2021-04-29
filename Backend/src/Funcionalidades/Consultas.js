@@ -111,6 +111,10 @@ class Consultas{
         return 'select Round(AVG(punteo)) Estrellas, fkid_platillo idPlato from valoracion group by fkid_platillo;';    
     }
 
+    getComentario(id){
+        return `select * from valoracion where fkid_platillo = ${id};`;    
+    }
+
     getPlatillo(idPlatillo){
         return 'select Nombre from platillo  WHERE id_Platillo = \'{0}\';'.format(idPlatillo);
     }

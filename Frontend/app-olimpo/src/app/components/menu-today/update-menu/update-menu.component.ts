@@ -12,7 +12,7 @@ export class UpdateMenuComponent implements OnInit {
 
   constructor(private _productoService: ProductService, private router: Router) { }
 
-  ngOnInit(/*private _productoService: ProductService, private router: Router*/): void {
+  ngOnInit() {
     this._productoService.productoxMenu('almuerzo').subscribe((res:Producto[])=>{
       this.productosalmuerzo = res;
     })
