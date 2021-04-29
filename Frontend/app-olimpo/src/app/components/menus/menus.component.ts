@@ -26,7 +26,6 @@ export class MenusComponent implements OnInit {
     descripcion: "string",
     imagen: "string",
 }
-  estrellasDes: Valorar[]=[]
   topplato;
 
   constructor( private _productoService: ProductService, private servBusq:BusquedaService,

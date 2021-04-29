@@ -122,7 +122,7 @@ class Consultas{
     typeMenus(){
         return `SELECT * FROM menu;`
     }
-    } 
+    
 
 
 
