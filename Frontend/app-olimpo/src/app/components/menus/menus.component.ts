@@ -28,6 +28,8 @@ export class MenusComponent implements OnInit {
 }
   topplato;
 
+estadoComentario = false;
+
   constructor( private _productoService: ProductService, private servBusq:BusquedaService,
     private router: Router,
     public taskService: TaskService ) {  }
@@ -75,6 +77,7 @@ export class MenusComponent implements OnInit {
   }
 
   comm(id){
+    this.estadoComentario = true;
     this.p = id;
     //console.log(id)
 
@@ -82,19 +85,22 @@ export class MenusComponent implements OnInit {
       this.com = res;
       console.log(res);
 
+      /*const data  = document.getElementById('data');
+      data.style.display = 'none';
       const div  = document.getElementById('rep_ast');
       div.style.display = 'block';
-      const data  = document.getElementById('data');
-      data.style.display = 'none';
+      */
     })
 
   }
 
+
   ocultar(){
-    const div  = document.getElementById('rep_ast');
+    this.estadoComentario = false;
+    /*const div  = document.getElementById('rep_ast');
     const data  = document.getElementById('data');
     div.style.display = 'none';
-    data.style.display = 'block';
+    data.style.display = 'block';*/
   }
 
   obtenerEstrellas(id){
