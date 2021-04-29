@@ -55,6 +55,11 @@ export class ProductService {
         return this._httpClient.get(`${this.API_URI}/producto/menu/${menu}`);
     }
 
+    productoMenu(){
+        
+        return this._httpClient.get(`${this.API_URI}/producto/Top1`);
+    }
+
     productovaloracion(){
         return this._httpClient.get(`${this.API_URI}/producto/valoracion`);
     }
@@ -76,7 +81,14 @@ export interface Producto{
     descripcion: string,
     imagen: string,
 }
-
+export interface Productos{
+    id_platillo: number,
+    nombre: string,
+    precio: number,
+    descripcion: string,
+    imagen: string,
+    total:Number
+}
 export interface TipoMenu{
     id_menu: number,
     menu: string

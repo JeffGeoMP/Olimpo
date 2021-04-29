@@ -11,6 +11,14 @@ class Consultas{
                 'FROM platillo P  ' +
                 'INNER JOIN menu M ON P.id_menu = M.id_menu  WHERE LOWER(M.menu) = \'{0}\''.format(Tipo_Menu);
     }
+    PlatillosPorMenuTOP(){
+        return 'SELECT P.id_platillo, P.nombre, P.precio, P.descripcion, P.imagen, SUM(D.cantidad) Total '+ 
+        'FROM platillo P '+ 
+        'INNER JOIN detalle_platillo_pedido D '+
+        'ON P.id_platillo = D.fkid_platillo '+
+        'group by P.id_platillo '+
+        'order by Total desc, P.precio desc ';
+    }
 
     Platillos(){
         return 'SELECT * ' +

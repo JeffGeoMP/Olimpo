@@ -36,6 +36,9 @@
           <li class="nav-item" routerLinkActive = 'router-link-active'>
             <a class="nav-link" [routerLink]="['Empleado/vista']" *ngIf="usuario != null">Ver Perfil</a>
           </li>
+          <li class="nav-item" routerLinkActive = 'active'>
+            <a class="nav-link" href="/TopProd" tabindex="-1" aria-disabled="false" *ngIf="(usuario != null)" >Reporte Mas vendido</a>
+          </li>
           <li class="nav-item" routerLinkActive = 'router-link-active'>
             <a class="nav-link" [routerLink]="['UpdateMenuToday']" *ngIf="usuario != null && usr == 2">Update menu</a>
           </li>

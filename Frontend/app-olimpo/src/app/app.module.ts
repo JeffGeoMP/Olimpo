@@ -34,6 +34,7 @@ import { VistaComponent } from './components/empleado/vista/vista.component';
 import { UpdateMenuComponent } from './components/menu-today/update-menu/update-menu.component';
 import { ContactoComponent } from './components/shared/contacto/contacto.component';
 import { CrearComponent } from './components/producto/crear/crear.component';
+import { TopProductoComponent } from './components/top-producto/top-producto.component';
 
 
 @NgModule({
@@ -55,9 +56,14 @@ import { CrearComponent } from './components/producto/crear/crear.component';
     PedidoestadoComponent,
     VistaComponent,
     UpdateMenuComponent,
+<<<<<<< HEAD
     ContactoComponent,
     UpdateMenuComponent,
     CrearComponent
+=======
+    CrearComponent,
+    TopProductoComponent
+>>>>>>> ConsultarPlatillosGerente
   ],
   imports: [
     BrowserModule,

@@ -285,6 +285,7 @@ app.post("/comentario", async (req, res) => {
 });
 
 
+<<<<<<< HEAD
 // obtine el top 5 de platillos
 app.get("/producto/topplatillo", async(req, res) => {
 	try {
@@ -294,6 +295,13 @@ app.get("/producto/topplatillo", async(req, res) => {
 		);
 		
 		console.log(Metadata);
+=======
+app.get("/producto/Top1", async (req, res) => {
+	try {
+		const Metadata = await db.query(
+			Consulta.PlatillosPorMenuTOP()
+		);
+>>>>>>> ConsultarPlatillosGerente
 
 		if (Metadata.rowCount > 0) {
 			res.status(200).json(Metadata.rows);
@@ -306,6 +314,9 @@ app.get("/producto/topplatillo", async(req, res) => {
 });
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ConsultarPlatillosGerente
 module.exports = app;
