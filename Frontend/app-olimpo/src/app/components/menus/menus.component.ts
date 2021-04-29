@@ -19,7 +19,6 @@ export class MenusComponent implements OnInit {
   estrellas: Valorar[]=[];
   estrellasDes: Valorar[]=[]
   topplato;
-  cont=0;
 
   constructor( private _productoService: ProductService, private servBusq:BusquedaService,
     private router: Router,
@@ -71,9 +70,6 @@ export class MenusComponent implements OnInit {
     }
   }
 
-  topcontador(){
-    return this.cont=this.cont+1;
-  }
 
   agregarCarrito(index: Producto){
     console.log(index);
