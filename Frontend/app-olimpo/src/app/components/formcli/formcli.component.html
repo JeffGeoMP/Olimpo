@@ -45,9 +45,38 @@
                                 <textarea class="form-control" id="dir" name="dir"  [(ngModel)]="direccion" [ngModelOptions]="{standalone: true}" placeholder="Dirección de Contacto para hacer el envío" rows="7"></textarea>
                             </div>
                         </div>
+                            <h2>Tipo de Pago</h2>
+                        <div class="form-group" >
+                            <select [(ngModel)]="nombreTipo" class="form-select" aria-label="Default select example" style="width: 300px;"  [ngModelOptions]="{standalone: true}">
+                                <option *ngFor="let item of lista" [value]="item.nombre">
+                                  {{item.nombre}}
+                                </option>
+                            </select>
+                        </div>
+                    
+                        <div class="row">
+                        <div class="card" style=" color: gray;">
+                        <div class="form-group" *ngIf="nombreTipo=='Tarjeta'">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fas fa-credit-card"></i></span>
+                            <div class="col-md-4">
+                                <input  name="Ntarjeta" type="text"  [(ngModel)]="tarjeta" [ngModelOptions]="{standalone: true}" placeholder="No. de Tarjeta" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <input  name="fecha" type="text"  [(ngModel)]="fechav" [ngModelOptions]="{standalone: true}" placeholder="Fecha de Vencimiento" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <input  name="fecha" type="password"  [(ngModel)]="tcontrasenia" [ngModelOptions]="{standalone: true}" placeholder="Contraseña" class="form-control">
+                            </div>
+                            </div>
 
+                        </div>   
+                    </div>
+                    <div class="form-group" *ngIf="nombreTipo=='Depósito'">
+                        <div class="col-md-4">
+                            <input  name="NoBoleta" type="text"  [(ngModel)]="boleta" [ngModelOptions]="{standalone: true}" placeholder="No de Boleta" class="form-control">
+                        </div>
+                    </div>
                         <div class="form-group">
-                            
                                 <button type="submit" class="btn btn-primary btn-lg" (click)="Enviar()">Guardar</button>
                             
                         </div>

@@ -17,14 +17,23 @@ export class FormcliComponent implements OnInit {
   correo:string=""
   telefono:string=""
   direccion:string=""
-
+  tarjeta:string=""
+  fechav:string=""
+  tcontrasenia:string=""
+  boleta:string=""
   constructor(private srvtl:TaskService,private servFact:FacturaService,private rout:Router) { }
 
-
+  lista:any=[];
   ngOnInit(): void {
+    this.lista.push({nombre:"Tarjeta"});
+    this.lista.push({nombre:"Pago contra entrega"});
+    this.lista.push({nombre:"Depósito"});
   }
 
   productos:Task[]=[];
+  
+  
+  nombreTipo:string=""
 
   fechas=new Date();
   
@@ -68,7 +77,7 @@ export class FormcliComponent implements OnInit {
       this.fact1.Total=Number(this.srvtl.getTotal());
       this.fact1.Tarjeta=false;
 
-     console.log(this.fact1);
+     /*console.log(this.fact1);
 
       
       this.servFact.GuardarFactura(this.fact1).subscribe(
@@ -80,7 +89,8 @@ export class FormcliComponent implements OnInit {
           console.log(error);
         }
         
-      );
+      );*/
+      console.log(this.nombreTipo);
       
   }
 
