@@ -62,6 +62,11 @@ export class ProductService {
     comentarios(data){
         return this._httpClient.post(`${this.API_URI}/comentario`, data);
     }
+
+    productotop(){
+        let url = 'http://localhost:3000/producto/topplatillo';
+        return this._httpClient.get(url);
+    }
 }
 
 export interface Producto{
