@@ -114,6 +114,9 @@ class Consultas{
         return 'select Nombre from platillo  WHERE id_Platillo = \'{0}\';'.format(idPlatillo);
     } 
 
+
+
+    
     topplatillo(){
         return 'select p.nombre, p.imagen, p.precio, sum(d.cantidad) cantidad '+
         'from platillo p, detalle_platillo_pedido d '+
