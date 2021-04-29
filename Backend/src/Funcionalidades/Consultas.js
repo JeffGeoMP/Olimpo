@@ -96,7 +96,7 @@ class Consultas{
     }
 
     VerificarUsuario(Correo, Password){
-        return 'SELECT * FROM Persona p WHERE p.correo = \'{0}\' AND p.contraseña = \'{1}\' AND p.tipo_persona = 2'.format(Correo, Password);
+        return 'SELECT * FROM Persona p WHERE p.correo = \'{0}\' AND p.contraseña = \'{1}\''.format(Correo, Password);
     }
 
     menuDelDia_(){

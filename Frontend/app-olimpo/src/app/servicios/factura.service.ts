@@ -9,8 +9,8 @@ export class FacturaService {
 
   constructor(private http:HttpClient) { }
 
-  API_URI='http://localhost:3000';
-  //API_URI='http://192.168.0.9:3000';
+  //API_URI='http://localhost:3000';
+  API_URI='http://192.168.0.5:3000';
 
   GuardarFactura(fact:Factura){
 

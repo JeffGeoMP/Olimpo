@@ -11,8 +11,8 @@ export class ProductService {
         "Content-Type": "application/json",
     }) ;
 
-    API_URI:string = 'http://localhost:3000';
-    //API_URI:string = 'http://192.168.0.9:3000';
+    //API_URI:string = 'http://localhost:3000';
+    API_URI:string = 'http://192.168.0.5:3000';
     constructor( private _httpClient:HttpClient ){
         console.log("listo para usar!!!");
     }
@@ -69,8 +69,8 @@ export class ProductService {
     }
 
     productotop(){
-        let url = 'http://localhost:3000/producto/topplatillo';
-        return this._httpClient.get(url);
+        //let url = 'http://localhost:3000/producto/topplatillo';
+        return this._httpClient.get(`${this.API_URI}/producto/topplatillo`);
     }
 }
 

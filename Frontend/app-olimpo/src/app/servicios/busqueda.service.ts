@@ -8,7 +8,7 @@ export class BusquedaService {
 
   constructor(private http:HttpClient) { }
   //API_URI='http://ipServidor:3000/api';
-  API_URI='http://192.168.0.9:3000/api';
+  API_URI='http://192.168.0.5:3000/api';
 
   GuardarProducto(prod:String){
 

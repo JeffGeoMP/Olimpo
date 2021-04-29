@@ -12,12 +12,12 @@
         "source": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
@@ -72,12 +72,12 @@
         "source": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\src\\main\\res\\drawable-port-xxhdpi\\splash.png"
     },
     {
-        "merged": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
-    },
-    {
         "merged": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-xxxhdpi_splash.png.flat",
         "source": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\src\\main\\res\\drawable-land-xxxhdpi\\splash.png"
+    },
+    {
+        "merged": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
         "merged": "C:\\Users\\Hayrton\\Documents\\Archivos Hayrton\\USAC\\Analisis y disenio 1\\Olimpo\\Frontend\\app-olimpo\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",

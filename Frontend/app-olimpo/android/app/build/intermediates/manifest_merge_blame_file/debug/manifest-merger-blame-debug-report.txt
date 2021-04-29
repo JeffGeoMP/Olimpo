@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.appolimpo.app"
+3    package="com.example.app"
 4    android:versionCode="1"
 5    android:versionName="1.0" >
 6
@@ -89,8 +89,8 @@
 49-->C:\Users\Hayrton\Documents\Archivos Hayrton\USAC\Analisis y disenio 1\Olimpo\Frontend\app-olimpo\android\app\src\main\AndroidManifest.xml:12:9-40
 50        <activity
 50-->C:\Users\Hayrton\Documents\Archivos Hayrton\USAC\Analisis y disenio 1\Olimpo\Frontend\app-olimpo\android\app\src\main\AndroidManifest.xml:14:9-33:20
-51            android:name="com.appolimpo.app.MainActivity"
-51-->C:\Users\Hayrton\Documents\Archivos Hayrton\USAC\Analisis y disenio 1\Olimpo\Frontend\app-olimpo\android\app\src\main\AndroidManifest.xml:16:13-58
+51            android:name="com.example.app.MainActivity"
+51-->C:\Users\Hayrton\Documents\Archivos Hayrton\USAC\Analisis y disenio 1\Olimpo\Frontend\app-olimpo\android\app\src\main\AndroidManifest.xml:16:13-56
 52            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
 52-->C:\Users\Hayrton\Documents\Archivos Hayrton\USAC\Analisis y disenio 1\Olimpo\Frontend\app-olimpo\android\app\src\main\AndroidManifest.xml:15:13-129
 53            android:label="@string/title_activity_main"
@@ -131,7 +131,7 @@
 71        <provider
 72            android:name="androidx.core.content.FileProvider"
 72-->C:\Users\Hayrton\Documents\Archivos Hayrton\USAC\Analisis y disenio 1\Olimpo\Frontend\app-olimpo\android\app\src\main\AndroidManifest.xml:36:13-62
-73            android:authorities="com.appolimpo.app.fileprovider"
+73            android:authorities="com.example.app.fileprovider"
 73-->C:\Users\Hayrton\Documents\Archivos Hayrton\USAC\Analisis y disenio 1\Olimpo\Frontend\app-olimpo\android\app\src\main\AndroidManifest.xml:37:13-64
 74            android:exported="false"
 74-->C:\Users\Hayrton\Documents\Archivos Hayrton\USAC\Analisis y disenio 1\Olimpo\Frontend\app-olimpo\android\app\src\main\AndroidManifest.xml:38:13-37
@@ -272,7 +272,7 @@
 148-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Hayrton\.gradle\caches\transforms-2\files-2.1\561224d95afb1c86e82bde3d66c2b645\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
 149            android:name="com.google.firebase.provider.FirebaseInitProvider"
 149-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Hayrton\.gradle\caches\transforms-2\files-2.1\561224d95afb1c86e82bde3d66c2b645\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
-150            android:authorities="com.appolimpo.app.firebaseinitprovider"
+150            android:authorities="com.example.app.firebaseinitprovider"
 150-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Hayrton\.gradle\caches\transforms-2\files-2.1\561224d95afb1c86e82bde3d66c2b645\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
 151            android:exported="false"
 151-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Hayrton\.gradle\caches\transforms-2\files-2.1\561224d95afb1c86e82bde3d66c2b645\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37

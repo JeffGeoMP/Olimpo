@@ -285,7 +285,6 @@ app.post("/comentario", async (req, res) => {
 });
 
 
-<<<<<<< HEAD
 // obtine el top 5 de platillos
 app.get("/producto/topplatillo", async(req, res) => {
 	try {
@@ -295,13 +294,21 @@ app.get("/producto/topplatillo", async(req, res) => {
 		);
 		
 		console.log(Metadata);
-=======
+		if (Metadata.rowCount > 0) {
+			res.status(200).json(Metadata.rows);
+		} else {
+			res.status(200).json();
+		}
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
 app.get("/producto/Top1", async (req, res) => {
 	try {
 		const Metadata = await db.query(
 			Consulta.PlatillosPorMenuTOP()
 		);
->>>>>>> ConsultarPlatillosGerente
 
 		if (Metadata.rowCount > 0) {
 			res.status(200).json(Metadata.rows);
@@ -314,9 +321,6 @@ app.get("/producto/Top1", async (req, res) => {
 });
 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> ConsultarPlatillosGerente
 module.exports = app;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.appolimpo.app"
+    package="com.example.app"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -48,7 +48,7 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.appolimpo.app.MainActivity"
+            android:name="com.example.app.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
             android:label="@string/title_activity_main"
             android:launchMode="singleTask"
@@ -70,7 +70,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.appolimpo.app.fileprovider"
+            android:authorities="com.example.app.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -147,7 +147,7 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="com.appolimpo.app.firebaseinitprovider"
+            android:authorities="com.example.app.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" />
 
