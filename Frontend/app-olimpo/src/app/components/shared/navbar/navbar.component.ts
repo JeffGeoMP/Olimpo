@@ -9,9 +9,15 @@ import { LogueoService } from '../../../services/logueo.service';
 })
 export class NavbarComponent implements OnInit {
   usuario:Persona;
+  usr:Number;
 
   constructor( private router: Router, private Logueo:LogueoService) {
     this.usuario = this.Logueo.getLogueo();
+    if(this.usuario != null){
+      this.usr = this.usuario.tipo_persona;
+    }else{
+      this.usr = 0;
+    }
   }
   
   ngOnInit(): void {
