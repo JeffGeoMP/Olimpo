@@ -56,14 +56,10 @@ import { TopProductoComponent } from './components/top-producto/top-producto.com
     PedidoestadoComponent,
     VistaComponent,
     UpdateMenuComponent,
-<<<<<<< HEAD
     ContactoComponent,
     UpdateMenuComponent,
-    CrearComponent
-=======
     CrearComponent,
     TopProductoComponent
->>>>>>> ConsultarPlatillosGerente
   ],
   imports: [
     BrowserModule,
