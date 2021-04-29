@@ -208,3 +208,5 @@ insert into det_pro_pla(fk_id_platillo,fk_id_producto) values(35,2);
 
 
 
+insert into valoracion(punteo,descripcion, fkid_platillo) values (4, 'Comida sabrosa recomendable', 1);
+insert into valoracion(punteo,descripcion, fkid_platillo) values (1, 'No tenian servilletas', 1);
