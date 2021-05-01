@@ -1,0 +1,13 @@
+{
+  "appId": "com.example.app",
+  "appName": "app-olimpo",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist/app-olimpo",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

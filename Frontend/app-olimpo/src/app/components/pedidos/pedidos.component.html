@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-4" *ngFor="let pedido of ListaPedidos">
+        <div class="card text-center">
+          <div class="card-header d-flex text-white bg-dark justify-content-between " style="color: white;">
+             Pedido No. {{pedido.id_factura}} Estado: {{miEstado(pedido.estado_pedido)}}
+          </div>
+          <button class="btn btn-success" (click)="EnProceso(pedido.id_factura)">
+            En Proceso
+         </button>
+         <button class="btn btn-warning" (click)="Listo(pedido.id_factura)">
+            Listo
+         </button>
+        </div>
+        <br>
+        <br>
+      </div>    
+
+</div>

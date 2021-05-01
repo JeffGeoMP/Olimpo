@@ -1,0 +1,59 @@
+<div class="container mt-4">
+    <div class="card bg-dark text-wite">
+      <div class="page-header">
+          
+        <div class="row">
+            <div class="card" style=" margin-left: 1%; width: 98%; border-color: white; background-color: black;">
+                <h1 style=" color: white; text-align: center;">
+                    Productos TOP
+                </h1>
+            </div>
+            <div class="card" style=" margin-left: 1%; width: 98%; border-color: white; background-color: black;">
+                <div class="row">
+                    <div class="col-sm">
+                        <h1 style=" color: white; text-align: center;">
+                            Platillo
+                        </h1>
+                    </div>
+    
+                    <div class="col-sm">
+                        <h1 style=" color: white; text-align: center;">
+                            Cantidad
+                        </h1>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+
+        <div class="row">
+            <div class="card bg-dark text-wite" style="margin-left: 1%; width: 98%; border-color: white;" >
+
+                <div class="row" style="margin-top: 20px; " *ngFor="let producto of productosalmuerzo">
+                    <div class="col-sm" >
+                        <div class="card" style="width: 50%; height: 100%; margin-left: 30%;" >
+                            <img class="card-img-top" src="assets/menus/{{producto.imagen}}">
+                            <div class="card-body">
+                              <h5 class="card-title">{{producto.nombre | uppercase}}</h5>
+                              <img src="{{obtenerEstrellas(producto.id_platillo)}}" height="20px" whidth="40px">
+                             
+                              <p class="card-text">{{producto.descripcion}}</p>
+                              <p class="card-text"><small class="text-muted">Precio: Q{{producto.precio}} </small></p>
+                             
+                            </div>
+                          </div>
+                    </div>
+        
+                    <div class="col-sm"> 
+                        <div class="card" style="background-color: red; width: 30%; margin-left: 30%;">
+                            <H1 style="color: white; text-align: center;" > {{producto.total}}</H1>
+                        </div>  
+                    </div>
+                </div>
+              </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
